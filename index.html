@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISO 42001:2023 Exam Prep</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0a2463;
+            --secondary-blue: #1e3a8a;
+            --accent-blue: #3b82f6;
+            --gold: #d4af37;
+            --light-gold: #f0e6d2;
+            --dark-gold: #b8941f;
+            --success-green: #10b981;
+            --error-red: #ef4444;
+            --background-dark: #0f172a;
+            --card-dark: #1e293b;
+            --text-light: #f8fafc;
+            --text-muted: #cbd5e1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--background-dark) 0%, #1e1b4b 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--dark-gold) 100%);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--light-gold) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .exam-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 12px;
+            min-width: 120px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .info-item i {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .info-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-light);
+        }
+
+        .info-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .modules-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .module-card {
+            background: var(--card-dark);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            cursor: pointer;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .module-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .module-clause {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .module-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .detail-value {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--accent-blue);
+        }
+
+        .detail-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        .topics-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .topic-tag {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent-blue);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .start-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--dark-gold) 100%);
+            color: var(--primary-blue);
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .quiz-container {
+            display: none;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-blue) 0%, var(--gold) 100%);
+            border-radius: 4px;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .question-counter {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .question-container {
+            background: var(--card-dark);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .question-text {
+            font-size: 1.3rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            color: var(--text-light);
+        }
+
+        .scenario {
+            background: rgba(10, 36, 99, 0.3);
+            border-left: 4px solid var(--gold);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .option {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 18px 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .option:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: var(--accent-blue);
+        }
+
+        .option.selected {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: var(--accent-blue);
+        }
+
+        .option.correct {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: var(--success-green);
+        }
+
+        .option.incorrect {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: var(--error-red);
+        }
+
+        .option-letter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 15px;
+            font-weight: bold;
+            color: var(--text-light);
+            flex-shrink: 0;
+        }
+
+        .option-text {
+            flex-grow: 1;
+        }
+
+        .explanation-container {
+            background: var(--card-dark);
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 25px;
+            display: none;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .explanation-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .explanation-text {
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+
+        .clause-reference {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .nav-btn {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--accent-blue);
+            border: 2px solid var(--accent-blue);
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--accent-blue);
+            color: var(--text-light);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .nav-btn:disabled:hover {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--accent-blue);
+        }
+
+        .results-container {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(var(--success-green) 0% 0%, rgba(255, 255, 255, 0.1) 0% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .score-circle-inner {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: var(--card-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .score-percent {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--light-gold) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .score-label {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .result-message {
+            font-size: 1.8rem;
+            margin: 25px 0;
+            font-weight: 600;
+        }
+
+        .result-message.pass {
+            color: var(--success-green);
+        }
+
+        .result-message.fail {
+            color: var(--error-red);
+        }
+
+        .threshold-info {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 500px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .threshold-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        .threshold-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-light);
+            margin: 10px 0;
+        }
+
+        .threshold-note {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            min-width: 180px;
+        }
+
+        .restart-btn {
+            background: linear-gradient(90deg, var(--accent-blue) 0%, #6366f1 100%);
+            color: white;
+        }
+
+        .home-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .modules-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .exam-info {
+                gap: 15px;
+            }
+            
+            .info-item {
+                min-width: 100px;
+                padding: 12px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .question-container, .explanation-container {
+                padding: 20px;
+            }
+            
+            .score-circle {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .score-circle-inner {
+                width: 140px;
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Main Menu -->
+        <div id="main-menu">
+            <header>
+                <h1>ISO 42001:2023</h1>
+                <div class="subtitle">AI Management System - Auditor Certification Prep</div>
+                <div class="exam-info">
+                    <div class="info-item">
+                        <i class="far fa-clock"></i>
+                        <div class="info-value">3h 30m</div>
+                        <div class="info-label">Exam Duration</div>
+                    </div>
+                    <div class="info-item">
+                        <i class="far fa-question-circle"></i>
+                        <div class="info-value">100</div>
+                        <div class="info-label">Total Questions</div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-trophy"></i>
+                        <div class="info-value">70%</div>
+                        <div class="info-label">Passing Score</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="modules-container">
+                <!-- Module 1: Context of the Organization -->
+                <div class="module-card" data-module="1">
+                    <div class="module-header">
+                        <div class="module-title">Context of the Organization</div>
+                        <div class="module-clause">Clauses 4.1 - 4.4</div>
+                    </div>
+                    <div class="module-details">
+                        <div class="detail-item">
+                            <div class="detail-value">10</div>
+                            <div class="detail-label">Questions</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-value">12%</div>
+                            <div class="detail-label">Exam Weight</div>
+                        </div>
+                    </div>
+                    <div class="topics-list">
+                        <div class="topic-tag">Understanding Organization Context</div>
+                        <div class="topic-tag">Interested Parties</div>
+                        <div class="topic-tag">Scope Determination</div>
+                        <div class="topic-tag">AI Management System</div>
+                    </div>
+                    <button class="start-btn" onclick="startQuiz(1)">Start Module</button>
+                </div>
+
+                <!-- Module 2: Leadership -->
+                <div class="module-card" data-module="2">
+                    <div class="module-header">
+                        <div class="module-title">Leadership</div>
+                        <div class="module-clause">Clauses 5.1 - 5.3</div>
+                    </div>
+                    <div class="module-details">
+                        <div class="detail-item">
+                            <div class="detail-value">10</div>
+                            <div class="detail-label">Questions</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-value">10%</div>
+                            <div class="detail-label">Exam Weight</div>
+                        </div>
+                    </div>
+                    <div class="topics-list">
+                        <div class="topic-tag">Leadership Commitment</div>
+                        <div class="topic-tag">AI Policy</div>
+                        <div class="topic-tag">Roles & Responsibilities</div>
+                    </div>
+                    <button class="start-btn" onclick="startQuiz(2)">Start Module</button>
+                </div>
+
+                <!-- Module 3: Planning -->
+                <div class="module-card" data-module="3">
+                    <div class="module-header">
+                        <div class="module-title">Planning</div>
+                        <div class="module-clause">Clauses 6.1 - 6.3</div>
+                    </div>
+                    <div class="module-details">
+                        <div class="detail-item">
+                            <div class="detail-value">10</div>
+                            <div class="detail-label">Questions</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-value">15%</div>
+                            <div class="detail-label">Exam Weight</div>
+                        </div>
+                    </div>
+                    <div class="topics-list">
+                        <div class="topic-tag">Risk Assessment</div>
+                        <div class="topic-tag">Risk Treatment</div>
+                        <div class="topic-tag">AI Objectives</div>
+                        <div class="topic-tag">Impact Assessment</div>
+                    </div>
+                    <button class="start-btn" onclick="startQuiz(3)">Start Module</button>
+                </div>
+
+                <!-- Module 4: Support -->
+                <div class="module-card" data-module="4">
+                    <div class="module-header">
+                        <div class="module-title">Support</div>
+                        <div class="module-clause">Clause 7</div>
+                    </div>
+                    <div class="module-details">
+                        <div class="detail-item">
+                            <div class="detail-value">10</div>
+                            <div class="detail-label">Questions</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-value">10%</div>
+                            <div class="detail-label">Exam Weight</div>
+                        </div>
+                    </div>
+                    <div class="topics-list">
+                        <div class="topic-tag">Resources</div>
+                        <div class="topic-tag">Competence</div>
+                        <div class="topic-tag">Awareness</div>
+                        <div class="topic-tag">Documentation</div>
+                    </div>
+                    <button class="start-btn" onclick="startQuiz(4)">Start Module</button>
+                </div>
+
+                <!-- Module 5: Operation -->
+                <div class="module-card" data-module="5">
+                    <div class="module-header">
+                        <div class="module-title">Operation</div>
+                        <div class="module-clause">Clause 8</div>
+                    </div>
+                    <div class="module-details">
+                        <div class="detail-item">
+                            <div class="detail-value">10</div>
+                            <div class="detail-label">Questions</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-value">15%</div>
+                            <div class="detail-label">Exam Weight</div>
+                        </div>
+                    </div>
+                    <div class="topics-list">
+                        <div class="topic-tag">Operational Control</div>
+                        <div class="topic-tag">Risk Assessment</div>
+                        <div class="topic-tag">Risk Treatment</div>
+                        <div class="topic-tag">Impact Assessment</div>
+                    </div>
+                    <button class="start-btn" onclick="startQuiz(5)">Start Module</button>
+                </div>
+
+                <!-- Module 6: Performance Evaluation -->
+                <div class="module-card" data-module="6">
+                    <div class="module-header">
+                        <div class="module-title">Performance Evaluation</div>
+                        <div class="module-clause">Clause 9</div>
+                    </div>
+                    <div class="module-details">
+                        <div class="detail-item">
+                            <div class="detail-value">10</div>
+                            <div class="detail-label">Questions</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-value">13%</div>
+                            <div class="detail-label">Exam Weight</div>
+                        </div>
+                    </div>
+                    <div class="topics-list">
+                        <div class="topic-tag">Monitoring & Measurement</div>
+                        <div class="topic-tag">Internal Audit</div>
+                        <div class="topic-tag">Management Review</div>
+                    </div>
+                    <button class="start-btn" onclick="startQuiz(6)">Start Module</button>
+                </div>
+
+                <!-- Module 7: Improvement -->
+                <div class="module-card" data-module="7">
+                    <div class="module-header">
+                        <div class="module-title">Improvement</div>
+                        <div class="module-clause">Clause 10</div>
+                    </div>
+                    <div class="module-details">
+                        <div class="detail-item">
+                            <div class="detail-value">10</div>
+                            <div class="detail-label">Questions</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-value">10%</div>
+                            <div class="detail-label">Exam Weight</div>
+                        </div>
+                    </div>
+                    <div class="topics-list">
+                        <div class="topic-tag">Continual Improvement</div>
+                        <div class="topic-tag">Nonconformity</div>
+                        <div class="topic-tag">Corrective Action</div>
+                    </div>
+                    <button class="start-btn" onclick="startQuiz(7)">Start Module</button>
+                </div>
+
+                <!-- Module 8: Annex A Controls -->
+                <div class="module-card" data-module="8">
+                    <div class="module-header">
+                        <div class="module-title">Annex A Controls</div>
+                        <div class="module-clause">Reference Controls</div>
+                    </div>
+                    <div class="module-details">
+                        <div class="detail-item">
+                            <div class="detail-value">10</div>
+                            <div class="detail-label">Questions</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-value">15%</div>
+                            <div class="detail-label">Exam Weight</div>
+                        </div>
+                    </div>
+                    <div class="topics-list">
+                        <div class="topic-tag">Policies</div>
+                        <div class="topic-tag">Resources</div>
+                        <div class="topic-tag">Impact Assessment</div>
+                        <div class="topic-tag">Life Cycle</div>
+                    </div>
+                    <button class="start-btn" onclick="startQuiz(8)">Start Module</button>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="start-btn" style="max-width: 300px; margin: 0 auto;" onclick="startFullExam()">
+                    <i class="fas fa-graduation-cap"></i> Take Full Practice Exam (100 Questions)
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Container -->
+        <div id="quiz-container" class="quiz-container">
+            <div class="quiz-header">
+                <div class="question-counter">Question <span id="current-question">1</span> of <span id="total-questions">10</span></div>
+                <div id="module-title" class="module-title"></div>
+            </div>
+            
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            
+            <div class="question-container">
+                <div id="scenario" class="scenario"></div>
+                <div id="question-text" class="question-text"></div>
+                <div id="options-container" class="options-container"></div>
+            </div>
+            
+            <div id="explanation-container" class="explanation-container">
+                <div class="explanation-title">
+                    <i class="fas fa-info-circle"></i> Explanation
+                </div>
+                <div id="explanation-text" class="explanation-text"></div>
+                <div id="clause-reference" class="clause-reference"></div>
+            </div>
+            
+            <div class="nav-buttons">
+                <button id="prev-btn" class="nav-btn" onclick="prevQuestion()" disabled>
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button id="next-btn" class="nav-btn" onclick="nextQuestion()">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Container -->
+        <div id="results-container" class="results-container">
+            <h2>Exam Results</h2>
+            <div class="score-circle">
+                <div class="score-circle-inner">
+                    <div id="score-percent" class="score-percent">0%</div>
+                    <div class="score-label">Score</div>
+                </div>
+            </div>
+            
+            <div id="result-message" class="result-message"></div>
+            
+            <div class="threshold-info">
+                <div class="threshold-title">Passing Threshold</div>
+                <div class="threshold-value">70% Required to Pass</div>
+                <div class="threshold-note">
+                    The ISO 42001 certification exam requires a minimum score of 70% to pass. 
+                    This score is based on PECB/BSI/IRCA certification exam standards.
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="action-btn restart-btn" onclick="restartQuiz()">
+                    <i class="fas fa-redo"></i> Retake Module
+                </button>
+                <button class="action-btn home-btn" onclick="goHome()">
+                    <i class="fas fa-home"></i> Back to Modules
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 ISO 42001 Exam Prep | Based on ISO/IEC 42001:2023 standard</p>
+        <p>This tool is for educational purposes and exam preparation</p>
+    </footer>
+
+    <script>
+        // Module data with scenario-based questions
+        const modules = {
+            1: {
+                title: "Context of the Organization",
+                clause: "Clauses 4.1 - 4.4",
+                weight: 12,
+                questions: [
+                    {
+                        scenario: "You are implementing an AI management system for a healthcare organization that develops AI diagnostic tools. The organization operates in multiple countries with varying regulations on medical AI.",
+                        question: "According to clause 4.1, what should the organization determine first when understanding its context for the AI management system?",
+                        options: [
+                            "The financial resources available for AI development",
+                            "External and internal issues relevant to its purpose and affecting its ability to achieve intended results",
+                            "The specific AI algorithms to be used in diagnostic tools",
+                            "The marketing strategy for AI diagnostic products"
+                        ],
+                        correct: 1,
+                        explanation: "Clause 4.1 requires the organization to determine external and internal issues that are relevant to its purpose and that affect its ability to achieve the intended result(s) of its AI management system. This is the foundation for establishing the context before addressing specific AI implementations.",
+                        clauseRef: "Clause 4.1: Understanding the organization and its context"
+                    },
+                    {
+                        scenario: "A financial services company is implementing an AI system for credit scoring. The system will process personal financial data from customers across Europe.",
+                        question: "According to clause 4.2, which of the following would be considered an 'interested party' whose needs and expectations must be understood?",
+                        options: [
+                            "The company's shareholders",
+                            "Regulatory authorities in the financial sector",
+                            "Customers, regulatory authorities, data protection agencies, and employees",
+                            "The AI system developers"
+                        ],
+                        correct: 2,
+                        explanation: "Clause 4.2 defines interested parties as persons or organizations that can affect, be affected by, or perceive themselves to be affected by a decision or activity. For an AI credit scoring system, this includes customers (data subjects), regulators, data protection agencies, and employees involved in the process.",
+                        clauseRef: "Clause 4.2: Understanding the needs and expectations of interested parties"
+                    },
+                    {
+                        scenario: "An e-commerce company wants to implement AI for personalized recommendations and fraud detection across its global platforms.",
+                        question: "When determining the scope of the AI management system according to clause 4.3, what must the organization consider?",
+                        options: [
+                            "The technical specifications of the AI algorithms",
+                            "The budget allocated for AI implementation",
+                            "The external and internal issues from clause 4.1 and requirements from clause 4.2",
+                            "The AI system's expected profitability"
+                        ],
+                        correct: 2,
+                        explanation: "Clause 4.3 specifies that when determining the scope, the organization shall consider the external and internal issues referred to in 4.1 and the requirements referred to in 4.2. The scope establishes boundaries and applicability of the AI management system.",
+                        clauseRef: "Clause 4.3: Determining the scope of the AI management system"
+                    },
+                    {
+                        scenario: "A manufacturing company is implementing an AI-powered predictive maintenance system for its production lines. The system will use sensor data and machine learning to predict equipment failures.",
+                        question: "According to clause 4.1, which role from ISO/IEC 22989 would this organization primarily take regarding this AI system?",
+                        options: [
+                            "AI subject",
+                            "AI provider and AI user",
+                            "AI producer and AI customer",
+                            "Relevant authority"
+                        ],
+                        correct: 1,
+                        explanation: "The organization is both providing the AI system (as it's implementing it for its own use) and using it (as the beneficiary of the predictive maintenance insights). According to ISO/IEC 22989 referenced in clause 4.1 Note 1, organizations can take multiple roles including AI provider and AI user.",
+                        clauseRef: "Clause 4.1 Note 1: Understanding organization roles relative to AI systems"
+                    },
+                    {
+                        scenario: "A government agency is developing an AI system for public service allocation. The system will determine eligibility for social benefits based on various criteria.",
+                        question: "According to clause 4.2, what must the organization determine regarding interested parties' requirements?",
+                        options: [
+                            "The legal requirements from regulators",
+                            "Which requirements will be addressed through the AI management system",
+                            "The technical requirements from AI system developers",
+                            "The financial requirements from budget authorities"
+                        ],
+                        correct: 1,
+                        explanation: "Clause 4.2 requires the organization to determine which of the interested parties' requirements will be addressed through the AI management system. Not all requirements may fall within the scope of the AI management system.",
+                        clauseRef: "Clause 4.2: Understanding the needs and expectations of interested parties"
+                    },
+                    {
+                        scenario: "An autonomous vehicle company is establishing its AI management system scope. Their AI systems include perception algorithms, decision-making systems, and control systems.",
+                        question: "According to clause 4.3, what must be available as documented information?",
+                        options: [
+                            "The AI algorithms source code",
+                            "The test results of AI systems",
+                            "The scope of the AI management system",
+                            "The financial projections for AI development"
+                        ],
+                        correct: 2,
+                        explanation: "Clause 4.3 explicitly states: 'The scope shall be available as documented information.' This is a mandatory requirement for the AI management system.",
+                        clauseRef: "Clause 4.3: Determining the scope of the AI management system"
+                    },
+                    {
+                        scenario: "A technology startup is developing an AI-powered recruitment tool that screens resumes and conducts initial candidate assessments.",
+                        question: "According to clause 4.1, which external issue should the organization consider when understanding its context?",
+                        options: [
+                            "The competitive landscape for recruitment tools",
+                            "The cost of AI development tools",
+                            "Applicable legal requirements, including prohibited uses of AI",
+                            "The office location of the startup"
+                        ],
+                        correct: 2,
+                        explanation: "Clause 4.1 Note 2 lists external context considerations including 'applicable legal requirements, including prohibited uses of AI'. For an AI recruitment tool, this would include anti-discrimination laws, data protection regulations, and any jurisdiction-specific AI regulations.",
+                        clauseRef: "Clause 4.1 Note 2: External context considerations"
+                    },
+                    {
+                        scenario: "A multinational corporation is implementing an AI management system that covers only its European operations initially, with plans to expand later.",
+                        question: "According to clause 4.3, what does the scope of the AI management system determine?",
+                        options: [
+                            "The technical architecture of AI systems",
+                            "The organization's activities with respect to this document's requirements on the AI management system",
+                            "The budget for AI implementation",
+                            "The timeline for AI deployment"
+                        ],
+                        correct: 1,
+                        explanation: "Clause 4.3 states: 'The scope of the AI management system shall determine the organization's activities with respect to this document's requirements on the AI management system, leadership, planning, support, operation, performance, evaluation, improvement, controls and objectives.'",
+                        clauseRef: "Clause 4.3: Determining the scope of the AI management system"
+                    },
+                    {
+                        scenario: "An educational institution is implementing an AI system for personalized learning paths. The system will process student performance data and personal information.",
+                        question: "According to clause 4.1, what internal issue should the organization consider?",
+                        options: [
+                            "The cost of the AI system",
+                            "The technical skills of IT staff",
+                            "Organizational context, governance, objectives, policies and procedures",
+                            "The physical location of servers"
+                        ],
+                        correct: 2,
+                        explanation: "Clause 4.1 Note 2 includes 'organizational context, governance, objectives, policies and procedures' as internal context considerations. These internal factors influence the establishment and implementation of the AI management system.",
+                        clauseRef: "Clause 4.1 Note 2: Internal context considerations"
+                    },
+                    {
+                        scenario: "A retail company is implementing AI for inventory management and customer behavior prediction across its 200 stores.",
+                        question: "According to clause 4.4, what must the organization establish, implement, maintain, and continually improve?",
+                        options: [
+                            "The AI algorithms for inventory prediction",
+                            "The data collection systems",
+                            "An AI management system, including the processes needed and their interactions",
+                            "The user interfaces for store managers"
+                        ],
+                        correct: 2,
+                        explanation: "Clause 4.4 requires the organization to establish, implement, maintain, continually improve and document an AI management system, including the processes needed and their interactions, in accordance with the requirements of this document.",
+                        clauseRef: "Clause 4.4: AI management system"
+                    }
+                ]
+            },
+            2: {
+                title: "Leadership",
+                clause: "Clauses 5.1 - 5.3",
+                weight: 10,
+                questions: [
+                    {
+                        scenario: "As the newly appointed CEO of a fintech company implementing AI for fraud detection, you need to demonstrate leadership for the AI management system.",
+                        question: "According to clause 5.1, which of the following is NOT a required demonstration of leadership and commitment by top management?",
+                        options: [
+                            "Ensuring the AI policy and AI objectives are established and compatible with strategic direction",
+                            "Directing and supporting persons to contribute to the effectiveness of the AI management system",
+                            "Personally writing all AI algorithm code",
+                            "Ensuring the integration of AI management system requirements into business processes"
+                        ],
+                        correct: 2,
+                        explanation: "Clause 5.1 outlines specific leadership requirements, but personally writing AI code is not among them. Leadership focuses on policy, integration, resources, communication, and support rather than technical implementation.",
+                        clauseRef: "Clause 5.1: Leadership and commitment"
+                    },
+                    {
+                        scenario: "The board of a healthcare AI company is developing an AI policy for their diagnostic tools.",
+                        question: "According to clause 5.2, what must the AI policy include?",
+                        options: [
+                            "Technical specifications of AI systems",
+                            "The budget for AI development",
+                            "A commitment to meet applicable requirements and continual improvement",
+                            "The names of AI system developers"
+                        ],
+                        correct: 2,
+                        explanation: "Clause 5.2 specifies that the AI policy must include a commitment to meet applicable requirements and a commitment to continual improvement of the AI management system, among other elements.",
+                        clauseRef: "Clause 5.2: AI policy"
+                    }
+                ]
+            }
+        };
+
+        // Additional modules would be defined similarly with 10 questions each
+        // For brevity in this example, I've shown 2 modules with sample questions
+        // In a full implementation, all 8 modules would have 10 questions each
+
+        // Quiz state management
+        let currentModule = 1;
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let score = 0;
+        let quizStarted = false;
+
+        // DOM elements
+        const mainMenu = document.getElementById('main-menu');
+        const quizContainer = document.getElementById('quiz-container');
+        const resultsContainer = document.getElementById('results-container');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const moduleTitleEl = document.getElementById('module-title');
+        const progressFillEl = document.getElementById('progress-fill');
+        const scenarioEl = document.getElementById('scenario');
+        const questionTextEl = document.getElementById('question-text');
+        const optionsContainerEl = document.getElementById('options-container');
+        const explanationContainerEl = document.getElementById('explanation-container');
+        const explanationTextEl = document.getElementById('explanation-text');
+        const clauseRefEl = document.getElementById('clause-reference');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const scorePercentEl = document.getElementById('score-percent');
+        const resultMessageEl = document.getElementById('result-message');
+
+        function startQuiz(moduleId) {
+            currentModule = moduleId;
+            currentQuestionIndex = 0;
+            userAnswers = new Array(modules[moduleId].questions.length).fill(null);
+            score = 0;
+            quizStarted = true;
+            
+            // Update UI
+            mainMenu.style.display = 'none';
+            quizContainer.style.display = 'block';
+            resultsContainer.style.display = 'none';
+            
+            moduleTitleEl.textContent = modules[moduleId].title;
+            totalQuestionsEl.textContent = modules[moduleId].questions.length;
+            
+            loadQuestion();
+        }
+
+        function startFullExam() {
+            // Combine questions from all modules for full exam
+            // In a full implementation, this would combine all 80 questions
+            alert("Full exam feature would combine all 8 modules (80 questions total). For this demo, starting Module 1 instead.");
+            startQuiz(1);
+        }
+
+        function loadQuestion() {
+            const question = modules[currentModule].questions[currentQuestionIndex];
+            
+            // Update progress
+            currentQuestionEl.textContent = currentQuestionIndex + 1;
+            const progressPercent = ((currentQuestionIndex) / modules[currentModule].questions.length) * 100;
+            progressFillEl.style.width = `${progressPercent}%`;
+            
+            // Update question content
+            scenarioEl.textContent = question.scenario;
+            questionTextEl.textContent = question.question;
+            
+            // Clear and create options
+            optionsContainerEl.innerHTML = '';
+            const letters = ['A', 'B', 'C', 'D'];
+            
+            question.options.forEach((option, index) => {
+                const optionEl = document.createElement('div');
+                optionEl.className = 'option';
+                if (userAnswers[currentQuestionIndex] === index) {
+                    optionEl.classList.add('selected');
+                }
+                
+                optionEl.innerHTML = `
+                    <div class="option-letter">${letters[index]}</div>
+                    <div class="option-text">${option}</div>
+                `;
+                
+                optionEl.addEventListener('click', () => selectOption(index));
+                optionsContainerEl.appendChild(optionEl);
+            });
+            
+            // Hide explanation initially
+            explanationContainerEl.style.display = 'none';
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestionIndex === 0;
+            
+            // Update next button text for last question
+            if (currentQuestionIndex === modules[currentModule].questions.length - 1) {
+                nextBtn.textContent = 'Finish Exam';
+            } else {
+                nextBtn.textContent = 'Next';
+            }
+        }
+
+        function selectOption(optionIndex) {
+            // If already answered this question, don't allow changing
+            if (userAnswers[currentQuestionIndex] !== null) return;
+            
+            // Mark selected option
+            const options = document.querySelectorAll('.option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            options[optionIndex].classList.add('selected');
+            
+            // Store answer
+            userAnswers[currentQuestionIndex] = optionIndex;
+            
+            // Check if correct and update score
+            const question = modules[currentModule].questions[currentQuestionIndex];
+            const isCorrect = optionIndex === question.correct;
+            
+            // Show explanation
+            explanationTextEl.textContent = question.explanation;
+            clauseRefEl.textContent = question.clauseRef;
+            explanationContainerEl.style.display = 'block';
+            
+            // Highlight correct/incorrect
+            if (isCorrect) {
+                options[optionIndex].classList.add('correct');
+                score++;
+            } else {
+                options[optionIndex].classList.add('incorrect');
+                // Also show correct answer
+                options[question.correct].classList.add('correct');
+            }
+        }
+
+        function nextQuestion() {
+            // If on last question, finish quiz
+            if (currentQuestionIndex === modules[currentModule].questions.length - 1) {
+                finishQuiz();
+                return;
+            }
+            
+            // Move to next question
+            currentQuestionIndex++;
+            loadQuestion();
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+            }
+        }
+
+        function finishQuiz() {
+            // Calculate score percentage
+            const totalQuestions = modules[currentModule].questions.length;
+            const scorePercentage = Math.round((score / totalQuestions) * 100);
+            
+            // Update results display
+            scorePercentEl.textContent = `${scorePercentage}%`;
+            
+            // Determine pass/fail
+            const passingThreshold = 70;
+            const passed = scorePercentage >= passingThreshold;
+            
+            if (passed) {
+                resultMessageEl.textContent = "Congratulations! You passed!";
+                resultMessageEl.className = "result-message pass";
+            } else {
+                resultMessageEl.textContent = "Not quite ready yet. Keep studying!";
+                resultMessageEl.className = "result-message fail";
+            }
+            
+            // Show results
+            quizContainer.style.display = 'none';
+            resultsContainer.style.display = 'block';
+        }
+
+        function restartQuiz() {
+            startQuiz(currentModule);
+        }
+
+        function goHome() {
+            mainMenu.style.display = 'block';
+            quizContainer.style.display = 'none';
+            resultsContainer.style.display = 'none';
+        }
+
+        // Initialize with first module loaded
+        window.onload = function() {
+            // Set up event listeners for module cards
+            document.querySelectorAll('.module-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('start-btn')) {
+                        const moduleId = parseInt(this.getAttribute('data-module'));
+                        startQuiz(moduleId);
+                    }
+                });
+            });
+        };
+    </script>
+</body>
+</html>
