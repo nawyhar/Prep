@@ -873,6 +873,706 @@
     </footer>
 
     <script>
+                // Comprehensive Module data mapping your 100 Exam-Style Questions
+        const modules = {
+            1: {
+                title: "Context & Leadership",
+                clause: "Clauses 4 & 5",
+                weight: 12,
+                questions: [
+                    {
+                        scenario: "A bank deploys an AI credit scoring system that unfairly denies loans to certain demographics.",
+                        question: "What is the PRIMARY leadership responsibility according to ISO 42001 principles?",
+                        options: ["Delegate all decisions to data scientists", "Ensure AI ethical principles guide all decisions", "Focus only on profitability targets", "Approve all AI model code changes"],
+                        correct: 1,
+                        explanation: "Top management must ensure that the AI policy and objectives (including ethical considerations) are established and compatible with the strategic direction.",
+                        clauseRef: "Clause 5.1: Leadership and commitment"
+                    },
+                    {
+                        scenario: "A healthcare provider implements AI diagnostic tools without clear policies or top management involvement.",
+                        question: "What MUST senior management establish first to demonstrate commitment?",
+                        options: ["Detailed technical specifications", "AI governance framework and objectives", "Employee training programs", "Vendor contracts"],
+                        correct: 1,
+                        explanation: "Clause 5.1.2 requires leadership to ensure the AI policy and AI objectives are established and compatible with the organization's context.",
+                        clauseRef: "Clause 5.1.2: AI Policy and Objectives"
+                    },
+                    {
+                        scenario: "A manufacturing firm uses AI for quality control with biased results leading to financial loss.",
+                        question: "Who bears ULTIMATE accountability for AI outcomes and the AIMS?",
+                        options: ["AI development team", "Executive leadership (Top Management)", "External auditors", "Quality assurance manager"],
+                        correct: 1,
+                        explanation: "Top management is ultimately responsible for the effectiveness of the AI Management System.",
+                        clauseRef: "Clause 5.1: Leadership"
+                    },
+                    {
+                        scenario: "An E-commerce platform's AI recommendations discriminate by location, but no one is assigned to fix it.",
+                        question: "What organizational structure is ESSENTIAL according to Clause 5.3?",
+                        options: ["Flat organizational chart", "Defined AI roles, responsibilities and authorities", "Unlimited developer autonomy", "External consultant oversight"],
+                        correct: 1,
+                        explanation: "Top management must assign and communicate responsibilities and authorities for relevant roles within the AIMS.",
+                        clauseRef: "Clause 5.3: Roles, responsibilities and authorities"
+                    },
+                    {
+                        scenario: "A Telecom AI chatbot violates privacy regulations due to lack of policy awareness.",
+                        question: "What policy communication is MANDATORY according to the standard?",
+                        options: ["Internal memo only", "To all relevant interested parties", "Press release only", "No communication needed"],
+                        correct: 1,
+                        explanation: "The AI policy must be available to interested parties, as appropriate, and communicated within the organization.",
+                        clauseRef: "Clause 5.2.2: Communicating the AI policy"
+                    },
+                    {
+                        scenario: "An Automotive AI autonomous driving system faces safety issues. Leadership is reviewing the strategy.",
+                        question: "The AI strategy must align with what?",
+                        options: ["Competitor technology", "Organizational purpose and strategic direction", "Short-term cost savings", "Employee preferences"],
+                        correct: 1,
+                        explanation: "The AIMS must be integrated into the organization's business processes and align with its strategic direction.",
+                        clauseRef: "Clause 5.1.1: General Leadership"
+                    },
+                    {
+                        scenario: "A Pharma AI drug discovery tool shows ethical concerns during its implementation phase.",
+                        question: "What REGULAR review is required from leadership under Clause 9.3?",
+                        options: ["Daily operational metrics", "AIMS suitability, adequacy, and effectiveness", "Competitor benchmarking", "Office supply inventory"],
+                        correct: 1,
+                        explanation: "Top management shall review the organization's AIMS at planned intervals to ensure its continuing suitability, adequacy and effectiveness.",
+                        clauseRef: "Clause 9.3: Management Review"
+                    },
+                    {
+                        scenario: "A Logistics AI route optimization ignores environmental impact, violating the company's 'Green' mission.",
+                        question: "The AI policy must address what CRITICAL area per Clause 5.2?",
+                        options: ["Office decor standards", "Ethical considerations and AI risk management", "Parking policies", "Coffee preferences"],
+                        correct: 1,
+                        explanation: "The AI policy provides a framework for setting AI objectives and includes a commitment to address ethical considerations.",
+                        clauseRef: "Clause 5.2: AI Policy"
+                    },
+                    {
+                        scenario: "A Hospital AI triage system misprioritizes emergency cases. Staff are afraid to report AI errors.",
+                        question: "Leadership must cultivate what organizational culture?",
+                        options: ["Innovation without boundaries", "AI risk awareness and responsibility", "Cost reduction focus", "Paperless operations"],
+                        correct: 1,
+                        explanation: "Top management must promote an AI risk-aware culture within the organization.",
+                        clauseRef: "Clause 5.1.1: Leadership"
+                    },
+                    {
+                        scenario: "An Insurance AI underwriting system generates unfair outcomes for minority applicants.",
+                        question: "Who is responsible for assigning AI oversight responsibilities?",
+                        options: ["Compliance department", "Top management", "Junior analysts", "External lawyers"],
+                        correct: 1,
+                        explanation: "Clause 5.3 explicitly places the burden of assigning roles and authorities on Top Management.",
+                        clauseRef: "Clause 5.3: Roles and Responsibilities"
+                    }
+                ]
+            },
+            2: {
+                title: "Planning & Risk",
+                clause: "Clause 6",
+                weight: 15,
+                questions: [
+                    {
+                        scenario: "A hiring AI tool systematically disadvantages women applicants during the screening process.",
+                        question: "Risk assessment must evaluate impact on what?",
+                        options: ["Server costs only", "Individuals, society, and environment", "Electricity usage", "Office space"],
+                        correct: 1,
+                        explanation: "Clause 6.1.2 requires assessing the potential consequences of the AI system on individuals, society and the environment.",
+                        clauseRef: "Clause 6.1.2: AI risk assessment"
+                    },
+                    {
+                        scenario: "An autonomous vehicle AI strikes a pedestrian in a complex urban scenario.",
+                        question: "What risk criterion takes HIGHEST priority in ISO 42001 planning?",
+                        options: ["Processing speed", "Human safety and rights", "Development budget", "Data storage"],
+                        correct: 1,
+                        explanation: "The standard emphasizes that risks to health, safety, and fundamental rights are paramount.",
+                        clauseRef: "Clause 6.1.2.1: Risk Criteria"
+                    },
+                    {
+                        scenario: "A facial recognition system misidentifies people of color at high rates.",
+                        question: "What documentation is REQUIRED after the risk assessment is performed?",
+                        options: ["Employee lunch menus", "AI risk assessment and treatment results", "Weather logs", "Nothing required"],
+                        correct: 1,
+                        explanation: "The organization must retain documented information about the AI risk assessment and treatment process.",
+                        clauseRef: "Clause 6.1.2.4: Documented Information"
+                    },
+                    {
+                        scenario: "An AI energy trading system is found to be manipulating market prices.",
+                        question: "Effective risk treatment should achieve what?",
+                        options: ["Zero risk elimination", "Acceptable residual risk levels", "Maximum risk exposure", "Risk ignorance"],
+                        correct: 1,
+                        explanation: "The goal of risk treatment is to select and implement measures to reduce risk to an acceptable level.",
+                        clauseRef: "Clause 6.1.2.3: AI risk treatment"
+                    },
+                    {
+                        scenario: "A company plans to use a third-party Generative AI that produces copyrighted material.",
+                        question: "What pre-deployment requirement is CRITICAL according to Clause 6.1?",
+                        options: ["Comprehensive planning of risks and opportunities", "Public announcement", "Competitor notification", "Skip planning"],
+                        correct: 0,
+                        explanation: "Before deployment, the organization must determine risks and opportunities to ensure the AIMS can achieve its results.",
+                        clauseRef: "Clause 6.1.1: Actions to address risks"
+                    },
+                    {
+                        scenario: "A surveillance AI causes a massive privacy invasion leading to class-action lawsuits.",
+                        question: "In the risk treatment plan, what option is always available to the organization?",
+                        options: ["Risk avoidance (stopping the activity)", "Any proportionate combination of treatments", "Risk acceptance only", "Mitigation only"],
+                        correct: 1,
+                        explanation: "Organizations can avoid, mitigate, share, or accept risks based on proportionality.",
+                        clauseRef: "Clause 6.1.2.3: Risk Treatment"
+                    },
+                    {
+                        scenario: "An HR AI performance evaluation shows significant gender bias in promotion scores.",
+                        question: "Determining the effectiveness of risk treatment requires what?",
+                        options: ["Monitoring and measurement", "Annual review only", "Employee surveys", "No monitoring"],
+                        correct: 0,
+                        explanation: "Clause 6.1.2.3 requires evaluating the effectiveness of the risk treatment plan through monitoring.",
+                        clauseRef: "Clause 6.1.2.3: Treatment Effectiveness"
+                    },
+                    {
+                        scenario: "A financial advisory AI recommends unsuitable and high-risk investments to retirees.",
+                        question: "How often should AI risk assessments be repeated?",
+                        options: ["At risk-based intervals or when significant changes occur", "Every 5 years", "Only after a lawsuit", "Once at the start"],
+                        correct: 0,
+                        explanation: "Assessments must be conducted at planned intervals or when changes occur.",
+                        clauseRef: "Clause 6.1.2.2: Risk Assessment"
+                    },
+                    {
+                        scenario: "A social media AI is found to be amplifying misinformation during an election.",
+                        question: "What risk management principle is FUNDAMENTAL to ISO 42001?",
+                        options: ["Proactive and continual process", "Reactive only after incidents", "Delegate to users", "Ignore low-probability risks"],
+                        correct: 0,
+                        explanation: "Risk management is a continual activity throughout the AI system life cycle.",
+                        clauseRef: "Clause 6.1: Planning"
+                    },
+                    {
+                        scenario: "A medical AI diagnosis error rate exceeds the acceptable 10% threshold defined in the planning phase.",
+                        question: "What planning is REQUIRED for system changes under Clause 6.3?",
+                        options: ["Controlled change management", "Immediate deployment", "Employee voting", "No planning needed"],
+                        correct: 0,
+                        explanation: "When the organization determines the need for changes to the AIMS, the changes shall be carried out in a planned manner.",
+                        clauseRef: "Clause 6.3: Planning of changes"
+                    }
+                ]
+            },
+            3: {
+                title: "Support & Resources",
+                clause: "Clause 7",
+                weight: 10,
+                questions: [
+                    {
+                        scenario: "An energy company's AI grid management system fails because the server hardware was insufficient.",
+                        question: "What resource allocation is REQUIRED for AIMS success per Clause 7.1?",
+                        options: ["Only financial budget", "Competent personnel, infrastructure, and resources", "External certification fees", "Marketing budget"],
+                        correct: 1,
+                        explanation: "The organization must determine and provide the resources needed for the establishment, implementation, maintenance and continual improvement of the AIMS.",
+                        clauseRef: "Clause 7.1: Resources"
+                    },
+                    {
+                        scenario: "A banking AI fraud detection system generates false alerts because the staff didn't know how to tune it.",
+                        question: "Personnel performing work affecting AI performance must demonstrate what?",
+                        options: ["AI-specific competence based on education, training or experience", "General IT skills only", "10+ years experience", "No training required"],
+                        correct: 0,
+                        explanation: "Clause 7.2 requires ensuring that persons are competent based on appropriate education, training, or experience.",
+                        clauseRef: "Clause 7.2: Competence"
+                    },
+                    {
+                        scenario: "An AI system lacks documentation proving it followed the required risk treatment steps.",
+                        question: "What record keeping is MANDATORY under ISO 42001?",
+                        options: ["All documented information required by the standard", "Employee personal emails", "Dream journals", "No records needed"],
+                        correct: 0,
+                        explanation: "The AIMS must include documented information required by the standard and determined by the organization as necessary.",
+                        clauseRef: "Clause 7.5.1: General Documentation"
+                    },
+                    {
+                        scenario: "Staff at a tech firm are unaware of how their daily coding affects the company's AI Policy.",
+                        question: "Clause 7.3 requires that persons doing work under the organization's control are aware of:",
+                        options: ["The AI policy and their contribution to AIMS effectiveness", "The CEO's salary", "Competitor source code", "The office cleaning schedule"],
+                        correct: 0,
+                        explanation: "Persons must be aware of the AI policy, their contribution, and the implications of not conforming to AIMS requirements.",
+                        clauseRef: "Clause 7.3: Awareness"
+                    },
+                    {
+                        scenario: "A media company uses AI content moderation but has no internal process for reporting model drift.",
+                        question: "What process is REQUIRED under Clause 7.4?",
+                        options: ["Internal and external communications relevant to the AIMS", "Daily status emails", "Monthly newsletters", "No communication needed"],
+                        correct: 0,
+                        explanation: "The organization must determine the internal and external communications relevant to the AIMS.",
+                        clauseRef: "Clause 7.4: Communication"
+                    },
+                    {
+                        scenario: "An organization is creating a new 'AI Ethics Procedure' document.",
+                        question: "When creating and updating documented information, what must be ensured?",
+                        options: ["Appropriate identification, description, and format", "It must be written in Python", "It must be over 50 pages long", "It must be stored on a public drive"],
+                        correct: 0,
+                        explanation: "Clause 7.5.2 requires proper identification, format, and review/approval for suitability.",
+                        clauseRef: "Clause 7.5.2: Creating and updating"
+                    },
+                    {
+                        scenario: "A company loses its AI risk assessment records due to a server crash with no backup.",
+                        question: "What control of documented information was violated?",
+                        options: ["Availability, suitability, and protection", "Storage in a physical safe", "Writing in encrypted code", "No control was violated"],
+                        correct: 0,
+                        explanation: "Documented information must be controlled to ensure it is available, suitable for use, and adequately protected.",
+                        clauseRef: "Clause 7.5.3: Control of documented information"
+                    },
+                    {
+                        scenario: "An AI startup has 5 data scientists but no one assigned to verify AIMS compliance.",
+                        question: "The organization must ensure that people are competent. If they aren't, what must happen?",
+                        options: ["Take actions to acquire competence and evaluate effectiveness", "Fire the staff immediately", "Wait for the next year", "Hire more junior developers"],
+                        correct: 0,
+                        explanation: "Where applicable, take actions to acquire the necessary competence and evaluate the effectiveness of the actions taken.",
+                        clauseRef: "Clause 7.2: Competence"
+                    },
+                    {
+                        scenario: "A firm's AI Policy is saved on a manager's laptop and no one else can see it.",
+                        question: "To conform to Clause 7.5.3, documented information must be:",
+                        options: ["Available and suitable for use, where and when it is needed", "Locked with a physical key", "Shared on social media", "Deleted every 30 days"],
+                        correct: 0,
+                        explanation: "Availability and suitability at the point of use is a core requirement of documentation control.",
+                        clauseRef: "Clause 7.5.3: Control of documented information"
+                    },
+                    {
+                        scenario: "An employee is building an AI tool but doesn't know the 'AI Objectives' of the company.",
+                        question: "Which Clause requires staff to know the AI Objectives?",
+                        options: ["Clause 7.3: Awareness", "Clause 4.1: Context", "Clause 8.1: Operations", "Clause 9.1: Monitoring"],
+                        correct: 0,
+                        explanation: "Awareness (7.3) specifically includes awareness of the AI objectives.",
+                        clauseRef: "Clause 7.3: Awareness"
+                    }
+                ]
+            },
+            4: {
+                title: "AI Operations",
+                clause: "Clause 8",
+                weight: 15,
+                questions: [
+                    {
+                        scenario: "A production AI system is deployed without testing, causing immediate system outages.",
+                        question: "What deployment control is ESSENTIAL under Clause 8.1?",
+                        options: ["Release and deployment procedures", "Public beta testing", "Employee voting", "Direct deployment"],
+                        correct: 0,
+                        explanation: "The organization must plan, implement and control the processes needed to meet requirements.",
+                        clauseRef: "Clause 8.1: Operational planning and control"
+                    },
+                    {
+                        scenario: "A Generative AI chatbot accidentally reveals confidential training data to a user.",
+                        question: "What lifecycle stage control failed in this scenario?",
+                        options: ["Data governance controls", "User interface design", "Marketing materials", "Hardware specs"],
+                        correct: 0,
+                        explanation: "Clause 8.1 requires controls over the AI system life cycle, including data collection and processing.",
+                        clauseRef: "Clause 8.1: Operational control"
+                    },
+                    {
+                        scenario: "An AI system's critical decisions (like surgical paths) lack any human review.",
+                        question: "What safeguard is ABSOLUTELY REQUIRED for high-risk AI decisions?",
+                        options: ["Human oversight mechanisms", "Additional AI validation", "User self-review", "No oversight needed"],
+                        correct: 0,
+                        explanation: "Annex A and Clause 8 suggest that human oversight is a critical control for high-impact AI systems.",
+                        clauseRef: "Clause 8.1: Operational Control"
+                    },
+                    {
+                        scenario: "A company uses a third-party AI component that introduces a security vulnerability.",
+                        question: "What verification is MANDATORY when using external AI providers?",
+                        options: ["Evidence of the provider's AI risk management", "License cost review", "Download speed test", "File size check"],
+                        correct: 0,
+                        explanation: "The organization must ensure that externally provided processes, products or services conform to requirements.",
+                        clauseRef: "Clause 8.4: External Providers"
+                    },
+                    {
+                        scenario: "An AI system is updated to 'improve performance', but this update introduces new bias.",
+                        question: "What change control is ESSENTIAL under Clause 8.1?",
+                        options: ["Planned change management process", "Immediate implementation", "Developer discretion", "No control needed"],
+                        correct: 0,
+                        explanation: "The organization shall control planned changes and review the consequences of unintended changes.",
+                        clauseRef: "Clause 8.1: Operational planning and control"
+                    },
+                    {
+                        scenario: "An AI system is retired, but the sensitive training data is left on an unsecured cloud bucket.",
+                        question: "What lifecycle phase control is MISSING?",
+                        options: ["Decommissioning procedures", "Data deletion only", "Hardware disposal", "No procedures needed"],
+                        correct: 0,
+                        explanation: "Operational control must extend to the decommissioning or end-of-life of the AI system.",
+                        clauseRef: "Clause 8.1: Operational Control"
+                    },
+                    {
+                        scenario: "A bank's AI loan denial system cannot provide a reason for its decision to the customer.",
+                        question: "What design requirement was likely missed according to ISO 42001 philosophy?",
+                        options: ["Risk-appropriate transparency and explainability", "Aesthetic appeal", "Speed optimization", "No requirements needed"],
+                        correct: 0,
+                        explanation: "ISO 42001 emphasizes transparency as a key control to manage AI risks.",
+                        clauseRef: "Clause 8.1: Operational Control"
+                    },
+                    {
+                        scenario: "A company switches to a new AI vendor, but doesn't check if the vendor follows ISO 42001.",
+                        question: "Clause 8.4 requires the organization to determine what for external providers?",
+                        options: ["Criteria for evaluation, selection, and monitoring", "The vendor's stock price", "The vendor's office location", "The vendor's marketing budget"],
+                        correct: 0,
+                        explanation: "The organization must establish criteria for evaluation, selection, monitoring of performance, and re-evaluation of external providers.",
+                        clauseRef: "Clause 8.4: Control of externally provided processes"
+                    },
+                    {
+                        scenario: "An AI model's performance starts to degrade (drift), but no one is monitoring it.",
+                        question: "What operational requirement addresses this 'live' performance issue?",
+                        options: ["Continuous monitoring and measurement", "Weekly manual checks", "Annual audits only", "User complaints only"],
+                        correct: 0,
+                        explanation: " Clause 8.1 requires processes to ensure that AI systems continue to operate as intended.",
+                        clauseRef: "Clause 8.1: Operational Control"
+                    },
+                    {
+                        scenario: "A developer changes an AI model's parameters in production without a record of why.",
+                        question: "To conform to 'Control of Changes', the organization must:",
+                        options: ["Review the consequences of unintended changes and take action", "Never change a model", "Only change models on weekends", "Let developers decide independently"],
+                        correct: 0,
+                        explanation: "The organization must review the consequences of unintended changes and take action to mitigate adverse effects.",
+                        clauseRef: "Clause 8.1: Operational planning and control"
+                    }
+                ]
+            },
+            5: {
+                title: "Evaluation & Audit",
+                clause: "Clause 9",
+                weight: 13,
+                questions: [
+                    {
+                        scenario: "Six months after deployment, an AI shows increasing bias in its outputs.",
+                        question: "What evaluation is REQUIRED by Clause 9.1?",
+                        options: ["Monitoring, measurement, analysis and evaluation", "Annual employee survey", "Office climate control", "No monitoring needed"],
+                        correct: 0,
+                        explanation: "The organization shall determine what needs to be monitored and measured to ensure AIMS effectiveness.",
+                        clauseRef: "Clause 9.1: Monitoring and evaluation"
+                    },
+                    {
+                        scenario: "An internal review discovers that AI risk decisions were made but never documented.",
+                        question: "What verification activity is MANDATORY at planned intervals?",
+                        options: ["Regular internal audits", "External audits only", "No audits required", "Social events instead"],
+                        correct: 0,
+                        explanation: "The organization shall conduct internal audits at planned intervals to provide information on whether the AIMS conforms to requirements.",
+                        clauseRef: "Clause 9.2.1: Internal Audit"
+                    },
+                    {
+                        scenario: "Leadership at a firm is unaware that customer complaints about AI have tripled.",
+                        question: "What management review input is ESSENTIAL under Clause 9.3?",
+                        options: ["Information on AIMS performance, including trends in nonconformities", "Sports results", "Weather patterns", "Recipe feedback"],
+                        correct: 0,
+                        explanation: "Management review must include information on AIMS performance, including trends in nonconformities and corrective actions.",
+                        clauseRef: "Clause 9.3.2: Management review inputs"
+                    },
+                    {
+                        scenario: "An audit reveals that the company hasn't checked if its AI risk treatments are actually working.",
+                        question: "What key indicator must be tracked per Clause 9.1?",
+                        options: ["The effectiveness of AI risk treatment", "Employee morale", "Office cleanliness", "Supply consumption"],
+                        correct: 0,
+                        explanation: "The organization must monitor and measure the effectiveness of the AI risk treatment.",
+                        clauseRef: "Clause 9.1: Monitoring, measurement, analysis and evaluation"
+                    },
+                    {
+                        scenario: "The internal auditor for the AIMS is the same person who developed the AI model.",
+                        question: "What internal audit principle does this violate?",
+                        options: ["Objectivity and impartiality of the audit process", "Speed of the audit", "Technical depth", "Cost of the audit"],
+                        correct: 0,
+                        explanation: "Clause 9.2.2 requires the selection of auditors to ensure objectivity and the impartiality of the audit process.",
+                        clauseRef: "Clause 9.2.2: Internal Audit Program"
+                    },
+                    {
+                        scenario: "Management conducts a review but doesn't document any of the decisions made.",
+                        question: "What is the requirement for Management Review outputs?",
+                        options: ["Retain documented information as evidence of results", "Verbal agreement is enough", "Save it only if a major change occurs", "Post it on the company blog"],
+                        correct: 0,
+                        explanation: "The organization shall retain documented information as evidence of the results of management reviews.",
+                        clauseRef: "Clause 9.3.3: Management review outputs"
+                    },
+                    {
+                        scenario: "An organization determines 'what' to monitor but hasn't decided 'how' or 'when'.",
+                        question: "Clause 9.1 requires the organization to determine:",
+                        options: ["The methods for monitoring, measurement, analysis and evaluation", "The developer's name", "The AI system's nickname", "The cloud provider's stock price"],
+                        correct: 0,
+                        explanation: "The organization must determine the methods for monitoring, measurement, analysis and evaluation to ensure valid results.",
+                        clauseRef: "Clause 9.1: Monitoring and measurement"
+                    },
+                    {
+                        scenario: "An internal audit finds that the AIMS is effective, but it doesn't match the requirements of ISO 42001.",
+                        question: "Internal audits must provide information on whether the AIMS conforms to:",
+                        options: ["The organization's own requirements AND the requirements of this document", "Only the organization's requirements", "Only the technical specs", "The vendor's manual"],
+                        correct: 0,
+                        explanation: "Audits check for conformity to both organizational requirements and the ISO 42001 standard.",
+                        clauseRef: "Clause 9.2.1: Internal Audit"
+                    },
+                    {
+                        scenario: "A company's management review only looks at financial gains from AI.",
+                        question: "Which of these is a MANDATORY management review input?",
+                        options: ["Changes in external and internal issues relevant to the AIMS", "Employee of the month", "New office layout", "Annual holiday list"],
+                        correct: 0,
+                        explanation: "Management review must consider changes in external and internal issues that are relevant to the AI management system.",
+                        clauseRef: "Clause 9.3.2: Management review inputs"
+                    },
+                    {
+                        scenario: "After monitoring, a company finds that its AI is biased but takes no further action.",
+                        question: "Clause 9.1 requires the organization to:",
+                        options: ["Evaluate the performance and effectiveness of the AIMS", "Just store the data", "Delete the monitoring logs", "Restart the AI"],
+                        correct: 0,
+                        explanation: "Monitoring is not enough; the organization must evaluate the results to determine AIMS effectiveness.",
+                        clauseRef: "Clause 9.1: Monitoring and evaluation"
+                    }
+                ]
+            },
+            6: {
+                title: "Improvement",
+                clause: "Clause 10",
+                weight: 10,
+                questions: [
+                    {
+                        scenario: "A major AI bias incident occurs, resulting in a significant regulatory fine.",
+                        question: "What is the FIRST step the organization must take under Clause 10.1?",
+                        options: ["React to the nonconformity, take action to control it, and deal with consequences", "Ignore it if it's the first time", "Blame the software vendor", "Delete the model records"],
+                        correct: 0,
+                        explanation: "When a nonconformity occurs, the organization must react, take action to control/correct it, and deal with consequences.",
+                        clauseRef: "Clause 10.1: Nonconformity and corrective action"
+                    },
+                    {
+                        scenario: "An audit identifies that the AI system's risk assessment is slow, though still compliant.",
+                        question: "Clause 10.2 requires the organization to:",
+                        options: ["Continually improve the suitability, adequacy and effectiveness of the AIMS", "Change the software", "Fire the auditor", "Stop the assessment"],
+                        correct: 0,
+                        explanation: "Continual improvement is a core requirement to enhance the performance of the AIMS.",
+                        clauseRef: "Clause 10.2: Continual improvement"
+                    },
+                    {
+                        scenario: "A root cause analysis reveals that AI errors are due to a lack of staff training.",
+                        question: "What must the organization do per Clause 10.1.b?",
+                        options: ["Evaluate the need for action to eliminate the cause so it does not recur", "Apply a temporary fix", "Blame the training department", "No action needed"],
+                        correct: 0,
+                        explanation: "The organization must evaluate the need for action to eliminate the causes of nonconformity so that it does not recur or occur elsewhere.",
+                        clauseRef: "Clause 10.1: Corrective action"
+                    },
+                    {
+                        scenario: "After taking corrective action for an AI failure, the company just moves on.",
+                        question: "What is the REQUIRED next step after implementing a corrective action?",
+                        options: ["Review the effectiveness of any corrective action taken", "Double the budget", "Hire a new CEO", "Update the website"],
+                        correct: 0,
+                        explanation: "The effectiveness of corrective actions must be reviewed to ensure the problem is truly solved.",
+                        clauseRef: "Clause 10.1: Nonconformity and corrective action"
+                    },
+                    {
+                        scenario: "An AI system update introduces new risks that weren't there before.",
+                        question: "If corrective actions require changes to the AIMS, what must happen?",
+                        options: ["Make changes to the AI management system if necessary", "Undo all changes", "Keep the new risks", "Only update the manual"],
+                        correct: 0,
+                        explanation: "Corrective actions may necessitate updates or changes to the management system itself.",
+                        clauseRef: "Clause 10.1: Corrective action"
+                    },
+                    {
+                        scenario: "A company finds a bug in its AI but decides not to document the fix.",
+                        question: "What documented information is REQUIRED for Clause 10.1?",
+                        options: ["Nature of nonconformities and results of corrective action", "The code of the bug", "The name of the person who found it", "Nothing is required"],
+                        correct: 0,
+                        explanation: "Documented information must be retained as evidence of the nature of nonconformities and the results of corrective action.",
+                        clauseRef: "Clause 10.1: Nonconformity and corrective action"
+                    },
+                    {
+                        scenario: "A company wants to wait until the end of the year to fix a critical AI nonconformity.",
+                        question: "Clause 10.1 requires that corrective actions be:",
+                        options: ["Appropriate to the effects of the nonconformities encountered", "Delayed until the budget is ready", "Done only by external consultants", "Ignored if the system still runs"],
+                        correct: 0,
+                        explanation: "Corrective actions shall be appropriate to the effects of the nonconformities encountered.",
+                        clauseRef: "Clause 10.1: Nonconformity and corrective action"
+                    },
+                    {
+                        scenario: "An AI model is found to be noncompliant, and the fix is to simply restart the server.",
+                        question: "ISO 42001 says you must evaluate the need to 'eliminate the cause'. Is restarting the server enough?",
+                        options: ["No, you must address the root cause to prevent recurrence", "Yes, if it works", "Only if the customer is happy", "Only if it happens daily"],
+                        correct: 0,
+                        explanation: "The standard requires eliminating the cause of the nonconformity to prevent recurrence.",
+                        clauseRef: "Clause 10.1: Nonconformity and corrective action"
+                    },
+                    {
+                        scenario: "Through management review, a company identifies a way to make AI more transparent.",
+                        question: "This initiative falls under which Clause?",
+                        options: ["Clause 10.2: Continual improvement", "Clause 4.1: Context", "Clause 7.2: Competence", "Clause 5.2: Policy"],
+                        correct: 0,
+                        explanation: "Improving the system's effectiveness and suitability is the definition of continual improvement.",
+                        clauseRef: "Clause 10.2: Continual improvement"
+                    },
+                    {
+                        scenario: "A firm fixes an AI nonconformity but doesn't check if similar systems have the same problem.",
+                        question: "Clause 10.1 requires checking if:",
+                        options: ["Similar nonconformities exist, or could potentially occur", "The competitor has the same bug", "The bug is famous", "The software is still under warranty"],
+                        correct: 0,
+                        explanation: "Corrective action evaluation includes determining if similar nonconformities exist or could potentially occur.",
+                        clauseRef: "Clause 10.1: Nonconformity and corrective action"
+                    }
+                ]
+            },
+            7: {
+                title: "Annex A: Lifecycle & Data",
+                clause: "Controls A.1 - A.10",
+                weight: 15,
+                questions: [
+                    {
+                        scenario: "An AI model's accuracy drops significantly after deployment due to 'data drift'.",
+                        question: "Which lifecycle control is REQUIRED for deployed AI systems?",
+                        options: ["Performance monitoring and maintenance", "Annual repainting", "Weekly polishing", "No monitoring needed"],
+                        correct: 0,
+                        explanation: "Annex A controls require monitoring the performance of AI systems in production.",
+                        clauseRef: "Annex A: AI System Life Cycle"
+                    },
+                    {
+                        scenario: "A fraud detection AI is retrained, but the new version is less accurate and more biased.",
+                        question: "What process control is ESSENTIAL during retraining?",
+                        options: ["Validation and verification procedures", "Office cleaning schedule", "Coffee restocking", "No validation needed"],
+                        correct: 0,
+                        explanation: "Retraining and updates must be validated to ensure they meet objectives and don't introduce new risks.",
+                        clauseRef: "Annex A: AI System Life Cycle"
+                    },
+                    {
+                        scenario: "An AI system uses training data that is 5 years old and contains outdated social biases.",
+                        question: "What data governance is MANDATORY?",
+                        options: ["Ensuring data quality and relevance throughout the lifecycle", "Delete after single use", "Share with all partners", "No governance required"],
+                        correct: 0,
+                        explanation: "Annex A controls emphasize the quality, provenance, and relevance of data used in AI.",
+                        clauseRef: "Annex A: Data for AI Systems"
+                    },
+                    {
+                        scenario: "An AI model has 10 different versions in production, leading to inconsistent results for users.",
+                        question: "What management practice is MISSING?",
+                        options: ["Model versioning and traceability", "Naming conventions only", "Color coding", "No management needed"],
+                        correct: 0,
+                        explanation: "Traceability and version control are key requirements for managing AI models.",
+                        clauseRef: "Annex A: AI System Life Cycle"
+                    },
+                    {
+                        scenario: "A company uses a dataset for AI training without checking if the data was legally obtained.",
+                        question: "Which Annex A area covers this issue?",
+                        options: ["Data for AI systems (Provenance and Acquisition)", "Hardware maintenance", "User interface design", "Marketing"],
+                        correct: 0,
+                        explanation: "The standard requires ensuring that data used for AI is acquired legally and ethically.",
+                        clauseRef: "Annex A: Data for AI Systems"
+                    },
+                    {
+                        scenario: "An AI system is being developed, but the developers haven't documented the data sources.",
+                        question: "Documentation of data provenance is necessary for:",
+                        options: ["Traceability and transparency", "Saving disk space", "Speeding up the model", "Reducing cloud costs"],
+                        correct: 0,
+                        explanation: "Knowing the origin of data (provenance) is vital for understanding bias and ensuring quality.",
+                        clauseRef: "Annex A: Data for AI Systems"
+                    },
+                    {
+                        scenario: "An AI system is performing 'well' but its internal logic is a 'black box' that no one can explain.",
+                        question: "To improve transparency, what should be provided?",
+                        options: ["Information on the system's capabilities and limitations", "Full source code for every user", "The developer's home address", "Nothing"],
+                        correct: 0,
+                        explanation: "Transparency controls focus on providing users and stakeholders with clear info on how the AI works and its limits.",
+                        clauseRef: "Annex A: Transparency"
+                    },
+                    {
+                        scenario: "A company is buying a pre-trained AI model from a startup.",
+                        question: "What Annex A control applies to this situation?",
+                        options: ["External resources for AI systems", "Office furniture supply", "Janitorial services", "Electricity provision"],
+                        correct: 0,
+                        explanation: "Annex A includes controls for managing external resources, including pre-trained models and datasets.",
+                        clauseRef: "Annex A: External Resources"
+                    },
+                    {
+                        scenario: "An AI system is used for recruitment, but it doesn't log the reasons why it rejects a candidate.",
+                        question: "This lack of logging affects which core principle?",
+                        options: ["Traceability and accountability", "System speed", "Visual design", "Server uptime"],
+                        correct: 0,
+                        explanation: "Logging and traceability are essential to investigate issues and ensure accountability in AI decisions.",
+                        clauseRef: "Annex A: AI System Life Cycle"
+                    },
+                    {
+                        scenario: "A company is cleaning a dataset for AI and removes all 'outliers' without documenting why.",
+                        question: "Why is documentation of data preparation important?",
+                        options: ["To ensure the process is repeatable and understandable", "To make the file larger", "To confuse competitors", "It is not important"],
+                        correct: 0,
+                        explanation: "Data preparation steps (cleaning, labeling) must be documented to ensure the integrity of the AI model.",
+                        clauseRef: "Annex A: Data for AI Systems"
+                    }
+                ]
+            },
+            8: {
+                title: "Annex A: Society & Transparency",
+                clause: "External & Ethical Controls",
+                weight: 15,
+                questions: [
+                    {
+                        scenario: "A Generative AI creates a 'deepfake' video that harms a person's reputation.",
+                        question: "What control is required for content generated by AI?",
+                        options: ["Transparency and identifying AI-generated content", "Video watermarking only", "Speed controls", "No controls needed"],
+                        correct: 0,
+                        explanation: "Annex A controls recommend identifying content that is AI-generated to prevent deception.",
+                        clauseRef: "Annex A: Information for interested parties"
+                    },
+                    {
+                        scenario: "A company's AI system is used in a country with strict new AI regulations, but the system doesn't comply.",
+                        question: "This issue relates to which part of the AIMS?",
+                        options: ["Legal and regulatory requirements", "Employee salaries", "Physical security", "Software updates"],
+                        correct: 0,
+                        explanation: "The AIMS must identify and comply with applicable legal and regulatory requirements.",
+                        clauseRef: "Clause 4.2: Interested parties / Annex A"
+                    },
+                    {
+                        scenario: "An AI system provides 'medical advice' to users without stating it is not a doctor.",
+                        question: "What is the transparency requirement here?",
+                        options: ["Disclosing that the user is interacting with an AI system", "Providing the AI's source code", "Charging a fee", "Giving the AI a human name"],
+                        correct: 0,
+                        explanation: "Users should be made aware when they are interacting with an AI system.",
+                        clauseRef: "Annex A: Transparency"
+                    },
+                    {
+                        scenario: "An AI system has a significant impact on the environment due to high energy consumption.",
+                        question: "What should the organization do according to ISO 42001's broader goals?",
+                        options: ["Consider and manage the environmental impact of the AI system", "Ignore it if it's profitable", "Only use AI at night", "Wait for cheaper electricity"],
+                        correct: 0,
+                        explanation: "The standard encourages assessing impacts on individuals, society, and the environment.",
+                        clauseRef: "Clause 6.1.2: AI Risk Assessment"
+                    },
+                    {
+                        scenario: "A public agency uses AI to assign social benefits, but the criteria are hidden from the public.",
+                        question: "What transparency control is likely being violated?",
+                        options: ["Provision of information to interested parties", "Secretive decision making", "Competitive advantage", "None"],
+                        correct: 0,
+                        explanation: "Transparency involves providing relevant information to interested parties about how the AI makes decisions.",
+                        clauseRef: "Annex A: Information for interested parties"
+                    },
+                    {
+                        scenario: "An AI system is accused of 'social engineering' by manipulating user behavior.",
+                        question: "Which Annex A area addresses the misuse of AI?",
+                        options: ["Responsible use of AI systems", "Marketing tactics", "UI design", "Server architecture"],
+                        correct: 0,
+                        explanation: "The standard includes controls for the responsible use and deployment of AI.",
+                        clauseRef: "Annex A: Responsible use"
+                    },
+                    {
+                        scenario: "A company doesn't have a way for users to complain about incorrect AI decisions.",
+                        question: "What mechanism should be in place?",
+                        options: ["A process for receiving and addressing feedback or complaints", "An automatic 'delete' button", "A legal disclaimer only", "A busy signal"],
+                        correct: 0,
+                        explanation: "The organization should provide channels for interested parties to report concerns or issues with the AI system.",
+                        clauseRef: "Annex A: Communication"
+                    },
+                    {
+                        scenario: "An AI system is used for critical infrastructure but has no 'kill switch' or manual override.",
+                        question: "This violates which control principle?",
+                        options: ["Human oversight and control", "System speed", "Autonomous power", "Modern design"],
+                        correct: 0,
+                        explanation: "Annex A emphasizes the importance of human oversight and the ability to intervene in AI operations.",
+                        clauseRef: "Annex A: Human Oversight"
+                    },
+                    {
+                        scenario: "A company's AI system is biased because the developers themselves have unconscious biases.",
+                        question: "How can the organization address this through Clause 7.2?",
+                        options: ["Provide awareness and training on AI bias to developers", "Only hire robots", "Fire all developers", "Stop building AI"],
+                        correct: 0,
+                        explanation: "Awareness and competence training are key to reducing human-introduced bias in AI systems.",
+                        clauseRef: "Clause 7.2: Competence"
+                    },
+                    {
+                        scenario: "An organization wants to claim its AI is 'Trustworthy'.",
+                        question: "Following ISO 42001 helps achieve this by focusing on:",
+                        options: ["Managing risks and being transparent", "Having the fastest AI", "Using the most expensive hardware", "Having a good logo"],
+                        correct: 0,
+                        explanation: "Trustworthiness is built through robust risk management, transparency, and accountability.",
+                        clauseRef: "Introduction / General Principles"
+                    }
+                ]
+            }
+        };
+
         // Module data with scenario-based questions
         const modules = {
             1: {
