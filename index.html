@@ -3,1949 +3,381 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISO 42001:2023 Exam Prep</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>ISO 42001:2023 | Expert Certification Simulator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
-            --primary-blue: #0a2463;
-            --secondary-blue: #1e3a8a;
-            --accent-blue: #3b82f6;
-            --gold: #d4af37;
-            --light-gold: #f0e6d2;
-            --dark-gold: #b8941f;
-            --success-green: #10b981;
-            --error-red: #ef4444;
-            --background-dark: #0f172a;
-            --card-dark: #1e293b;
-            --text-light: #f8fafc;
-            --text-muted: #cbd5e1;
+            --bg-dark: #0f172a;
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --accent-primary: #3b82f6; /* AI Blue */
+            --accent-gold: #fbbf24;    /* Certification Gold */
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --success: #10b981;
+            --error: #ef4444;
+            --border-glass: rgba(255, 255, 255, 0.1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
 
         body {
-            background: linear-gradient(135deg, var(--background-dark) 0%, #1e1b4b 100%);
-            color: var(--text-light);
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at top right, #1e293b, transparent), 
+                              radial-gradient(circle at bottom left, #1e1b4b, transparent);
+            color: var(--text-main);
             min-height: 100vh;
-            padding: 20px;
+            padding: 2rem 1rem;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        .wrapper { max-width: 900px; margin: 0 auto; }
 
+        /* Header Branding */
         header {
             text-align: center;
-            padding: 30px 20px;
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
-            border-radius: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            margin-bottom: 3rem;
         }
 
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--gold) 0%, var(--dark-gold) 100%);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, var(--gold) 0%, var(--light-gold) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--accent-primary);
+            color: var(--accent-primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
         }
 
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; letter-spacing: -1px; }
+        .tagline { color: var(--text-dim); font-size: 1.1rem; }
 
-        .exam-info {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .info-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px;
-            border-radius: 12px;
-            min-width: 120px;
-            border: 1px solid rgba(212, 175, 55, 0.1);
-        }
-
-        .info-item i {
-            font-size: 1.8rem;
-            color: var(--gold);
-            margin-bottom: 8px;
-        }
-
-        .info-value {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--text-light);
-        }
-
-        .info-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            text-align: center;
-        }
-
-        .modules-container {
+        /* Grid Layout */
+        .category-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
 
-        .module-card {
-            background: var(--card-dark);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(59, 130, 246, 0.1);
-            cursor: pointer;
-        }
-
-        .module-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border-color: rgba(212, 175, 55, 0.3);
-        }
-
-        .module-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .module-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--text-light);
-        }
-
-        .module-clause {
-            background: rgba(212, 175, 55, 0.15);
-            color: var(--gold);
-            padding: 5px 12px;
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-glass);
             border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .module-details {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .detail-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .detail-value {
-            font-size: 1.6rem;
-            font-weight: bold;
-            color: var(--accent-blue);
-        }
-
-        .detail-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 5px;
-        }
-
-        .topics-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .topic-tag {
-            background: rgba(59, 130, 246, 0.15);
-            color: var(--accent-blue);
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.85rem;
-        }
-
-        .start-btn {
-            display: block;
-            width: 100%;
-            background: linear-gradient(90deg, var(--gold) 0%, var(--dark-gold) 100%);
-            color: var(--primary-blue);
-            border: none;
-            padding: 15px;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
+            padding: 1.5rem;
             transition: all 0.3s ease;
-            margin-top: 20px;
-            text-align: center;
-            text-decoration: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .start-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 15px rgba(212, 175, 55, 0.3);
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
-        .quiz-container {
-            display: none;
+        .card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--accent-gold); }
+        .card p { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 1.5rem; line-height: 1.5; }
+        
+        .card-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
         }
 
-        .quiz-header {
+        /* Quiz Interface */
+        .quiz-view { display: none; }
+
+        .q-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: var(--glass-bg);
+            border-radius: 12px;
         }
 
-        .progress-bar {
-            height: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            margin: 20px 0;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent-blue) 0%, var(--gold) 100%);
-            border-radius: 4px;
-            width: 0%;
-            transition: width 0.5s ease;
-        }
-
-        .question-counter {
-            font-size: 1rem;
-            color: var(--text-muted);
-        }
-
-        .question-container {
-            background: var(--card-dark);
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 25px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(59, 130, 246, 0.1);
-        }
-
-        .question-text {
-            font-size: 1.3rem;
-            line-height: 1.5;
-            margin-bottom: 25px;
-            color: var(--text-light);
-        }
-
-        .scenario {
-            background: rgba(10, 36, 99, 0.3);
-            border-left: 4px solid var(--gold);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 25px;
+        .scenario-box {
+            background: rgba(251, 191, 36, 0.05);
+            border-left: 4px solid var(--accent-gold);
+            padding: 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 1.5rem;
             font-style: italic;
+            color: var(--accent-gold);
         }
 
-        .options-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+        .question-text { font-size: 1.4rem; font-weight: 600; margin-bottom: 2rem; line-height: 1.4; }
+
+        .options-list { display: flex; flex-direction: column; gap: 1rem; }
 
         .option {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-glass);
+            padding: 1.2rem;
             border-radius: 12px;
-            padding: 18px 20px;
             cursor: pointer;
             transition: all 0.2s ease;
             display: flex;
             align-items: center;
         }
 
-        .option:hover {
+        .option:hover { background: rgba(255,255,255,0.08); border-color: var(--text-dim); }
+        .option.correct { background: rgba(16, 185, 129, 0.2); border-color: var(--success); color: #fff; }
+        .option.wrong { background: rgba(239, 68, 68, 0.2); border-color: var(--error); color: #fff; }
+
+        .explanation {
+            margin-top: 2rem;
+            padding: 1.5rem;
             background: rgba(59, 130, 246, 0.1);
-            border-color: var(--accent-blue);
-        }
-
-        .option.selected {
-            background: rgba(59, 130, 246, 0.2);
-            border-color: var(--accent-blue);
-        }
-
-        .option.correct {
-            background: rgba(16, 185, 129, 0.2);
-            border-color: var(--success-green);
-        }
-
-        .option.incorrect {
-            background: rgba(239, 68, 68, 0.2);
-            border-color: var(--error-red);
-        }
-
-        .option-letter {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            margin-right: 15px;
-            font-weight: bold;
-            color: var(--text-light);
-            flex-shrink: 0;
-        }
-
-        .option-text {
-            flex-grow: 1;
-        }
-
-        .explanation-container {
-            background: var(--card-dark);
-            border-radius: 16px;
-            padding: 25px;
-            margin-top: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--accent-primary);
             display: none;
-            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
-        .explanation-title {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: var(--gold);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .explanation-text {
-            line-height: 1.6;
-            color: var(--text-light);
-        }
-
-        .clause-reference {
-            display: inline-block;
-            background: rgba(212, 175, 55, 0.15);
-            color: var(--gold);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-top: 15px;
-        }
-
-        .nav-buttons {
+        .nav-controls {
             display: flex;
             justify-content: space-between;
-            margin-top: 30px;
+            margin-top: 2.5rem;
         }
 
-        .nav-btn {
-            background: rgba(59, 130, 246, 0.2);
-            color: var(--accent-blue);
-            border: 2px solid var(--accent-blue);
-            padding: 14px 28px;
+        button {
+            padding: 1rem 2rem;
             border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .nav-btn:hover {
-            background: var(--accent-blue);
-            color: var(--text-light);
-        }
-
-        .nav-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .nav-btn:disabled:hover {
-            background: rgba(59, 130, 246, 0.2);
-            color: var(--accent-blue);
-        }
-
-        .results-container {
-            display: none;
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .score-circle {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: conic-gradient(var(--success-green) 0% 0%, rgba(255, 255, 255, 0.1) 0% 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 30px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .score-circle-inner {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            background: var(--card-dark);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .score-percent {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--gold) 0%, var(--light-gold) 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .score-label {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-        }
-
-        .result-message {
-            font-size: 1.8rem;
-            margin: 25px 0;
-            font-weight: 600;
-        }
-
-        .result-message.pass {
-            color: var(--success-green);
-        }
-
-        .result-message.fail {
-            color: var(--error-red);
-        }
-
-        .threshold-info {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 30px auto;
-            max-width: 500px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .threshold-title {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: var(--gold);
-        }
-
-        .threshold-value {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--text-light);
-            margin: 10px 0;
-        }
-
-        .threshold-note {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .action-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .action-btn {
-            padding: 15px 30px;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
             border: none;
-            min-width: 180px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.3s;
         }
 
-        .restart-btn {
-            background: linear-gradient(90deg, var(--accent-blue) 0%, #6366f1 100%);
-            color: white;
-        }
+        .btn-primary { background: var(--accent-primary); color: white; }
+        .btn-outline { background: transparent; border: 1px solid var(--border-glass); color: var(--text-main); }
+        button:disabled { opacity: 0.3; cursor: not-allowed; }
 
-        .home-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text-light);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
+        /* Progress Bar */
+        .progress-container { height: 6px; background: #334155; border-radius: 10px; margin-bottom: 2rem; overflow: hidden; }
+        .progress-bar { height: 100%; background: var(--accent-primary); width: 0%; transition: 0.4s; }
 
-        .action-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-        }
+        /* Results */
+        .results-view { text-align: center; display: none; }
+        .score-display { font-size: 4rem; font-weight: 800; color: var(--accent-gold); margin: 2rem 0; }
 
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .modules-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .exam-info {
-                gap: 15px;
-            }
-            
-            .info-item {
-                min-width: 100px;
-                padding: 12px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .question-container, .explanation-container {
-                padding: 20px;
-            }
-            
-            .score-circle {
-                width: 180px;
-                height: 180px;
-            }
-            
-            .score-circle-inner {
-                width: 140px;
-                height: 140px;
-            }
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .card { padding: 1rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Main Menu -->
-        <div id="main-menu">
-            <header>
-                <h1>ISO 42001:2023</h1>
-                <div class="subtitle">AI Management System - Auditor Certification Prep</div>
-                <div class="exam-info">
-                    <div class="info-item">
-                        <i class="far fa-clock"></i>
-                        <div class="info-value">3h 30m</div>
-                        <div class="info-label">Exam Duration</div>
-                    </div>
-                    <div class="info-item">
-                        <i class="far fa-question-circle"></i>
-                        <div class="info-value">100</div>
-                        <div class="info-label">Total Questions</div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-trophy"></i>
-                        <div class="info-value">70%</div>
-                        <div class="info-label">Passing Score</div>
-                    </div>
-                </div>
-            </header>
 
-            <div class="modules-container">
-                <!-- Module 1: Context of the Organization -->
-                <div class="module-card" data-module="1">
-                    <div class="module-header">
-                        <div class="module-title">Context of the Organization</div>
-                        <div class="module-clause">Clauses 4.1 - 4.4</div>
-                    </div>
-                    <div class="module-details">
-                        <div class="detail-item">
-                            <div class="detail-value">10</div>
-                            <div class="detail-label">Questions</div>
-                        </div>
-                        <div class="detail-item">
-                            <div class="detail-value">12%</div>
-                            <div class="detail-label">Exam Weight</div>
-                        </div>
-                    </div>
-                    <div class="topics-list">
-                        <div class="topic-tag">Understanding Organization Context</div>
-                        <div class="topic-tag">Interested Parties</div>
-                        <div class="topic-tag">Scope Determination</div>
-                        <div class="topic-tag">AI Management System</div>
-                    </div>
-                    <button class="start-btn" onclick="startQuiz(1)">Start Module</button>
-                </div>
+    <div class="wrapper">
+        <header id="site-header">
+            <span class="badge">ISO/IEC 42001:2023</span>
+            <h1>AI Management System Prep</h1>
+            <p class="tagline">Scenario-based training for professional certification</p>
+        </header>
 
-                <!-- Module 2: Leadership -->
-                <div class="module-card" data-module="2">
-                    <div class="module-header">
-                        <div class="module-title">Leadership</div>
-                        <div class="module-clause">Clauses 5.1 - 5.3</div>
-                    </div>
-                    <div class="module-details">
-                        <div class="detail-item">
-                            <div class="detail-value">10</div>
-                            <div class="detail-label">Questions</div>
-                        </div>
-                        <div class="detail-item">
-                            <div class="detail-value">10%</div>
-                            <div class="detail-label">Exam Weight</div>
-                        </div>
-                    </div>
-                    <div class="topics-list">
-                        <div class="topic-tag">Leadership Commitment</div>
-                        <div class="topic-tag">AI Policy</div>
-                        <div class="topic-tag">Roles & Responsibilities</div>
-                    </div>
-                    <button class="start-btn" onclick="startQuiz(2)">Start Module</button>
+        <main id="dashboard">
+            <div class="category-grid" id="category-list">
                 </div>
+        </main>
 
-                <!-- Module 3: Planning -->
-                <div class="module-card" data-module="3">
-                    <div class="module-header">
-                        <div class="module-title">Planning</div>
-                        <div class="module-clause">Clauses 6.1 - 6.3</div>
-                    </div>
-                    <div class="module-details">
-                        <div class="detail-item">
-                            <div class="detail-value">10</div>
-                            <div class="detail-label">Questions</div>
-                        </div>
-                        <div class="detail-item">
-                            <div class="detail-value">15%</div>
-                            <div class="detail-label">Exam Weight</div>
-                        </div>
-                    </div>
-                    <div class="topics-list">
-                        <div class="topic-tag">Risk Assessment</div>
-                        <div class="topic-tag">Risk Treatment</div>
-                        <div class="topic-tag">AI Objectives</div>
-                        <div class="topic-tag">Impact Assessment</div>
-                    </div>
-                    <button class="start-btn" onclick="startQuiz(3)">Start Module</button>
-                </div>
-
-                <!-- Module 4: Support -->
-                <div class="module-card" data-module="4">
-                    <div class="module-header">
-                        <div class="module-title">Support</div>
-                        <div class="module-clause">Clause 7</div>
-                    </div>
-                    <div class="module-details">
-                        <div class="detail-item">
-                            <div class="detail-value">10</div>
-                            <div class="detail-label">Questions</div>
-                        </div>
-                        <div class="detail-item">
-                            <div class="detail-value">10%</div>
-                            <div class="detail-label">Exam Weight</div>
-                        </div>
-                    </div>
-                    <div class="topics-list">
-                        <div class="topic-tag">Resources</div>
-                        <div class="topic-tag">Competence</div>
-                        <div class="topic-tag">Awareness</div>
-                        <div class="topic-tag">Documentation</div>
-                    </div>
-                    <button class="start-btn" onclick="startQuiz(4)">Start Module</button>
-                </div>
-
-                <!-- Module 5: Operation -->
-                <div class="module-card" data-module="5">
-                    <div class="module-header">
-                        <div class="module-title">Operation</div>
-                        <div class="module-clause">Clause 8</div>
-                    </div>
-                    <div class="module-details">
-                        <div class="detail-item">
-                            <div class="detail-value">10</div>
-                            <div class="detail-label">Questions</div>
-                        </div>
-                        <div class="detail-item">
-                            <div class="detail-value">15%</div>
-                            <div class="detail-label">Exam Weight</div>
-                        </div>
-                    </div>
-                    <div class="topics-list">
-                        <div class="topic-tag">Operational Control</div>
-                        <div class="topic-tag">Risk Assessment</div>
-                        <div class="topic-tag">Risk Treatment</div>
-                        <div class="topic-tag">Impact Assessment</div>
-                    </div>
-                    <button class="start-btn" onclick="startQuiz(5)">Start Module</button>
-                </div>
-
-                <!-- Module 6: Performance Evaluation -->
-                <div class="module-card" data-module="6">
-                    <div class="module-header">
-                        <div class="module-title">Performance Evaluation</div>
-                        <div class="module-clause">Clause 9</div>
-                    </div>
-                    <div class="module-details">
-                        <div class="detail-item">
-                            <div class="detail-value">10</div>
-                            <div class="detail-label">Questions</div>
-                        </div>
-                        <div class="detail-item">
-                            <div class="detail-value">13%</div>
-                            <div class="detail-label">Exam Weight</div>
-                        </div>
-                    </div>
-                    <div class="topics-list">
-                        <div class="topic-tag">Monitoring & Measurement</div>
-                        <div class="topic-tag">Internal Audit</div>
-                        <div class="topic-tag">Management Review</div>
-                    </div>
-                    <button class="start-btn" onclick="startQuiz(6)">Start Module</button>
-                </div>
-
-                <!-- Module 7: Improvement -->
-                <div class="module-card" data-module="7">
-                    <div class="module-header">
-                        <div class="module-title">Improvement</div>
-                        <div class="module-clause">Clause 10</div>
-                    </div>
-                    <div class="module-details">
-                        <div class="detail-item">
-                            <div class="detail-value">10</div>
-                            <div class="detail-label">Questions</div>
-                        </div>
-                        <div class="detail-item">
-                            <div class="detail-value">10%</div>
-                            <div class="detail-label">Exam Weight</div>
-                        </div>
-                    </div>
-                    <div class="topics-list">
-                        <div class="topic-tag">Continual Improvement</div>
-                        <div class="topic-tag">Nonconformity</div>
-                        <div class="topic-tag">Corrective Action</div>
-                    </div>
-                    <button class="start-btn" onclick="startQuiz(7)">Start Module</button>
-                </div>
-
-                <!-- Module 8: Annex A Controls -->
-                <div class="module-card" data-module="8">
-                    <div class="module-header">
-                        <div class="module-title">Annex A Controls</div>
-                        <div class="module-clause">Reference Controls</div>
-                    </div>
-                    <div class="module-details">
-                        <div class="detail-item">
-                            <div class="detail-value">10</div>
-                            <div class="detail-label">Questions</div>
-                        </div>
-                        <div class="detail-item">
-                            <div class="detail-value">15%</div>
-                            <div class="detail-label">Exam Weight</div>
-                        </div>
-                    </div>
-                    <div class="topics-list">
-                        <div class="topic-tag">Policies</div>
-                        <div class="topic-tag">Resources</div>
-                        <div class="topic-tag">Impact Assessment</div>
-                        <div class="topic-tag">Life Cycle</div>
-                    </div>
-                    <button class="start-btn" onclick="startQuiz(8)">Start Module</button>
-                </div>
+        <div id="quiz-screen" class="quiz-view">
+            <div class="q-header">
+                <span id="q-counter">Question 1/10</span>
+                <span id="active-category" style="color: var(--accent-gold)">Category</span>
+            </div>
+            
+            <div class="progress-container">
+                <div id="progress-bar" class="progress-bar"></div>
             </div>
 
-            <div style="text-align: center; margin-top: 40px;">
-                <button class="start-btn" style="max-width: 300px; margin: 0 auto;" onclick="startFullExam()">
-                    <i class="fas fa-graduation-cap"></i> Take Full Practice Exam (100 Questions)
-                </button>
+            <div class="scenario-box" id="scenario-text"></div>
+            <div class="question-text" id="question-body"></div>
+
+            <div class="options-list" id="options-grid"></div>
+
+            <div class="explanation" id="explanation-box">
+                <strong style="color: var(--accent-primary); display: block; margin-bottom: 0.5rem;">
+                    <i class="fas fa-lightbulb"></i> Expert Analysis
+                </strong>
+                <p id="explanation-content"></p>
+            </div>
+
+            <div class="nav-controls">
+                <button class="btn-outline" onclick="exitQuiz()">Exit</button>
+                <button class="btn-primary" id="next-btn" onclick="handleNext()" disabled>Next Question</button>
             </div>
         </div>
 
-        <!-- Quiz Container -->
-        <div id="quiz-container" class="quiz-container">
-            <div class="quiz-header">
-                <div class="question-counter">Question <span id="current-question">1</span> of <span id="total-questions">10</span></div>
-                <div id="module-title" class="module-title"></div>
-            </div>
-            
-            <div class="progress-bar">
-                <div id="progress-fill" class="progress-fill"></div>
-            </div>
-            
-            <div class="question-container">
-                <div id="scenario" class="scenario"></div>
-                <div id="question-text" class="question-text"></div>
-                <div id="options-container" class="options-container"></div>
-            </div>
-            
-            <div id="explanation-container" class="explanation-container">
-                <div class="explanation-title">
-                    <i class="fas fa-info-circle"></i> Explanation
-                </div>
-                <div id="explanation-text" class="explanation-text"></div>
-                <div id="clause-reference" class="clause-reference"></div>
-            </div>
-            
-            <div class="nav-buttons">
-                <button id="prev-btn" class="nav-btn" onclick="prevQuestion()" disabled>
-                    <i class="fas fa-arrow-left"></i> Previous
-                </button>
-                <button id="next-btn" class="nav-btn" onclick="nextQuestion()">
-                    Next <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Results Container -->
-        <div id="results-container" class="results-container">
-            <h2>Exam Results</h2>
-            <div class="score-circle">
-                <div class="score-circle-inner">
-                    <div id="score-percent" class="score-percent">0%</div>
-                    <div class="score-label">Score</div>
-                </div>
-            </div>
-            
-            <div id="result-message" class="result-message"></div>
-            
-            <div class="threshold-info">
-                <div class="threshold-title">Passing Threshold</div>
-                <div class="threshold-value">70% Required to Pass</div>
-                <div class="threshold-note">
-                    The ISO 42001 certification exam requires a minimum score of 70% to pass. 
-                    This score is based on PECB/BSI/IRCA certification exam standards.
-                </div>
-            </div>
-            
-            <div class="action-buttons">
-                <button class="action-btn restart-btn" onclick="restartQuiz()">
-                    <i class="fas fa-redo"></i> Retake Module
-                </button>
-                <button class="action-btn home-btn" onclick="goHome()">
-                    <i class="fas fa-home"></i> Back to Modules
-                </button>
+        <div id="result-screen" class="results-view">
+            <h2>Exam Completed</h2>
+            <div class="score-display" id="final-score">0%</div>
+            <p id="result-text" style="margin-bottom: 2rem; color: var(--text-dim)"></p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <button class="btn-primary" onclick="location.reload()">Try Another Category</button>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p>© 2023 ISO 42001 Exam Prep | Based on ISO/IEC 42001:2023 standard</p>
-        <p>This tool is for educational purposes and exam preparation</p>
-    </footer>
-
     <script>
-                // Comprehensive Module data mapping your 100 Exam-Style Questions
-        const modules = {
-            1: {
-                title: "Context & Leadership",
-                clause: "Clauses 4 & 5",
-                weight: 12,
-                questions: [
-                    {
-                        scenario: "A bank deploys an AI credit scoring system that unfairly denies loans to certain demographics.",
-                        question: "What is the PRIMARY leadership responsibility according to ISO 42001 principles?",
-                        options: ["Delegate all decisions to data scientists", "Ensure AI ethical principles guide all decisions", "Focus only on profitability targets", "Approve all AI model code changes"],
-                        correct: 1,
-                        explanation: "Top management must ensure that the AI policy and objectives (including ethical considerations) are established and compatible with the strategic direction.",
-                        clauseRef: "Clause 5.1: Leadership and commitment"
-                    },
-                    {
-                        scenario: "A healthcare provider implements AI diagnostic tools without clear policies or top management involvement.",
-                        question: "What MUST senior management establish first to demonstrate commitment?",
-                        options: ["Detailed technical specifications", "AI governance framework and objectives", "Employee training programs", "Vendor contracts"],
-                        correct: 1,
-                        explanation: "Clause 5.1.2 requires leadership to ensure the AI policy and AI objectives are established and compatible with the organization's context.",
-                        clauseRef: "Clause 5.1.2: AI Policy and Objectives"
-                    },
-                    {
-                        scenario: "A manufacturing firm uses AI for quality control with biased results leading to financial loss.",
-                        question: "Who bears ULTIMATE accountability for AI outcomes and the AIMS?",
-                        options: ["AI development team", "Executive leadership (Top Management)", "External auditors", "Quality assurance manager"],
-                        correct: 1,
-                        explanation: "Top management is ultimately responsible for the effectiveness of the AI Management System.",
-                        clauseRef: "Clause 5.1: Leadership"
-                    },
-                    {
-                        scenario: "An E-commerce platform's AI recommendations discriminate by location, but no one is assigned to fix it.",
-                        question: "What organizational structure is ESSENTIAL according to Clause 5.3?",
-                        options: ["Flat organizational chart", "Defined AI roles, responsibilities and authorities", "Unlimited developer autonomy", "External consultant oversight"],
-                        correct: 1,
-                        explanation: "Top management must assign and communicate responsibilities and authorities for relevant roles within the AIMS.",
-                        clauseRef: "Clause 5.3: Roles, responsibilities and authorities"
-                    },
-                    {
-                        scenario: "A Telecom AI chatbot violates privacy regulations due to lack of policy awareness.",
-                        question: "What policy communication is MANDATORY according to the standard?",
-                        options: ["Internal memo only", "To all relevant interested parties", "Press release only", "No communication needed"],
-                        correct: 1,
-                        explanation: "The AI policy must be available to interested parties, as appropriate, and communicated within the organization.",
-                        clauseRef: "Clause 5.2.2: Communicating the AI policy"
-                    },
-                    {
-                        scenario: "An Automotive AI autonomous driving system faces safety issues. Leadership is reviewing the strategy.",
-                        question: "The AI strategy must align with what?",
-                        options: ["Competitor technology", "Organizational purpose and strategic direction", "Short-term cost savings", "Employee preferences"],
-                        correct: 1,
-                        explanation: "The AIMS must be integrated into the organization's business processes and align with its strategic direction.",
-                        clauseRef: "Clause 5.1.1: General Leadership"
-                    },
-                    {
-                        scenario: "A Pharma AI drug discovery tool shows ethical concerns during its implementation phase.",
-                        question: "What REGULAR review is required from leadership under Clause 9.3?",
-                        options: ["Daily operational metrics", "AIMS suitability, adequacy, and effectiveness", "Competitor benchmarking", "Office supply inventory"],
-                        correct: 1,
-                        explanation: "Top management shall review the organization's AIMS at planned intervals to ensure its continuing suitability, adequacy and effectiveness.",
-                        clauseRef: "Clause 9.3: Management Review"
-                    },
-                    {
-                        scenario: "A Logistics AI route optimization ignores environmental impact, violating the company's 'Green' mission.",
-                        question: "The AI policy must address what CRITICAL area per Clause 5.2?",
-                        options: ["Office decor standards", "Ethical considerations and AI risk management", "Parking policies", "Coffee preferences"],
-                        correct: 1,
-                        explanation: "The AI policy provides a framework for setting AI objectives and includes a commitment to address ethical considerations.",
-                        clauseRef: "Clause 5.2: AI Policy"
-                    },
-                    {
-                        scenario: "A Hospital AI triage system misprioritizes emergency cases. Staff are afraid to report AI errors.",
-                        question: "Leadership must cultivate what organizational culture?",
-                        options: ["Innovation without boundaries", "AI risk awareness and responsibility", "Cost reduction focus", "Paperless operations"],
-                        correct: 1,
-                        explanation: "Top management must promote an AI risk-aware culture within the organization.",
-                        clauseRef: "Clause 5.1.1: Leadership"
-                    },
-                    {
-                        scenario: "An Insurance AI underwriting system generates unfair outcomes for minority applicants.",
-                        question: "Who is responsible for assigning AI oversight responsibilities?",
-                        options: ["Compliance department", "Top management", "Junior analysts", "External lawyers"],
-                        correct: 1,
-                        explanation: "Clause 5.3 explicitly places the burden of assigning roles and authorities on Top Management.",
-                        clauseRef: "Clause 5.3: Roles and Responsibilities"
-                    }
-                ]
-            },
-            2: {
-                title: "Planning & Risk",
-                clause: "Clause 6",
-                weight: 15,
-                questions: [
-                    {
-                        scenario: "A hiring AI tool systematically disadvantages women applicants during the screening process.",
-                        question: "Risk assessment must evaluate impact on what?",
-                        options: ["Server costs only", "Individuals, society, and environment", "Electricity usage", "Office space"],
-                        correct: 1,
-                        explanation: "Clause 6.1.2 requires assessing the potential consequences of the AI system on individuals, society and the environment.",
-                        clauseRef: "Clause 6.1.2: AI risk assessment"
-                    },
-                    {
-                        scenario: "An autonomous vehicle AI strikes a pedestrian in a complex urban scenario.",
-                        question: "What risk criterion takes HIGHEST priority in ISO 42001 planning?",
-                        options: ["Processing speed", "Human safety and rights", "Development budget", "Data storage"],
-                        correct: 1,
-                        explanation: "The standard emphasizes that risks to health, safety, and fundamental rights are paramount.",
-                        clauseRef: "Clause 6.1.2.1: Risk Criteria"
-                    },
-                    {
-                        scenario: "A facial recognition system misidentifies people of color at high rates.",
-                        question: "What documentation is REQUIRED after the risk assessment is performed?",
-                        options: ["Employee lunch menus", "AI risk assessment and treatment results", "Weather logs", "Nothing required"],
-                        correct: 1,
-                        explanation: "The organization must retain documented information about the AI risk assessment and treatment process.",
-                        clauseRef: "Clause 6.1.2.4: Documented Information"
-                    },
-                    {
-                        scenario: "An AI energy trading system is found to be manipulating market prices.",
-                        question: "Effective risk treatment should achieve what?",
-                        options: ["Zero risk elimination", "Acceptable residual risk levels", "Maximum risk exposure", "Risk ignorance"],
-                        correct: 1,
-                        explanation: "The goal of risk treatment is to select and implement measures to reduce risk to an acceptable level.",
-                        clauseRef: "Clause 6.1.2.3: AI risk treatment"
-                    },
-                    {
-                        scenario: "A company plans to use a third-party Generative AI that produces copyrighted material.",
-                        question: "What pre-deployment requirement is CRITICAL according to Clause 6.1?",
-                        options: ["Comprehensive planning of risks and opportunities", "Public announcement", "Competitor notification", "Skip planning"],
-                        correct: 0,
-                        explanation: "Before deployment, the organization must determine risks and opportunities to ensure the AIMS can achieve its results.",
-                        clauseRef: "Clause 6.1.1: Actions to address risks"
-                    },
-                    {
-                        scenario: "A surveillance AI causes a massive privacy invasion leading to class-action lawsuits.",
-                        question: "In the risk treatment plan, what option is always available to the organization?",
-                        options: ["Risk avoidance (stopping the activity)", "Any proportionate combination of treatments", "Risk acceptance only", "Mitigation only"],
-                        correct: 1,
-                        explanation: "Organizations can avoid, mitigate, share, or accept risks based on proportionality.",
-                        clauseRef: "Clause 6.1.2.3: Risk Treatment"
-                    },
-                    {
-                        scenario: "An HR AI performance evaluation shows significant gender bias in promotion scores.",
-                        question: "Determining the effectiveness of risk treatment requires what?",
-                        options: ["Monitoring and measurement", "Annual review only", "Employee surveys", "No monitoring"],
-                        correct: 0,
-                        explanation: "Clause 6.1.2.3 requires evaluating the effectiveness of the risk treatment plan through monitoring.",
-                        clauseRef: "Clause 6.1.2.3: Treatment Effectiveness"
-                    },
-                    {
-                        scenario: "A financial advisory AI recommends unsuitable and high-risk investments to retirees.",
-                        question: "How often should AI risk assessments be repeated?",
-                        options: ["At risk-based intervals or when significant changes occur", "Every 5 years", "Only after a lawsuit", "Once at the start"],
-                        correct: 0,
-                        explanation: "Assessments must be conducted at planned intervals or when changes occur.",
-                        clauseRef: "Clause 6.1.2.2: Risk Assessment"
-                    },
-                    {
-                        scenario: "A social media AI is found to be amplifying misinformation during an election.",
-                        question: "What risk management principle is FUNDAMENTAL to ISO 42001?",
-                        options: ["Proactive and continual process", "Reactive only after incidents", "Delegate to users", "Ignore low-probability risks"],
-                        correct: 0,
-                        explanation: "Risk management is a continual activity throughout the AI system life cycle.",
-                        clauseRef: "Clause 6.1: Planning"
-                    },
-                    {
-                        scenario: "A medical AI diagnosis error rate exceeds the acceptable 10% threshold defined in the planning phase.",
-                        question: "What planning is REQUIRED for system changes under Clause 6.3?",
-                        options: ["Controlled change management", "Immediate deployment", "Employee voting", "No planning needed"],
-                        correct: 0,
-                        explanation: "When the organization determines the need for changes to the AIMS, the changes shall be carried out in a planned manner.",
-                        clauseRef: "Clause 6.3: Planning of changes"
-                    }
-                ]
-            },
-            3: {
-                title: "Support & Resources",
-                clause: "Clause 7",
-                weight: 10,
-                questions: [
-                    {
-                        scenario: "An energy company's AI grid management system fails because the server hardware was insufficient.",
-                        question: "What resource allocation is REQUIRED for AIMS success per Clause 7.1?",
-                        options: ["Only financial budget", "Competent personnel, infrastructure, and resources", "External certification fees", "Marketing budget"],
-                        correct: 1,
-                        explanation: "The organization must determine and provide the resources needed for the establishment, implementation, maintenance and continual improvement of the AIMS.",
-                        clauseRef: "Clause 7.1: Resources"
-                    },
-                    {
-                        scenario: "A banking AI fraud detection system generates false alerts because the staff didn't know how to tune it.",
-                        question: "Personnel performing work affecting AI performance must demonstrate what?",
-                        options: ["AI-specific competence based on education, training or experience", "General IT skills only", "10+ years experience", "No training required"],
-                        correct: 0,
-                        explanation: "Clause 7.2 requires ensuring that persons are competent based on appropriate education, training, or experience.",
-                        clauseRef: "Clause 7.2: Competence"
-                    },
-                    {
-                        scenario: "An AI system lacks documentation proving it followed the required risk treatment steps.",
-                        question: "What record keeping is MANDATORY under ISO 42001?",
-                        options: ["All documented information required by the standard", "Employee personal emails", "Dream journals", "No records needed"],
-                        correct: 0,
-                        explanation: "The AIMS must include documented information required by the standard and determined by the organization as necessary.",
-                        clauseRef: "Clause 7.5.1: General Documentation"
-                    },
-                    {
-                        scenario: "Staff at a tech firm are unaware of how their daily coding affects the company's AI Policy.",
-                        question: "Clause 7.3 requires that persons doing work under the organization's control are aware of:",
-                        options: ["The AI policy and their contribution to AIMS effectiveness", "The CEO's salary", "Competitor source code", "The office cleaning schedule"],
-                        correct: 0,
-                        explanation: "Persons must be aware of the AI policy, their contribution, and the implications of not conforming to AIMS requirements.",
-                        clauseRef: "Clause 7.3: Awareness"
-                    },
-                    {
-                        scenario: "A media company uses AI content moderation but has no internal process for reporting model drift.",
-                        question: "What process is REQUIRED under Clause 7.4?",
-                        options: ["Internal and external communications relevant to the AIMS", "Daily status emails", "Monthly newsletters", "No communication needed"],
-                        correct: 0,
-                        explanation: "The organization must determine the internal and external communications relevant to the AIMS.",
-                        clauseRef: "Clause 7.4: Communication"
-                    },
-                    {
-                        scenario: "An organization is creating a new 'AI Ethics Procedure' document.",
-                        question: "When creating and updating documented information, what must be ensured?",
-                        options: ["Appropriate identification, description, and format", "It must be written in Python", "It must be over 50 pages long", "It must be stored on a public drive"],
-                        correct: 0,
-                        explanation: "Clause 7.5.2 requires proper identification, format, and review/approval for suitability.",
-                        clauseRef: "Clause 7.5.2: Creating and updating"
-                    },
-                    {
-                        scenario: "A company loses its AI risk assessment records due to a server crash with no backup.",
-                        question: "What control of documented information was violated?",
-                        options: ["Availability, suitability, and protection", "Storage in a physical safe", "Writing in encrypted code", "No control was violated"],
-                        correct: 0,
-                        explanation: "Documented information must be controlled to ensure it is available, suitable for use, and adequately protected.",
-                        clauseRef: "Clause 7.5.3: Control of documented information"
-                    },
-                    {
-                        scenario: "An AI startup has 5 data scientists but no one assigned to verify AIMS compliance.",
-                        question: "The organization must ensure that people are competent. If they aren't, what must happen?",
-                        options: ["Take actions to acquire competence and evaluate effectiveness", "Fire the staff immediately", "Wait for the next year", "Hire more junior developers"],
-                        correct: 0,
-                        explanation: "Where applicable, take actions to acquire the necessary competence and evaluate the effectiveness of the actions taken.",
-                        clauseRef: "Clause 7.2: Competence"
-                    },
-                    {
-                        scenario: "A firm's AI Policy is saved on a manager's laptop and no one else can see it.",
-                        question: "To conform to Clause 7.5.3, documented information must be:",
-                        options: ["Available and suitable for use, where and when it is needed", "Locked with a physical key", "Shared on social media", "Deleted every 30 days"],
-                        correct: 0,
-                        explanation: "Availability and suitability at the point of use is a core requirement of documentation control.",
-                        clauseRef: "Clause 7.5.3: Control of documented information"
-                    },
-                    {
-                        scenario: "An employee is building an AI tool but doesn't know the 'AI Objectives' of the company.",
-                        question: "Which Clause requires staff to know the AI Objectives?",
-                        options: ["Clause 7.3: Awareness", "Clause 4.1: Context", "Clause 8.1: Operations", "Clause 9.1: Monitoring"],
-                        correct: 0,
-                        explanation: "Awareness (7.3) specifically includes awareness of the AI objectives.",
-                        clauseRef: "Clause 7.3: Awareness"
-                    }
-                ]
-            },
-            4: {
-                title: "AI Operations",
-                clause: "Clause 8",
-                weight: 15,
-                questions: [
-                    {
-                        scenario: "A production AI system is deployed without testing, causing immediate system outages.",
-                        question: "What deployment control is ESSENTIAL under Clause 8.1?",
-                        options: ["Release and deployment procedures", "Public beta testing", "Employee voting", "Direct deployment"],
-                        correct: 0,
-                        explanation: "The organization must plan, implement and control the processes needed to meet requirements.",
-                        clauseRef: "Clause 8.1: Operational planning and control"
-                    },
-                    {
-                        scenario: "A Generative AI chatbot accidentally reveals confidential training data to a user.",
-                        question: "What lifecycle stage control failed in this scenario?",
-                        options: ["Data governance controls", "User interface design", "Marketing materials", "Hardware specs"],
-                        correct: 0,
-                        explanation: "Clause 8.1 requires controls over the AI system life cycle, including data collection and processing.",
-                        clauseRef: "Clause 8.1: Operational control"
-                    },
-                    {
-                        scenario: "An AI system's critical decisions (like surgical paths) lack any human review.",
-                        question: "What safeguard is ABSOLUTELY REQUIRED for high-risk AI decisions?",
-                        options: ["Human oversight mechanisms", "Additional AI validation", "User self-review", "No oversight needed"],
-                        correct: 0,
-                        explanation: "Annex A and Clause 8 suggest that human oversight is a critical control for high-impact AI systems.",
-                        clauseRef: "Clause 8.1: Operational Control"
-                    },
-                    {
-                        scenario: "A company uses a third-party AI component that introduces a security vulnerability.",
-                        question: "What verification is MANDATORY when using external AI providers?",
-                        options: ["Evidence of the provider's AI risk management", "License cost review", "Download speed test", "File size check"],
-                        correct: 0,
-                        explanation: "The organization must ensure that externally provided processes, products or services conform to requirements.",
-                        clauseRef: "Clause 8.4: External Providers"
-                    },
-                    {
-                        scenario: "An AI system is updated to 'improve performance', but this update introduces new bias.",
-                        question: "What change control is ESSENTIAL under Clause 8.1?",
-                        options: ["Planned change management process", "Immediate implementation", "Developer discretion", "No control needed"],
-                        correct: 0,
-                        explanation: "The organization shall control planned changes and review the consequences of unintended changes.",
-                        clauseRef: "Clause 8.1: Operational planning and control"
-                    },
-                    {
-                        scenario: "An AI system is retired, but the sensitive training data is left on an unsecured cloud bucket.",
-                        question: "What lifecycle phase control is MISSING?",
-                        options: ["Decommissioning procedures", "Data deletion only", "Hardware disposal", "No procedures needed"],
-                        correct: 0,
-                        explanation: "Operational control must extend to the decommissioning or end-of-life of the AI system.",
-                        clauseRef: "Clause 8.1: Operational Control"
-                    },
-                    {
-                        scenario: "A bank's AI loan denial system cannot provide a reason for its decision to the customer.",
-                        question: "What design requirement was likely missed according to ISO 42001 philosophy?",
-                        options: ["Risk-appropriate transparency and explainability", "Aesthetic appeal", "Speed optimization", "No requirements needed"],
-                        correct: 0,
-                        explanation: "ISO 42001 emphasizes transparency as a key control to manage AI risks.",
-                        clauseRef: "Clause 8.1: Operational Control"
-                    },
-                    {
-                        scenario: "A company switches to a new AI vendor, but doesn't check if the vendor follows ISO 42001.",
-                        question: "Clause 8.4 requires the organization to determine what for external providers?",
-                        options: ["Criteria for evaluation, selection, and monitoring", "The vendor's stock price", "The vendor's office location", "The vendor's marketing budget"],
-                        correct: 0,
-                        explanation: "The organization must establish criteria for evaluation, selection, monitoring of performance, and re-evaluation of external providers.",
-                        clauseRef: "Clause 8.4: Control of externally provided processes"
-                    },
-                    {
-                        scenario: "An AI model's performance starts to degrade (drift), but no one is monitoring it.",
-                        question: "What operational requirement addresses this 'live' performance issue?",
-                        options: ["Continuous monitoring and measurement", "Weekly manual checks", "Annual audits only", "User complaints only"],
-                        correct: 0,
-                        explanation: " Clause 8.1 requires processes to ensure that AI systems continue to operate as intended.",
-                        clauseRef: "Clause 8.1: Operational Control"
-                    },
-                    {
-                        scenario: "A developer changes an AI model's parameters in production without a record of why.",
-                        question: "To conform to 'Control of Changes', the organization must:",
-                        options: ["Review the consequences of unintended changes and take action", "Never change a model", "Only change models on weekends", "Let developers decide independently"],
-                        correct: 0,
-                        explanation: "The organization must review the consequences of unintended changes and take action to mitigate adverse effects.",
-                        clauseRef: "Clause 8.1: Operational planning and control"
-                    }
-                ]
-            },
-            5: {
-                title: "Evaluation & Audit",
-                clause: "Clause 9",
-                weight: 13,
-                questions: [
-                    {
-                        scenario: "Six months after deployment, an AI shows increasing bias in its outputs.",
-                        question: "What evaluation is REQUIRED by Clause 9.1?",
-                        options: ["Monitoring, measurement, analysis and evaluation", "Annual employee survey", "Office climate control", "No monitoring needed"],
-                        correct: 0,
-                        explanation: "The organization shall determine what needs to be monitored and measured to ensure AIMS effectiveness.",
-                        clauseRef: "Clause 9.1: Monitoring and evaluation"
-                    },
-                    {
-                        scenario: "An internal review discovers that AI risk decisions were made but never documented.",
-                        question: "What verification activity is MANDATORY at planned intervals?",
-                        options: ["Regular internal audits", "External audits only", "No audits required", "Social events instead"],
-                        correct: 0,
-                        explanation: "The organization shall conduct internal audits at planned intervals to provide information on whether the AIMS conforms to requirements.",
-                        clauseRef: "Clause 9.2.1: Internal Audit"
-                    },
-                    {
-                        scenario: "Leadership at a firm is unaware that customer complaints about AI have tripled.",
-                        question: "What management review input is ESSENTIAL under Clause 9.3?",
-                        options: ["Information on AIMS performance, including trends in nonconformities", "Sports results", "Weather patterns", "Recipe feedback"],
-                        correct: 0,
-                        explanation: "Management review must include information on AIMS performance, including trends in nonconformities and corrective actions.",
-                        clauseRef: "Clause 9.3.2: Management review inputs"
-                    },
-                    {
-                        scenario: "An audit reveals that the company hasn't checked if its AI risk treatments are actually working.",
-                        question: "What key indicator must be tracked per Clause 9.1?",
-                        options: ["The effectiveness of AI risk treatment", "Employee morale", "Office cleanliness", "Supply consumption"],
-                        correct: 0,
-                        explanation: "The organization must monitor and measure the effectiveness of the AI risk treatment.",
-                        clauseRef: "Clause 9.1: Monitoring, measurement, analysis and evaluation"
-                    },
-                    {
-                        scenario: "The internal auditor for the AIMS is the same person who developed the AI model.",
-                        question: "What internal audit principle does this violate?",
-                        options: ["Objectivity and impartiality of the audit process", "Speed of the audit", "Technical depth", "Cost of the audit"],
-                        correct: 0,
-                        explanation: "Clause 9.2.2 requires the selection of auditors to ensure objectivity and the impartiality of the audit process.",
-                        clauseRef: "Clause 9.2.2: Internal Audit Program"
-                    },
-                    {
-                        scenario: "Management conducts a review but doesn't document any of the decisions made.",
-                        question: "What is the requirement for Management Review outputs?",
-                        options: ["Retain documented information as evidence of results", "Verbal agreement is enough", "Save it only if a major change occurs", "Post it on the company blog"],
-                        correct: 0,
-                        explanation: "The organization shall retain documented information as evidence of the results of management reviews.",
-                        clauseRef: "Clause 9.3.3: Management review outputs"
-                    },
-                    {
-                        scenario: "An organization determines 'what' to monitor but hasn't decided 'how' or 'when'.",
-                        question: "Clause 9.1 requires the organization to determine:",
-                        options: ["The methods for monitoring, measurement, analysis and evaluation", "The developer's name", "The AI system's nickname", "The cloud provider's stock price"],
-                        correct: 0,
-                        explanation: "The organization must determine the methods for monitoring, measurement, analysis and evaluation to ensure valid results.",
-                        clauseRef: "Clause 9.1: Monitoring and measurement"
-                    },
-                    {
-                        scenario: "An internal audit finds that the AIMS is effective, but it doesn't match the requirements of ISO 42001.",
-                        question: "Internal audits must provide information on whether the AIMS conforms to:",
-                        options: ["The organization's own requirements AND the requirements of this document", "Only the organization's requirements", "Only the technical specs", "The vendor's manual"],
-                        correct: 0,
-                        explanation: "Audits check for conformity to both organizational requirements and the ISO 42001 standard.",
-                        clauseRef: "Clause 9.2.1: Internal Audit"
-                    },
-                    {
-                        scenario: "A company's management review only looks at financial gains from AI.",
-                        question: "Which of these is a MANDATORY management review input?",
-                        options: ["Changes in external and internal issues relevant to the AIMS", "Employee of the month", "New office layout", "Annual holiday list"],
-                        correct: 0,
-                        explanation: "Management review must consider changes in external and internal issues that are relevant to the AI management system.",
-                        clauseRef: "Clause 9.3.2: Management review inputs"
-                    },
-                    {
-                        scenario: "After monitoring, a company finds that its AI is biased but takes no further action.",
-                        question: "Clause 9.1 requires the organization to:",
-                        options: ["Evaluate the performance and effectiveness of the AIMS", "Just store the data", "Delete the monitoring logs", "Restart the AI"],
-                        correct: 0,
-                        explanation: "Monitoring is not enough; the organization must evaluate the results to determine AIMS effectiveness.",
-                        clauseRef: "Clause 9.1: Monitoring and evaluation"
-                    }
-                ]
-            },
-            6: {
-                title: "Improvement",
-                clause: "Clause 10",
-                weight: 10,
-                questions: [
-                    {
-                        scenario: "A major AI bias incident occurs, resulting in a significant regulatory fine.",
-                        question: "What is the FIRST step the organization must take under Clause 10.1?",
-                        options: ["React to the nonconformity, take action to control it, and deal with consequences", "Ignore it if it's the first time", "Blame the software vendor", "Delete the model records"],
-                        correct: 0,
-                        explanation: "When a nonconformity occurs, the organization must react, take action to control/correct it, and deal with consequences.",
-                        clauseRef: "Clause 10.1: Nonconformity and corrective action"
-                    },
-                    {
-                        scenario: "An audit identifies that the AI system's risk assessment is slow, though still compliant.",
-                        question: "Clause 10.2 requires the organization to:",
-                        options: ["Continually improve the suitability, adequacy and effectiveness of the AIMS", "Change the software", "Fire the auditor", "Stop the assessment"],
-                        correct: 0,
-                        explanation: "Continual improvement is a core requirement to enhance the performance of the AIMS.",
-                        clauseRef: "Clause 10.2: Continual improvement"
-                    },
-                    {
-                        scenario: "A root cause analysis reveals that AI errors are due to a lack of staff training.",
-                        question: "What must the organization do per Clause 10.1.b?",
-                        options: ["Evaluate the need for action to eliminate the cause so it does not recur", "Apply a temporary fix", "Blame the training department", "No action needed"],
-                        correct: 0,
-                        explanation: "The organization must evaluate the need for action to eliminate the causes of nonconformity so that it does not recur or occur elsewhere.",
-                        clauseRef: "Clause 10.1: Corrective action"
-                    },
-                    {
-                        scenario: "After taking corrective action for an AI failure, the company just moves on.",
-                        question: "What is the REQUIRED next step after implementing a corrective action?",
-                        options: ["Review the effectiveness of any corrective action taken", "Double the budget", "Hire a new CEO", "Update the website"],
-                        correct: 0,
-                        explanation: "The effectiveness of corrective actions must be reviewed to ensure the problem is truly solved.",
-                        clauseRef: "Clause 10.1: Nonconformity and corrective action"
-                    },
-                    {
-                        scenario: "An AI system update introduces new risks that weren't there before.",
-                        question: "If corrective actions require changes to the AIMS, what must happen?",
-                        options: ["Make changes to the AI management system if necessary", "Undo all changes", "Keep the new risks", "Only update the manual"],
-                        correct: 0,
-                        explanation: "Corrective actions may necessitate updates or changes to the management system itself.",
-                        clauseRef: "Clause 10.1: Corrective action"
-                    },
-                    {
-                        scenario: "A company finds a bug in its AI but decides not to document the fix.",
-                        question: "What documented information is REQUIRED for Clause 10.1?",
-                        options: ["Nature of nonconformities and results of corrective action", "The code of the bug", "The name of the person who found it", "Nothing is required"],
-                        correct: 0,
-                        explanation: "Documented information must be retained as evidence of the nature of nonconformities and the results of corrective action.",
-                        clauseRef: "Clause 10.1: Nonconformity and corrective action"
-                    },
-                    {
-                        scenario: "A company wants to wait until the end of the year to fix a critical AI nonconformity.",
-                        question: "Clause 10.1 requires that corrective actions be:",
-                        options: ["Appropriate to the effects of the nonconformities encountered", "Delayed until the budget is ready", "Done only by external consultants", "Ignored if the system still runs"],
-                        correct: 0,
-                        explanation: "Corrective actions shall be appropriate to the effects of the nonconformities encountered.",
-                        clauseRef: "Clause 10.1: Nonconformity and corrective action"
-                    },
-                    {
-                        scenario: "An AI model is found to be noncompliant, and the fix is to simply restart the server.",
-                        question: "ISO 42001 says you must evaluate the need to 'eliminate the cause'. Is restarting the server enough?",
-                        options: ["No, you must address the root cause to prevent recurrence", "Yes, if it works", "Only if the customer is happy", "Only if it happens daily"],
-                        correct: 0,
-                        explanation: "The standard requires eliminating the cause of the nonconformity to prevent recurrence.",
-                        clauseRef: "Clause 10.1: Nonconformity and corrective action"
-                    },
-                    {
-                        scenario: "Through management review, a company identifies a way to make AI more transparent.",
-                        question: "This initiative falls under which Clause?",
-                        options: ["Clause 10.2: Continual improvement", "Clause 4.1: Context", "Clause 7.2: Competence", "Clause 5.2: Policy"],
-                        correct: 0,
-                        explanation: "Improving the system's effectiveness and suitability is the definition of continual improvement.",
-                        clauseRef: "Clause 10.2: Continual improvement"
-                    },
-                    {
-                        scenario: "A firm fixes an AI nonconformity but doesn't check if similar systems have the same problem.",
-                        question: "Clause 10.1 requires checking if:",
-                        options: ["Similar nonconformities exist, or could potentially occur", "The competitor has the same bug", "The bug is famous", "The software is still under warranty"],
-                        correct: 0,
-                        explanation: "Corrective action evaluation includes determining if similar nonconformities exist or could potentially occur.",
-                        clauseRef: "Clause 10.1: Nonconformity and corrective action"
-                    }
-                ]
-            },
-            7: {
-                title: "Annex A: Lifecycle & Data",
-                clause: "Controls A.1 - A.10",
-                weight: 15,
-                questions: [
-                    {
-                        scenario: "An AI model's accuracy drops significantly after deployment due to 'data drift'.",
-                        question: "Which lifecycle control is REQUIRED for deployed AI systems?",
-                        options: ["Performance monitoring and maintenance", "Annual repainting", "Weekly polishing", "No monitoring needed"],
-                        correct: 0,
-                        explanation: "Annex A controls require monitoring the performance of AI systems in production.",
-                        clauseRef: "Annex A: AI System Life Cycle"
-                    },
-                    {
-                        scenario: "A fraud detection AI is retrained, but the new version is less accurate and more biased.",
-                        question: "What process control is ESSENTIAL during retraining?",
-                        options: ["Validation and verification procedures", "Office cleaning schedule", "Coffee restocking", "No validation needed"],
-                        correct: 0,
-                        explanation: "Retraining and updates must be validated to ensure they meet objectives and don't introduce new risks.",
-                        clauseRef: "Annex A: AI System Life Cycle"
-                    },
-                    {
-                        scenario: "An AI system uses training data that is 5 years old and contains outdated social biases.",
-                        question: "What data governance is MANDATORY?",
-                        options: ["Ensuring data quality and relevance throughout the lifecycle", "Delete after single use", "Share with all partners", "No governance required"],
-                        correct: 0,
-                        explanation: "Annex A controls emphasize the quality, provenance, and relevance of data used in AI.",
-                        clauseRef: "Annex A: Data for AI Systems"
-                    },
-                    {
-                        scenario: "An AI model has 10 different versions in production, leading to inconsistent results for users.",
-                        question: "What management practice is MISSING?",
-                        options: ["Model versioning and traceability", "Naming conventions only", "Color coding", "No management needed"],
-                        correct: 0,
-                        explanation: "Traceability and version control are key requirements for managing AI models.",
-                        clauseRef: "Annex A: AI System Life Cycle"
-                    },
-                    {
-                        scenario: "A company uses a dataset for AI training without checking if the data was legally obtained.",
-                        question: "Which Annex A area covers this issue?",
-                        options: ["Data for AI systems (Provenance and Acquisition)", "Hardware maintenance", "User interface design", "Marketing"],
-                        correct: 0,
-                        explanation: "The standard requires ensuring that data used for AI is acquired legally and ethically.",
-                        clauseRef: "Annex A: Data for AI Systems"
-                    },
-                    {
-                        scenario: "An AI system is being developed, but the developers haven't documented the data sources.",
-                        question: "Documentation of data provenance is necessary for:",
-                        options: ["Traceability and transparency", "Saving disk space", "Speeding up the model", "Reducing cloud costs"],
-                        correct: 0,
-                        explanation: "Knowing the origin of data (provenance) is vital for understanding bias and ensuring quality.",
-                        clauseRef: "Annex A: Data for AI Systems"
-                    },
-                    {
-                        scenario: "An AI system is performing 'well' but its internal logic is a 'black box' that no one can explain.",
-                        question: "To improve transparency, what should be provided?",
-                        options: ["Information on the system's capabilities and limitations", "Full source code for every user", "The developer's home address", "Nothing"],
-                        correct: 0,
-                        explanation: "Transparency controls focus on providing users and stakeholders with clear info on how the AI works and its limits.",
-                        clauseRef: "Annex A: Transparency"
-                    },
-                    {
-                        scenario: "A company is buying a pre-trained AI model from a startup.",
-                        question: "What Annex A control applies to this situation?",
-                        options: ["External resources for AI systems", "Office furniture supply", "Janitorial services", "Electricity provision"],
-                        correct: 0,
-                        explanation: "Annex A includes controls for managing external resources, including pre-trained models and datasets.",
-                        clauseRef: "Annex A: External Resources"
-                    },
-                    {
-                        scenario: "An AI system is used for recruitment, but it doesn't log the reasons why it rejects a candidate.",
-                        question: "This lack of logging affects which core principle?",
-                        options: ["Traceability and accountability", "System speed", "Visual design", "Server uptime"],
-                        correct: 0,
-                        explanation: "Logging and traceability are essential to investigate issues and ensure accountability in AI decisions.",
-                        clauseRef: "Annex A: AI System Life Cycle"
-                    },
-                    {
-                        scenario: "A company is cleaning a dataset for AI and removes all 'outliers' without documenting why.",
-                        question: "Why is documentation of data preparation important?",
-                        options: ["To ensure the process is repeatable and understandable", "To make the file larger", "To confuse competitors", "It is not important"],
-                        correct: 0,
-                        explanation: "Data preparation steps (cleaning, labeling) must be documented to ensure the integrity of the AI model.",
-                        clauseRef: "Annex A: Data for AI Systems"
-                    }
-                ]
-            },
-            8: {
-                title: "Annex A: Society & Transparency",
-                clause: "External & Ethical Controls",
-                weight: 15,
-                questions: [
-                    {
-                        scenario: "A Generative AI creates a 'deepfake' video that harms a person's reputation.",
-                        question: "What control is required for content generated by AI?",
-                        options: ["Transparency and identifying AI-generated content", "Video watermarking only", "Speed controls", "No controls needed"],
-                        correct: 0,
-                        explanation: "Annex A controls recommend identifying content that is AI-generated to prevent deception.",
-                        clauseRef: "Annex A: Information for interested parties"
-                    },
-                    {
-                        scenario: "A company's AI system is used in a country with strict new AI regulations, but the system doesn't comply.",
-                        question: "This issue relates to which part of the AIMS?",
-                        options: ["Legal and regulatory requirements", "Employee salaries", "Physical security", "Software updates"],
-                        correct: 0,
-                        explanation: "The AIMS must identify and comply with applicable legal and regulatory requirements.",
-                        clauseRef: "Clause 4.2: Interested parties / Annex A"
-                    },
-                    {
-                        scenario: "An AI system provides 'medical advice' to users without stating it is not a doctor.",
-                        question: "What is the transparency requirement here?",
-                        options: ["Disclosing that the user is interacting with an AI system", "Providing the AI's source code", "Charging a fee", "Giving the AI a human name"],
-                        correct: 0,
-                        explanation: "Users should be made aware when they are interacting with an AI system.",
-                        clauseRef: "Annex A: Transparency"
-                    },
-                    {
-                        scenario: "An AI system has a significant impact on the environment due to high energy consumption.",
-                        question: "What should the organization do according to ISO 42001's broader goals?",
-                        options: ["Consider and manage the environmental impact of the AI system", "Ignore it if it's profitable", "Only use AI at night", "Wait for cheaper electricity"],
-                        correct: 0,
-                        explanation: "The standard encourages assessing impacts on individuals, society, and the environment.",
-                        clauseRef: "Clause 6.1.2: AI Risk Assessment"
-                    },
-                    {
-                        scenario: "A public agency uses AI to assign social benefits, but the criteria are hidden from the public.",
-                        question: "What transparency control is likely being violated?",
-                        options: ["Provision of information to interested parties", "Secretive decision making", "Competitive advantage", "None"],
-                        correct: 0,
-                        explanation: "Transparency involves providing relevant information to interested parties about how the AI makes decisions.",
-                        clauseRef: "Annex A: Information for interested parties"
-                    },
-                    {
-                        scenario: "An AI system is accused of 'social engineering' by manipulating user behavior.",
-                        question: "Which Annex A area addresses the misuse of AI?",
-                        options: ["Responsible use of AI systems", "Marketing tactics", "UI design", "Server architecture"],
-                        correct: 0,
-                        explanation: "The standard includes controls for the responsible use and deployment of AI.",
-                        clauseRef: "Annex A: Responsible use"
-                    },
-                    {
-                        scenario: "A company doesn't have a way for users to complain about incorrect AI decisions.",
-                        question: "What mechanism should be in place?",
-                        options: ["A process for receiving and addressing feedback or complaints", "An automatic 'delete' button", "A legal disclaimer only", "A busy signal"],
-                        correct: 0,
-                        explanation: "The organization should provide channels for interested parties to report concerns or issues with the AI system.",
-                        clauseRef: "Annex A: Communication"
-                    },
-                    {
-                        scenario: "An AI system is used for critical infrastructure but has no 'kill switch' or manual override.",
-                        question: "This violates which control principle?",
-                        options: ["Human oversight and control", "System speed", "Autonomous power", "Modern design"],
-                        correct: 0,
-                        explanation: "Annex A emphasizes the importance of human oversight and the ability to intervene in AI operations.",
-                        clauseRef: "Annex A: Human Oversight"
-                    },
-                    {
-                        scenario: "A company's AI system is biased because the developers themselves have unconscious biases.",
-                        question: "How can the organization address this through Clause 7.2?",
-                        options: ["Provide awareness and training on AI bias to developers", "Only hire robots", "Fire all developers", "Stop building AI"],
-                        correct: 0,
-                        explanation: "Awareness and competence training are key to reducing human-introduced bias in AI systems.",
-                        clauseRef: "Clause 7.2: Competence"
-                    },
-                    {
-                        scenario: "An organization wants to claim its AI is 'Trustworthy'.",
-                        question: "Following ISO 42001 helps achieve this by focusing on:",
-                        options: ["Managing risks and being transparent", "Having the fastest AI", "Using the most expensive hardware", "Having a good logo"],
-                        correct: 0,
-                        explanation: "Trustworthiness is built through robust risk management, transparency, and accountability.",
-                        clauseRef: "Introduction / General Principles"
-                    }
-                ]
-            }
-        };
+        const questionBank = [
+            // DOMAIN 1: LEADERSHIP & CONTEXT
+            { domain: "Leadership & Foundation", scenario: "A bank deploys an AI credit scoring system that unfairly denies loans to certain demographics.", question: "What is the PRIMARY leadership responsibility?", options: ["Delegate all decisions to data scientists", "Ensure AI ethical principles guide all decisions", "Focus only on profitability targets", "Approve all AI model code changes"], correct: 1, explanation: "Top management must ensure that the AI policy and objectives (including ethical considerations) are established and compatible with the strategic direction." },
+            { domain: "Leadership & Foundation", scenario: "Healthcare provider implements AI diagnostic tools without clear policies.", question: "What MUST senior management establish first?", options: ["Detailed technical specifications", "AI governance framework and objectives", "Employee training programs", "Vendor contracts"], correct: 1, explanation: "Clause 5.1.2 requires leadership to ensure the AI policy and AI objectives are established." },
+            { domain: "Leadership & Foundation", scenario: "Manufacturing firm uses AI for quality control with biased results.", question: "Who bears ULTIMATE accountability for AI outcomes?", options: ["AI development team", "Executive leadership", "External auditors", "Quality assurance manager"], correct: 1, explanation: "Top management is ultimately responsible for the effectiveness of the AI Management System." },
+            { domain: "Leadership & Foundation", scenario: "E-commerce platform's AI recommendations discriminate by location.", question: "What organizational structure is ESSENTIAL?", options: ["Flat organizational chart", "Defined AI roles and responsibilities", "Unlimited developer autonomy", "External consultant oversight"], correct: 1, explanation: "Top management must assign and communicate responsibilities and authorities for relevant roles." },
+            { domain: "Leadership & Foundation", scenario: "Telecom AI chatbot violates privacy regulations.", question: "What policy communication is MANDATORY?", options: ["Internal memo only", "To all relevant stakeholders", "Press release only", "No communication needed"], correct: 1, explanation: "The AI policy must be available to interested parties and communicated within the organization." },
+            
+            // DOMAIN 2: RISK MANAGEMENT
+            { domain: "Risk Management", scenario: "Hiring AI tool systematically disadvantages women applicants.", question: "Risk assessment must evaluate impact on what?", options: ["Server costs only", "Individuals, society, and environment", "Electricity usage", "Office space"], correct: 1, explanation: "Clause 6.1.2 requires assessing potential consequences on individuals, society, and the environment." },
+            { domain: "Risk Management", scenario: "Autonomous vehicle AI strikes pedestrian in complex scenario.", question: "What risk criterion takes HIGHEST priority?", options: ["Processing speed", "Human safety and rights", "Development budget", "Data storage"], correct: 1, explanation: "Risks to health, safety, and fundamental rights are paramount in ISO 42001." },
+            { domain: "Risk Management", scenario: "AI credit scoring rejects creditworthy minority applicants.", question: "Risk treatment must be what?", options: ["Always maximum mitigation", "Proportionate to identified risk level", "No treatment required", "Match competitors only"], correct: 1, explanation: "The goal of risk treatment is to reduce risk to an acceptable level proportionate to the threat." },
+            { domain: "Risk Management", scenario: "Facial recognition misidentifies people of color at high rates.", question: "What documentation is REQUIRED post-assessment?", options: ["Employee lunch menus", "Risk assessment results and decisions", "Weather logs", "Nothing required"], correct: 1, explanation: "The organization must retain documented information about the AI risk assessment and treatment results." },
+            { domain: "Risk Management", scenario: "Social media AI amplifies misinformation.", question: "What risk management principle is FUNDAMENTAL?", options: ["Proactive and continual process", "Reactive after incidents", "Delegate to users", "Ignore low-probability risks"], correct: 0, explanation: "Risk management is a continual activity throughout the AI system life cycle." },
 
-        // Module data with scenario-based questions
-        const modules = {
-            1: {
-                title: "Context of the Organization",
-                clause: "Clauses 4.1 - 4.4",
-                weight: 12,
-                questions: [
-                    {
-                        scenario: "You are implementing an AI management system for a healthcare organization that develops AI diagnostic tools. The organization operates in multiple countries with varying regulations on medical AI.",
-                        question: "According to clause 4.1, what should the organization determine first when understanding its context for the AI management system?",
-                        options: [
-                            "The financial resources available for AI development",
-                            "External and internal issues relevant to its purpose and affecting its ability to achieve intended results",
-                            "The specific AI algorithms to be used in diagnostic tools",
-                            "The marketing strategy for AI diagnostic products"
-                        ],
-                        correct: 1,
-                        explanation: "Clause 4.1 requires the organization to determine external and internal issues that are relevant to its purpose and that affect its ability to achieve the intended result(s) of its AI management system. This is the foundation for establishing the context before addressing specific AI implementations.",
-                        clauseRef: "Clause 4.1: Understanding the organization and its context"
-                    },
-                    {
-                        scenario: "A financial services company is implementing an AI system for credit scoring. The system will process personal financial data from customers across Europe.",
-                        question: "According to clause 4.2, which of the following would be considered an 'interested party' whose needs and expectations must be understood?",
-                        options: [
-                            "The company's shareholders",
-                            "Regulatory authorities in the financial sector",
-                            "Customers, regulatory authorities, data protection agencies, and employees",
-                            "The AI system developers"
-                        ],
-                        correct: 2,
-                        explanation: "Clause 4.2 defines interested parties as persons or organizations that can affect, be affected by, or perceive themselves to be affected by a decision or activity. For an AI credit scoring system, this includes customers (data subjects), regulators, data protection agencies, and employees involved in the process.",
-                        clauseRef: "Clause 4.2: Understanding the needs and expectations of interested parties"
-                    },
-                    {
-                        scenario: "An e-commerce company wants to implement AI for personalized recommendations and fraud detection across its global platforms.",
-                        question: "When determining the scope of the AI management system according to clause 4.3, what must the organization consider?",
-                        options: [
-                            "The technical specifications of the AI algorithms",
-                            "The budget allocated for AI implementation",
-                            "The external and internal issues from clause 4.1 and requirements from clause 4.2",
-                            "The AI system's expected profitability"
-                        ],
-                        correct: 2,
-                        explanation: "Clause 4.3 specifies that when determining the scope, the organization shall consider the external and internal issues referred to in 4.1 and the requirements referred to in 4.2. The scope establishes boundaries and applicability of the AI management system.",
-                        clauseRef: "Clause 4.3: Determining the scope of the AI management system"
-                    },
-                    {
-                        scenario: "A manufacturing company is implementing an AI-powered predictive maintenance system for its production lines. The system will use sensor data and machine learning to predict equipment failures.",
-                        question: "According to clause 4.1, which role from ISO/IEC 22989 would this organization primarily take regarding this AI system?",
-                        options: [
-                            "AI subject",
-                            "AI provider and AI user",
-                            "AI producer and AI customer",
-                            "Relevant authority"
-                        ],
-                        correct: 1,
-                        explanation: "The organization is both providing the AI system (as it's implementing it for its own use) and using it (as the beneficiary of the predictive maintenance insights). According to ISO/IEC 22989 referenced in clause 4.1 Note 1, organizations can take multiple roles including AI provider and AI user.",
-                        clauseRef: "Clause 4.1 Note 1: Understanding organization roles relative to AI systems"
-                    },
-                    {
-                        scenario: "A government agency is developing an AI system for public service allocation. The system will determine eligibility for social benefits based on various criteria.",
-                        question: "According to clause 4.2, what must the organization determine regarding interested parties' requirements?",
-                        options: [
-                            "The legal requirements from regulators",
-                            "Which requirements will be addressed through the AI management system",
-                            "The technical requirements from AI system developers",
-                            "The financial requirements from budget authorities"
-                        ],
-                        correct: 1,
-                        explanation: "Clause 4.2 requires the organization to determine which of the interested parties' requirements will be addressed through the AI management system. Not all requirements may fall within the scope of the AI management system.",
-                        clauseRef: "Clause 4.2: Understanding the needs and expectations of interested parties"
-                    },
-                    {
-                        scenario: "An autonomous vehicle company is establishing its AI management system scope. Their AI systems include perception algorithms, decision-making systems, and control systems.",
-                        question: "According to clause 4.3, what must be available as documented information?",
-                        options: [
-                            "The AI algorithms source code",
-                            "The test results of AI systems",
-                            "The scope of the AI management system",
-                            "The financial projections for AI development"
-                        ],
-                        correct: 2,
-                        explanation: "Clause 4.3 explicitly states: 'The scope shall be available as documented information.' This is a mandatory requirement for the AI management system.",
-                        clauseRef: "Clause 4.3: Determining the scope of the AI management system"
-                    },
-                    {
-                        scenario: "A technology startup is developing an AI-powered recruitment tool that screens resumes and conducts initial candidate assessments.",
-                        question: "According to clause 4.1, which external issue should the organization consider when understanding its context?",
-                        options: [
-                            "The competitive landscape for recruitment tools",
-                            "The cost of AI development tools",
-                            "Applicable legal requirements, including prohibited uses of AI",
-                            "The office location of the startup"
-                        ],
-                        correct: 2,
-                        explanation: "Clause 4.1 Note 2 lists external context considerations including 'applicable legal requirements, including prohibited uses of AI'. For an AI recruitment tool, this would include anti-discrimination laws, data protection regulations, and any jurisdiction-specific AI regulations.",
-                        clauseRef: "Clause 4.1 Note 2: External context considerations"
-                    },
-                    {
-                        scenario: "A multinational corporation is implementing an AI management system that covers only its European operations initially, with plans to expand later.",
-                        question: "According to clause 4.3, what does the scope of the AI management system determine?",
-                        options: [
-                            "The technical architecture of AI systems",
-                            "The organization's activities with respect to this document's requirements on the AI management system",
-                            "The budget for AI implementation",
-                            "The timeline for AI deployment"
-                        ],
-                        correct: 1,
-                        explanation: "Clause 4.3 states: 'The scope of the AI management system shall determine the organization's activities with respect to this document's requirements on the AI management system, leadership, planning, support, operation, performance, evaluation, improvement, controls and objectives.'",
-                        clauseRef: "Clause 4.3: Determining the scope of the AI management system"
-                    },
-                    {
-                        scenario: "An educational institution is implementing an AI system for personalized learning paths. The system will process student performance data and personal information.",
-                        question: "According to clause 4.1, what internal issue should the organization consider?",
-                        options: [
-                            "The cost of the AI system",
-                            "The technical skills of IT staff",
-                            "Organizational context, governance, objectives, policies and procedures",
-                            "The physical location of servers"
-                        ],
-                        correct: 2,
-                        explanation: "Clause 4.1 Note 2 includes 'organizational context, governance, objectives, policies and procedures' as internal context considerations. These internal factors influence the establishment and implementation of the AI management system.",
-                        clauseRef: "Clause 4.1 Note 2: Internal context considerations"
-                    },
-                    {
-                        scenario: "A retail company is implementing AI for inventory management and customer behavior prediction across its 200 stores.",
-                        question: "According to clause 4.4, what must the organization establish, implement, maintain, and continually improve?",
-                        options: [
-                            "The AI algorithms for inventory prediction",
-                            "The data collection systems",
-                            "An AI management system, including the processes needed and their interactions",
-                            "The user interfaces for store managers"
-                        ],
-                        correct: 2,
-                        explanation: "Clause 4.4 requires the organization to establish, implement, maintain, continually improve and document an AI management system, including the processes needed and their interactions, in accordance with the requirements of this document.",
-                        clauseRef: "Clause 4.4: AI management system"
-                    }
-                ]
-            },
-            2: {
-                title: "Leadership",
-                clause: "Clauses 5.1 - 5.3",
-                weight: 10,
-                questions: [
-                    {
-                        scenario: "As the newly appointed CEO of a fintech company implementing AI for fraud detection, you need to demonstrate leadership for the AI management system.",
-                        question: "According to clause 5.1, which of the following is NOT a required demonstration of leadership and commitment by top management?",
-                        options: [
-                            "Ensuring the AI policy and AI objectives are established and compatible with strategic direction",
-                            "Directing and supporting persons to contribute to the effectiveness of the AI management system",
-                            "Personally writing all AI algorithm code",
-                            "Ensuring the integration of AI management system requirements into business processes"
-                        ],
-                        correct: 2,
-                        explanation: "Clause 5.1 outlines specific leadership requirements, but personally writing AI code is not among them. Leadership focuses on policy, integration, resources, communication, and support rather than technical implementation.",
-                        clauseRef: "Clause 5.1: Leadership and commitment"
-                    },
-                    {
-                        scenario: "The board of a healthcare AI company is developing an AI policy for their diagnostic tools.",
-                        question: "According to clause 5.2, what must the AI policy include?",
-                        options: [
-                            "Technical specifications of AI systems",
-                            "The budget for AI development",
-                            "A commitment to meet applicable requirements and continual improvement",
-                            "The names of AI system developers"
-                        ],
-                        correct: 2,
-                        explanation: "Clause 5.2 specifies that the AI policy must include a commitment to meet applicable requirements and a commitment to continual improvement of the AI management system, among other elements.",
-                        clauseRef: "Clause 5.2: AI policy"
-                    }
-                ]
-            }
-        };
+            // DOMAIN 3: OPERATIONS & LIFECYCLE
+            { domain: "Operations & Lifecycle", scenario: "Deployed AI model accuracy drops from 95% to 82% in 4 months.", question: "What control is REQUIRED?", options: ["Model performance monitoring", "Annual repainting", "Weekly polishing", "No monitoring needed"], correct: 0, explanation: "Performance monitoring is required to detect model drift and ensure continued suitability." },
+            { domain: "Operations & Lifecycle", scenario: "Retrained fraud detection AI performs worse than original.", question: "What process control is ESSENTIAL?", options: ["Retraining validation procedures", "Office cleaning schedule", "Coffee restocking", "No validation needed"], correct: 0, explanation: "Any significant change or retraining must be validated before production deployment." },
+            { domain: "Operations & Lifecycle", scenario: "Production AI deployed without testing causes outages.", question: "What deployment control is ESSENTIAL?", options: ["Release and deployment procedures", "Public beta testing", "Employee voting", "Direct deployment"], correct: 0, explanation: "Operational control requires planned processes for release and deployment." },
+            { domain: "Operations & Lifecycle", scenario: "AI model versions conflict causing inconsistent predictions.", question: "What management practice is MISSING?", options: ["Model versioning and traceability", "Naming conventions only", "Color coding", "No management needed"], correct: 0, explanation: "Traceability and version control are key requirements for managing AI model lifecycles." },
 
-        // Additional modules would be defined similarly with 10 questions each
-        // For brevity in this example, I've shown 2 modules with sample questions
-        // In a full implementation, all 8 modules would have 10 questions each
+            // DOMAIN 4: THIRD-PARTY & DATA
+            { domain: "Third-Party & Data", scenario: "Cloud AI vendor data breach compromises customer PII.", question: "What third-party control is REQUIRED?", options: ["Vendor selection and monitoring criteria", "Annual gifts", "Joint vacations", "No oversight needed"], correct: 0, explanation: "Clause 8.4 requires evaluation and monitoring of all external AI providers." },
+            { domain: "Third-Party & Data", scenario: "AI uses 2-year-old training data causing outdated predictions.", question: "What governance is MANDATORY?", options: ["Data quality management throughout lifecycle", "Delete after single use", "Share with all partners", "No governance required"], correct: 0, explanation: "The standard requires data to be high-quality, relevant, and well-governed." },
+            { domain: "Third-Party & Data", scenario: "Third-party AI component introduces security vulnerability.", question: "What verification is MANDATORY?", options: ["Supplier AI risk management evidence", "License cost review", "Download speed test", "File size check"], correct: 0, explanation: "You must verify that external partners manage AI risks in alignment with your AIMS." },
 
-        // Quiz state management
-        let currentModule = 1;
-        let currentQuestionIndex = 0;
-        let userAnswers = [];
+            // DOMAIN 5: PERFORMANCE & IMPROVEMENT
+            { domain: "Performance & Improvement", scenario: "Internal review finds undocumented AI risk decisions.", question: "What verification activity is MANDATORY?", options: ["Regular internal audits", "External audits only", "No audits required", "Social events instead"], correct: 0, explanation: "Internal audits at planned intervals are required to ensure the system is implemented and maintained." },
+            { domain: "Performance & Improvement", scenario: "Customer satisfaction with AI decisions drops 25%.", question: "What key indicator must be tracked?", options: ["AI risk treatment effectiveness", "Employee morale", "Office cleanliness", "Supply consumption"], correct: 0, explanation: "You must monitor indicators related to the effectiveness of the system and its risk treatments." },
+            { domain: "Performance & Improvement", scenario: "AI bias incident causes regulatory fine.", question: "What is required after a nonconformity?", options: ["Addressing the issue and taking corrective action", "Ignoring minor issues", "Blaming vendors", "No action needed"], correct: 0, explanation: "Clause 10.1 requires reacting to nonconformities and eliminating root causes." },
+
+            // DOMAIN 6: AI-SPECIFIC CONTROLS
+            { domain: "AI-Specific Controls", scenario: "Critical AI decisions lack human review.", question: "What safeguard is ABSOLUTELY REQUIRED?", options: ["Human oversight mechanisms", "Additional AI validation", "User self-review", "No oversight needed"], correct: 0, explanation: "High-risk decisions require human-in-the-loop oversight to ensure safety and fairness." },
+            { domain: "AI-Specific Controls", scenario: "AI system lacks explainability for loan denials.", question: "What is required according to transparency principles?", options: ["Appropriate transparency levels", "Full source code disclosure", "No explanation needed", "Marketing explanations"], correct: 0, explanation: "The system must provide enough transparency for users to understand how outputs are generated." },
+            { domain: "AI-Specific Controls", scenario: "Generative AI creates deepfake videos harming reputation.", question: "What control is required for content generation?", options: ["Transparency and identification of AI-generated content", "Watermarking only", "Speed controls", "No controls needed"], correct: 0, explanation: "Users must be able to identify that content was generated by an AI." }
+        ];
+
+        let activeQuestions = [];
+        let currentIndex = 0;
         let score = 0;
-        let quizStarted = false;
+        let canAnswer = true;
 
-        // DOM elements
-        const mainMenu = document.getElementById('main-menu');
-        const quizContainer = document.getElementById('quiz-container');
-        const resultsContainer = document.getElementById('results-container');
-        const currentQuestionEl = document.getElementById('current-question');
-        const totalQuestionsEl = document.getElementById('total-questions');
-        const moduleTitleEl = document.getElementById('module-title');
-        const progressFillEl = document.getElementById('progress-fill');
-        const scenarioEl = document.getElementById('scenario');
-        const questionTextEl = document.getElementById('question-text');
-        const optionsContainerEl = document.getElementById('options-container');
-        const explanationContainerEl = document.getElementById('explanation-container');
-        const explanationTextEl = document.getElementById('explanation-text');
-        const clauseRefEl = document.getElementById('clause-reference');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const scorePercentEl = document.getElementById('score-percent');
-        const resultMessageEl = document.getElementById('result-message');
+        // Init: Create Category Cards
+        function initDashboard() {
+            const domains = [...new Set(questionBank.map(q => q.domain))];
+            const list = document.getElementById('category-list');
+            list.innerHTML = '';
 
-        function startQuiz(moduleId) {
-            currentModule = moduleId;
-            currentQuestionIndex = 0;
-            userAnswers = new Array(modules[moduleId].questions.length).fill(null);
-            score = 0;
-            quizStarted = true;
-            
-            // Update UI
-            mainMenu.style.display = 'none';
-            quizContainer.style.display = 'block';
-            resultsContainer.style.display = 'none';
-            
-            moduleTitleEl.textContent = modules[moduleId].title;
-            totalQuestionsEl.textContent = modules[moduleId].questions.length;
-            
-            loadQuestion();
+            domains.forEach(d => {
+                const qCount = questionBank.filter(q => q.domain === d).length;
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div>
+                        <h3>${d}</h3>
+                        <p>Focus on ${d.toLowerCase()} requirements and scenario testing.</p>
+                    </div>
+                    <div class="card-stats">
+                        <span><i class="fas fa-list-check"></i> ${qCount} Questions</span>
+                        <span style="color: var(--accent-primary)">Start <i class="fas fa-chevron-right"></i></span>
+                    </div>
+                `;
+                card.onclick = () => startQuiz(d);
+                list.appendChild(card);
+            });
         }
 
-        function startFullExam() {
-            // Combine questions from all modules for full exam
-            // In a full implementation, this would combine all 80 questions
-            alert("Full exam feature would combine all 8 modules (80 questions total). For this demo, starting Module 1 instead.");
-            startQuiz(1);
+        function startQuiz(domain) {
+            activeQuestions = questionBank.filter(q => q.domain === domain);
+            currentIndex = 0;
+            score = 0;
+            
+            document.getElementById('dashboard').style.display = 'none';
+            document.getElementById('site-header').style.display = 'none';
+            document.getElementById('quiz-screen').style.display = 'block';
+            document.getElementById('active-category').innerText = domain;
+            
+            loadQuestion();
         }
 
         function loadQuestion() {
-            const question = modules[currentModule].questions[currentQuestionIndex];
+            canAnswer = true;
+            const q = activeQuestions[currentIndex];
             
-            // Update progress
-            currentQuestionEl.textContent = currentQuestionIndex + 1;
-            const progressPercent = ((currentQuestionIndex) / modules[currentModule].questions.length) * 100;
-            progressFillEl.style.width = `${progressPercent}%`;
-            
-            // Update question content
-            scenarioEl.textContent = question.scenario;
-            questionTextEl.textContent = question.question;
-            
-            // Clear and create options
-            optionsContainerEl.innerHTML = '';
-            const letters = ['A', 'B', 'C', 'D'];
-            
-            question.options.forEach((option, index) => {
-                const optionEl = document.createElement('div');
-                optionEl.className = 'option';
-                if (userAnswers[currentQuestionIndex] === index) {
-                    optionEl.classList.add('selected');
-                }
-                
-                optionEl.innerHTML = `
-                    <div class="option-letter">${letters[index]}</div>
-                    <div class="option-text">${option}</div>
-                `;
-                
-                optionEl.addEventListener('click', () => selectOption(index));
-                optionsContainerEl.appendChild(optionEl);
+            document.getElementById('q-counter').innerText = `Question ${currentIndex + 1}/${activeQuestions.length}`;
+            document.getElementById('progress-bar').style.width = `${((currentIndex) / activeQuestions.length) * 100}%`;
+            document.getElementById('scenario-text').innerText = q.scenario;
+            document.getElementById('question-body').innerText = q.question;
+            document.getElementById('explanation-box').style.display = 'none';
+            document.getElementById('next-btn').disabled = true;
+
+            const grid = document.getElementById('options-grid');
+            grid.innerHTML = '';
+
+            q.options.forEach((opt, i) => {
+                const div = document.createElement('div');
+                div.className = 'option';
+                div.innerHTML = `<span style="margin-right: 15px; opacity: 0.5">0${i+1}</span> ${opt}`;
+                div.onclick = () => checkAnswer(i, div);
+                grid.appendChild(div);
             });
-            
-            // Hide explanation initially
-            explanationContainerEl.style.display = 'none';
-            
-            // Update navigation buttons
-            prevBtn.disabled = currentQuestionIndex === 0;
-            
-            // Update next button text for last question
-            if (currentQuestionIndex === modules[currentModule].questions.length - 1) {
-                nextBtn.textContent = 'Finish Exam';
-            } else {
-                nextBtn.textContent = 'Next';
-            }
         }
 
-        function selectOption(optionIndex) {
-            // If already answered this question, don't allow changing
-            if (userAnswers[currentQuestionIndex] !== null) return;
-            
-            // Mark selected option
+        function checkAnswer(index, element) {
+            if (!canAnswer) return;
+            canAnswer = false;
+
+            const q = activeQuestions[currentIndex];
             const options = document.querySelectorAll('.option');
-            options.forEach(opt => opt.classList.remove('selected'));
-            options[optionIndex].classList.add('selected');
-            
-            // Store answer
-            userAnswers[currentQuestionIndex] = optionIndex;
-            
-            // Check if correct and update score
-            const question = modules[currentModule].questions[currentQuestionIndex];
-            const isCorrect = optionIndex === question.correct;
-            
-            // Show explanation
-            explanationTextEl.textContent = question.explanation;
-            clauseRefEl.textContent = question.clauseRef;
-            explanationContainerEl.style.display = 'block';
-            
-            // Highlight correct/incorrect
-            if (isCorrect) {
-                options[optionIndex].classList.add('correct');
+
+            if (index === q.correct) {
+                element.classList.add('correct');
                 score++;
             } else {
-                options[optionIndex].classList.add('incorrect');
-                // Also show correct answer
-                options[question.correct].classList.add('correct');
+                element.classList.add('wrong');
+                options[q.correct].classList.add('correct');
             }
+
+            document.getElementById('explanation-content').innerText = q.explanation;
+            document.getElementById('explanation-box').style.display = 'block';
+            document.getElementById('next-btn').disabled = false;
         }
 
-        function nextQuestion() {
-            // If on last question, finish quiz
-            if (currentQuestionIndex === modules[currentModule].questions.length - 1) {
-                finishQuiz();
-                return;
-            }
-            
-            // Move to next question
-            currentQuestionIndex++;
-            loadQuestion();
-        }
-
-        function prevQuestion() {
-            if (currentQuestionIndex > 0) {
-                currentQuestionIndex--;
+        function handleNext() {
+            currentIndex++;
+            if (currentIndex < activeQuestions.length) {
                 loadQuestion();
-            }
-        }
-
-        function finishQuiz() {
-            // Calculate score percentage
-            const totalQuestions = modules[currentModule].questions.length;
-            const scorePercentage = Math.round((score / totalQuestions) * 100);
-            
-            // Update results display
-            scorePercentEl.textContent = `${scorePercentage}%`;
-            
-            // Determine pass/fail
-            const passingThreshold = 70;
-            const passed = scorePercentage >= passingThreshold;
-            
-            if (passed) {
-                resultMessageEl.textContent = "Congratulations! You passed!";
-                resultMessageEl.className = "result-message pass";
             } else {
-                resultMessageEl.textContent = "Not quite ready yet. Keep studying!";
-                resultMessageEl.className = "result-message fail";
+                showResults();
             }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-screen').style.display = 'none';
+            document.getElementById('result-screen').style.display = 'block';
             
-            // Show results
-            quizContainer.style.display = 'none';
-            resultsContainer.style.display = 'block';
+            const pct = Math.round((score / activeQuestions.length) * 100);
+            document.getElementById('final-score').innerText = `${pct}%`;
+            
+            const msg = pct >= 70 ? "Excellent. You demonstrate strong auditor-level knowledge." : "Keep studying. Focus on the specific Clauses and Annex A controls.";
+            document.getElementById('result-text').innerText = msg;
         }
 
-        function restartQuiz() {
-            startQuiz(currentModule);
+        function exitQuiz() {
+            if (confirm("Exit current quiz? Your progress will be lost.")) {
+                location.reload();
+            }
         }
 
-        function goHome() {
-            mainMenu.style.display = 'block';
-            quizContainer.style.display = 'none';
-            resultsContainer.style.display = 'none';
-        }
-
-        // Initialize with first module loaded
-        window.onload = function() {
-            // Set up event listeners for module cards
-            document.querySelectorAll('.module-card').forEach(card => {
-                card.addEventListener('click', function(e) {
-                    if (!e.target.classList.contains('start-btn')) {
-                        const moduleId = parseInt(this.getAttribute('data-module'));
-                        startQuiz(moduleId);
-                    }
-                });
-            });
-        };
+        initDashboard();
     </script>
 </body>
 </html>
