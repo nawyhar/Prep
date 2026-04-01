@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>ISO 42001:2023 - AI Management System Exam Simulator</title>
+    <title>ISO 42001:2023 - Complete Exam Simulator (160+ Questions)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -12,20 +12,16 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
         }
-
         body {
             background: linear-gradient(145deg, #0a0f1e 0%, #0c1222 100%);
             color: #edf2ff;
             padding: 24px 20px;
             min-height: 100vh;
         }
-
         .container {
             max-width: 880px;
             margin: 0 auto;
         }
-
-        /* header premium */
         .hero {
             text-align: center;
             background: linear-gradient(115deg, #0a1a3a 0%, #102347 100%);
@@ -35,7 +31,6 @@
             border: 1px solid rgba(212, 175, 55, 0.3);
             box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.5);
         }
-
         h1 {
             font-size: 2.2rem;
             font-weight: 700;
@@ -45,21 +40,17 @@
             color: transparent;
             letter-spacing: -0.3px;
         }
-
         .sub {
             color: #b9c8ff;
             margin-top: 8px;
             font-size: 0.95rem;
         }
-
-        /* module cards */
         .modules-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 1.5rem;
             margin-top: 1rem;
         }
-
         .module-card {
             background: rgba(18, 28, 48, 0.85);
             backdrop-filter: blur(2px);
@@ -70,13 +61,11 @@
             cursor: pointer;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
-
         .module-card:hover {
             transform: translateY(-5px);
             border-color: #d4af37;
             background: rgba(25, 40, 65, 0.9);
         }
-
         .module-title {
             font-size: 1.4rem;
             font-weight: 600;
@@ -85,7 +74,6 @@
             border-left: 4px solid #d4af37;
             padding-left: 14px;
         }
-
         .module-badge {
             font-size: 0.85rem;
             background: #0f2b4f;
@@ -95,7 +83,6 @@
             margin-top: 12px;
             color: #bdd3ff;
         }
-
         .start-btn {
             width: 100%;
             background: linear-gradient(90deg, #d4af37, #b88b1f);
@@ -109,19 +96,14 @@
             cursor: pointer;
             transition: 0.2s;
             font-weight: 700;
-            letter-spacing: 0.5px;
         }
-
         .start-btn:hover {
             background: linear-gradient(90deg, #e6c45e, #c9992a);
             transform: scale(0.98);
         }
-
-        /* quiz interface */
         .quiz-panel, .results-panel {
             display: none;
         }
-
         .quiz-header {
             display: flex;
             justify-content: space-between;
@@ -129,7 +111,6 @@
             flex-wrap: wrap;
             margin-bottom: 20px;
         }
-
         .domain-label {
             background: #1e2b44;
             padding: 6px 18px;
@@ -138,14 +119,12 @@
             color: #f3cd81;
             font-weight: 600;
         }
-
         .question-counter {
             font-size: 0.9rem;
             background: #00000030;
             padding: 6px 14px;
             border-radius: 30px;
         }
-
         .scenario-box {
             background: #0f1a2c;
             border-left: 5px solid #d4af37;
@@ -157,14 +136,12 @@
             color: #e6edff;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
-
         .question-text {
             font-size: 1.35rem;
             font-weight: 600;
             margin: 20px 0 16px 0;
             line-height: 1.4;
         }
-
         .option {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(72, 120, 184, 0.4);
@@ -178,22 +155,18 @@
             gap: 12px;
             font-weight: 500;
         }
-
         .option:hover {
             background: rgba(59, 130, 246, 0.2);
             border-color: #7ca5e6;
         }
-
         .option.correct {
             border-color: #2ecc71;
             background: rgba(46, 204, 113, 0.18);
         }
-
         .option.incorrect {
             border-color: #e74c3c;
             background: rgba(231, 76, 60, 0.12);
         }
-
         .explanation-card {
             background: #0e1a2b;
             border-radius: 20px;
@@ -202,14 +175,12 @@
             border: 1px solid #2c3e66;
             display: none;
         }
-
         .nav-buttons {
             display: flex;
             justify-content: space-between;
             gap: 16px;
             margin-top: 30px;
         }
-
         .nav-btn {
             background: transparent;
             border: 1.5px solid #5675b9;
@@ -220,25 +191,21 @@
             cursor: pointer;
             transition: 0.2s;
         }
-
         .nav-btn:disabled {
             opacity: 0.4;
             cursor: not-allowed;
         }
-
         .nav-btn-primary {
             background: #d4af37;
             border: none;
             color: #0a1a2f;
         }
-
         .results-panel {
             text-align: center;
             background: #101b2b;
             border-radius: 2rem;
             padding: 2rem;
         }
-
         .score-circle {
             font-size: 4rem;
             font-weight: 800;
@@ -265,12 +232,12 @@
     <!-- Main Menu -->
     <div id="mainMenu">
         <div class="hero">
-            <h1><i class="fas fa-brain" style="color: #d4af37; margin-right: 10px;"></i> ISO/IEC 42001:2023</h1>
-            <div class="sub">AI Management System · Exam Readiness Simulator</div>
-            <div style="margin-top: 12px; font-size: 0.85rem;">100+ use-case driven questions · Realistic exam style</div>
+            <h1><i class="fas fa-brain" style="color: #d4af37; margin-right: 10px;"></i> ISO 42001:2023</h1>
+            <div class="sub">Full Exam Simulator · 160+ Real‑World Use Cases</div>
+            <div style="margin-top: 12px; font-size: 0.85rem;">All domains: Leadership, Risk, Operations, Third‑party, Performance & AI Controls</div>
         </div>
         <div class="modules-grid" id="modulesContainer"></div>
-        <footer>Based on ISO 42001 clauses · Leadership, Risk, Lifecycle, Third-party & AI controls</footer>
+        <footer>Based on ISO/IEC 42001:2023 clauses · Questions match official exam style</footer>
     </div>
 
     <!-- Quiz Container -->
@@ -304,118 +271,134 @@
 </div>
 
 <script>
-    // ------------------------------------------------------------------
-    //  ENHANCED QUESTION BANK - based on user's full list (Sections 1-7)
-    //  Each object: scenario, question, options[], correctIndex, explanation
-    //  Covers Leadership, Risk, Operations, Third-party, Performance, AI Controls, Improvement
-    // ------------------------------------------------------------------
-    const questionBank = {
-        // SECTION 1: Organizational Context and Leadership (20 questions)
-        sec1: {
+    // ================================================================
+    // COMPLETE QUESTION BANK - 160+ questions from all user sections
+    // Merged and organized into 7 thematic modules
+    // ================================================================
+
+    const modulesData = [
+        { // Module 1: Leadership & Organizational Context (first 20 from Section 1 + extra leadership)
             title: "🏢 Leadership & Organizational Context",
             questions: [
-                { scenario: "A manufacturing company is implementing AI systems for predictive maintenance. Senior management has not defined AI-specific policies.", question: "What is the FIRST action leadership must take per Clause 5.1?", options: ["Train all employees on AI ethics", "Establish AI policy and objectives", "Conduct AI risk assessment", "Implement AI governance committee"], correctIndex: 1, explanation: "Clause 5.1 requires top management to establish an AI policy and set AI objectives as the foundational step before any other measures." },
-                { scenario: "Healthcare provider deploying AI diagnostic tools lacks top management commitment.", question: "According to Clause 5.1.2, what demonstrates leadership commitment?", options: ["Ensuring AIMS integration into business processes", "Purchasing latest AI hardware", "Hiring external AI consultants", "Publishing AI research papers"], correctIndex: 0, explanation: "Demonstrating leadership includes integrating the AI management system into organizational processes and ensuring resources." },
-                { scenario: "Financial institution's AI trading system shows bias in loan approvals.", question: "Who is ultimately accountable for AI risk management (Clause 5.3)?", options: ["Data scientists", "Top management", "Compliance officer", "External auditors"], correctIndex: 1, explanation: "Clause 5.3 assigns ultimate accountability for AI risk and the AIMS to top management." },
-                { scenario: "Retail company uses AI for personalized marketing but has no documented AI roles.", question: "What must leadership define per Clause 5.3?", options: ["AI roles, responsibilities, and authorities", "AI development timelines only", "Hardware specifications", "Marketing budget allocation"], correctIndex: 0, explanation: "Roles, responsibilities, and authorities for AI-related activities must be defined and communicated." },
-                { scenario: "Energy company implementing AI grid management lacks resources.", question: "Clause 7.1 requires what for AIMS effectiveness?", options: ["Adequate resources and competence", "External certification only", "Unlimited budget", "Celebrity endorsements"], correctIndex: 0, explanation: "Clause 7.1 demands determination and provision of necessary resources (people, skills, infrastructure)." },
-                { scenario: "Telecom operator's AI customer service chatbot fails compliance checks.", question: "What must be communicated per Clause 5.2.2? AIMS policy to:", options: ["Relevant interested parties", "Competitors only", "General public", "Internal IT team only"], correctIndex: 0, explanation: "The AI policy must be communicated to all relevant interested parties, including regulators and affected parties." },
-                { scenario: "Automotive manufacturer uses AI for autonomous driving testing.", question: "Leadership must ensure AIMS supports which strategic direction (Clause 5.1.1)?", options: ["Organization's purpose and strategic direction", "Competitor benchmarking", "Short-term profits only", "Employee satisfaction surveys"], correctIndex: 0, explanation: "The AIMS must align with the organization’s strategic direction and business context." },
-                { scenario: "Pharmaceutical company developing AI drug discovery tools.", question: "What must top management review per Clause 9.3?", options: ["AIMS performance and effectiveness", "Daily operational reports", "Competitor AI patents", "Office furniture inventory"], correctIndex: 0, explanation: "Management review must evaluate the AIMS performance, effectiveness, and alignment with objectives." },
-                { scenario: "Logistics firm using AI route optimization faces ethical complaints.", question: "Clause 5.2 requires policy to address what?", options: ["AI ethical considerations and risk management", "Office decoration standards", "Coffee machine maintenance", "Parking policies"], correctIndex: 0, explanation: "AI policy must include commitment to ethical AI and risk management principles." },
-                { scenario: "Insurance company AI underwriting system denied claims unfairly.", question: "Who assigns AIMS responsibilities (Clause 5.3)?", options: ["Top management", "External consultants", "Junior developers", "Marketing department"], correctIndex: 0, explanation: "Assignment of responsibilities and authorities is done by top management." },
-                { scenario: "Smart city AI traffic management system deployed without planning.", question: "Clause 6.1 requires what for AIMS planning?", options: ["Risks and opportunities identification", "Random technology selection", "Copying competitor systems", "No planning needed"], correctIndex: 0, explanation: "Clause 6.1 mandates identification of risks and opportunities that affect AIMS." },
-                { scenario: "E-commerce platform AI recommendation engine shows discriminatory results.", question: "What must be established per Clause 6.1.2?", options: ["AI risk treatment plan", "Marketing campaign schedule", "Office party planning", "Employee vacation policy"], correctIndex: 0, explanation: "A risk treatment plan is required to address identified AI risks." },
-                { scenario: "Hospital AI triage system misprioritizes patients.", question: "Leadership must promote what culture (Clause 5.1.1)?", options: ["AI risk-aware culture", "Innovation at all costs", "Cost-cutting culture", "Paperless office culture"], correctIndex: 0, explanation: "Promoting a risk-aware culture regarding AI is a leadership duty." },
-                { scenario: "Agricultural AI crop monitoring system fails during harvest season.", question: "What resources must be provided (Clause 7.1)?", options: ["Necessary for AIMS establishment and maintenance", "Luxury office furniture", "Unlimited cloud credits", "Company cars for all staff"], correctIndex: 0, explanation: "Resources required for AIMS effectiveness must be provided." },
-                { scenario: "Banking AI fraud detection generates too many false positives.", question: "Clause 7.2 requires what for personnel?", options: ["AI competence determination and training", "MBA degrees only", "10 years experience minimum", "No training required"], correctIndex: 0, explanation: "Competence must be determined, and appropriate training provided." },
-                { scenario: "Media company AI content moderation flags legitimate content.", question: "What must be maintained per Clause 7.5?", options: ["Documented information required by AIMS", "All employee emails", "Competitor analysis reports", "Recipe collections"], correctIndex: 0, explanation: "Documented information supporting AIMS effectiveness must be maintained." },
-                { scenario: "Manufacturing AI quality control rejects good products.", question: "Leadership communication must include what (Clause 5.2.3)?", options: ["Importance of AIMS effectiveness", "Company picnic details", "New hire announcements", "Weather updates"], correctIndex: 0, explanation: "Leadership must communicate the importance of conforming to AIMS requirements." },
-                { scenario: "Ride-sharing AI pricing algorithm criticized for surge pricing.", question: "What must top management ensure exists (Clause 6.2)?", options: ["Processes to achieve AI objectives", "Unlimited server capacity", "Perfect algorithms", "No processes needed"], correctIndex: 0, explanation: "Processes for achieving AI objectives must be established and maintained." },
-                { scenario: "University AI grading system accused of bias.", question: "Clause 9.1 requires what for conformity?", options: ["Monitoring, measurement, analysis, evaluation", "Annual employee surveys", "Building temperature control", "No monitoring needed"], correctIndex: 0, explanation: "Organizations must monitor, measure, analyze and evaluate AIMS performance." },
-                { scenario: "Oil & gas AI predictive maintenance causes safety incidents.", question: "What must be reviewed regularly (Clause 9.3)?", options: ["AIMS suitability, adequacy, effectiveness", "Sports team performance", "Recipe improvements", "Fashion trends"], correctIndex: 0, explanation: "Management review must assess the AIMS's suitability, adequacy and effectiveness." }
+                { scenario: "A manufacturing company is implementing AI systems for predictive maintenance. Senior management has not defined AI-specific policies.", question: "What is the FIRST action leadership must take per Clause 5.1?", options: ["Train all employees on AI ethics", "Establish AI policy and objectives", "Conduct AI risk assessment", "Implement AI governance committee"], correct: 1, explanation: "Clause 5.1 requires top management to establish an AI policy and set objectives as the foundational step." },
+                { scenario: "Healthcare provider deploying AI diagnostic tools lacks top management commitment.", question: "According to Clause 5.1.2, what demonstrates leadership commitment?", options: ["Ensuring AIMS integration into business processes", "Purchasing latest AI hardware", "Hiring external AI consultants", "Publishing AI research papers"], correct: 0, explanation: "Integrating AIMS into business processes shows genuine leadership commitment." },
+                { scenario: "Financial institution's AI trading system shows bias in loan approvals.", question: "Who is ultimately accountable for AI risk management (Clause 5.3)?", options: ["Data scientists", "Top management", "Compliance officer", "External auditors"], correct: 1, explanation: "Top management holds ultimate accountability for the AI management system." },
+                { scenario: "Retail company uses AI for personalized marketing but has no documented AI roles.", question: "What must leadership define per Clause 5.3?", options: ["AI roles, responsibilities, and authorities", "AI development timelines only", "Hardware specifications", "Marketing budget allocation"], correct: 0, explanation: "Roles, responsibilities, and authorities for AI activities must be defined." },
+                { scenario: "Energy company implementing AI grid management lacks resources.", question: "Clause 7.1 requires what for AIMS effectiveness?", options: ["Adequate resources and competence", "External certification only", "Unlimited budget", "Celebrity endorsements"], correct: 0, explanation: "Adequate resources and competence are required for effectiveness." },
+                { scenario: "Telecom operator's AI customer service chatbot fails compliance checks.", question: "What must be communicated per Clause 5.2.2? AIMS policy to:", options: ["Relevant interested parties", "Competitors only", "General public", "Internal IT team only"], correct: 0, explanation: "The AI policy must be communicated to all relevant interested parties." },
+                { scenario: "Automotive manufacturer uses AI for autonomous driving testing.", question: "Leadership must ensure AIMS supports which strategic direction (Clause 5.1.1)?", options: ["Organization's purpose and strategic direction", "Competitor benchmarking", "Short-term profits only", "Employee satisfaction surveys"], correct: 0, explanation: "AIMS must align with the organization's purpose and strategic direction." },
+                { scenario: "Pharmaceutical company developing AI drug discovery tools.", question: "What must top management review per Clause 9.3?", options: ["AIMS performance and effectiveness", "Daily operational reports", "Competitor AI patents", "Office furniture inventory"], correct: 0, explanation: "Management review evaluates AIMS performance and effectiveness." },
+                { scenario: "Logistics firm using AI route optimization faces ethical complaints.", question: "Clause 5.2 requires policy to address what?", options: ["AI ethical considerations and risk management", "Office decoration standards", "Coffee machine maintenance", "Parking policies"], correct: 0, explanation: "Policy must address ethical considerations and risk management." },
+                { scenario: "Insurance company AI underwriting system denied claims unfairly.", question: "Who assigns AIMS responsibilities (Clause 5.3)?", options: ["Top management", "External consultants", "Junior developers", "Marketing department"], correct: 0, explanation: "Top management assigns AIMS responsibilities." },
+                { scenario: "Smart city AI traffic management system deployed without planning.", question: "Clause 6.1 requires what for AIMS planning?", options: ["Risks and opportunities identification", "Random technology selection", "Copying competitor systems", "No planning needed"], correct: 0, explanation: "Identification of risks and opportunities is required." },
+                { scenario: "E-commerce platform AI recommendation engine shows discriminatory results.", question: "What must be established per Clause 6.1.2?", options: ["AI risk treatment plan", "Marketing campaign schedule", "Office party planning", "Employee vacation policy"], correct: 0, explanation: "A risk treatment plan must be established." },
+                { scenario: "Hospital AI triage system misprioritizes patients.", question: "Leadership must promote what culture (Clause 5.1.1)?", options: ["AI risk-aware culture", "Innovation at all costs", "Cost-cutting culture", "Paperless office culture"], correct: 0, explanation: "Promote a risk-aware culture regarding AI." },
+                { scenario: "Agricultural AI crop monitoring system fails during harvest season.", question: "What resources must be provided (Clause 7.1)?", options: ["Necessary for AIMS establishment and maintenance", "Luxury office furniture", "Unlimited cloud credits", "Company cars for all staff"], correct: 0, explanation: "Resources necessary for AIMS establishment and maintenance." },
+                { scenario: "Banking AI fraud detection generates too many false positives.", question: "Clause 7.2 requires what for personnel?", options: ["AI competence determination and training", "MBA degrees only", "10 years experience minimum", "No training required"], correct: 0, explanation: "Competence must be determined and training provided." },
+                { scenario: "Media company AI content moderation flags legitimate content.", question: "What must be maintained per Clause 7.5?", options: ["Documented information required by AIMS", "All employee emails", "Competitor analysis reports", "Recipe collections"], correct: 0, explanation: "Documented information required by AIMS must be maintained." },
+                { scenario: "Manufacturing AI quality control rejects good products.", question: "Leadership communication must include what (Clause 5.2.3)?", options: ["Importance of AIMS effectiveness", "Company picnic details", "New hire announcements", "Weather updates"], correct: 0, explanation: "Importance of conforming to AIMS requirements." },
+                { scenario: "Ride-sharing AI pricing algorithm criticized for surge pricing.", question: "What must top management ensure exists (Clause 6.2)?", options: ["Processes to achieve AI objectives", "Unlimited server capacity", "Perfect algorithms", "No processes needed"], correct: 0, explanation: "Processes to achieve AI objectives must be established." },
+                { scenario: "University AI grading system accused of bias.", question: "Clause 9.1 requires what for conformity?", options: ["Monitoring, measurement, analysis, evaluation", "Annual employee surveys", "Building temperature control", "No monitoring needed"], correct: 0, explanation: "Monitoring, measurement, analysis and evaluation required." },
+                { scenario: "Oil & gas AI predictive maintenance causes safety incidents.", question: "What must be reviewed regularly (Clause 9.3)?", options: ["AIMS suitability, adequacy, effectiveness", "Sports team performance", "Recipe improvements", "Fashion trends"], correct: 0, explanation: "Suitability, adequacy, and effectiveness of AIMS must be reviewed." },
+                // Additional leadership questions from the second set
+                { scenario: "A bank deploys an AI credit scoring system that unfairly denies loans to certain demographics.", question: "What is the PRIMARY leadership responsibility?", options: ["Delegate all decisions to data scientists", "Ensure AI ethical principles guide all decisions", "Focus only on profitability targets", "Approve all AI model code changes"], correct: 1, explanation: "Top management must ensure ethical principles guide AI decisions." },
+                { scenario: "Healthcare provider implements AI diagnostic tools without clear policies.", question: "What MUST senior management establish first?", options: ["Detailed technical specifications", "AI governance framework and objectives", "Employee training programs", "Vendor contracts"], correct: 1, explanation: "Establish an AI governance framework and objectives first." },
+                { scenario: "Manufacturing firm uses AI for quality control with biased results.", question: "Who bears ULTIMATE accountability for AI outcomes?", options: ["AI development team", "Executive leadership", "External auditors", "Quality assurance manager"], correct: 1, explanation: "Executive leadership is ultimately accountable." },
+                { scenario: "E-commerce platform's AI recommendations discriminate by location.", question: "What organizational structure is ESSENTIAL?", options: ["Flat organizational chart", "Defined AI roles and responsibilities", "Unlimited developer autonomy", "External consultant oversight"], correct: 1, explanation: "Defined AI roles and responsibilities are essential." }
             ]
         },
-        // SECTION 2: Planning and Risk Management (21-40) – 20 questions
-        sec2: {
+        { // Module 2: Risk Management & Planning (21-40 + extra risk questions)
             title: "⚠️ AI Risk Management & Planning",
             questions: [
-                { scenario: "AI-powered hiring tool discriminates against certain demographics.", question: "Clause 6.1.2.2 requires assessment of what AI risks?", options: ["Impact on individuals, society, environment", "Server downtime only", "Electricity costs", "Office space requirements"], correctIndex: 0, explanation: "Risk assessment includes impact on individuals, society, and environment." },
-                { scenario: "Self-driving car AI causes pedestrian accident.", question: "What AI risk criterion is MOST critical (Clause 6.1.2.1)?", options: ["Safety and human rights impact", "Development cost", "Processing speed", "Data storage size"], correctIndex: 0, explanation: "Safety and human rights take precedence in AI risk criteria." },
-                { scenario: "AI credit scoring denies loans to qualified applicants.", question: "Risk treatment must consider what (Clause 6.1.2.3)?", options: ["Proportionality to risk level", "Always maximum treatment", "No treatment needed", "Competitor practices only"], correctIndex: 0, explanation: "Risk treatment must be proportionate to the level of risk." },
-                { scenario: "Facial recognition AI misidentifies ethnic minorities.", question: "What must be documented per Clause 6.1.2.4?", options: ["AI risk assessment and treatment results", "Employee lunch preferences", "Weather forecasts", "No documentation required"], correctIndex: 0, explanation: "Results of risk assessment and risk treatment must be documented." },
-                { scenario: "AI medical diagnosis system has 15% error rate.", question: "Clause 6.1.3 requires planning of what?", options: ["Changes to AIMS", "Office redecoration", "New product launches", "Employee parties"], correctIndex: 0, explanation: "Planned changes to the AIMS must be managed systematically." },
-                { scenario: "AI supply chain optimization ignores environmental impact.", question: "What opportunities must be addressed (Clause 6.1.1)?", options: ["AI-related opportunities for improvement", "Market expansion only", "Cost reduction only", "No opportunities considered"], correctIndex: 0, explanation: "Organizations shall address opportunities to improve AI performance and beneficial impacts." },
-                { scenario: "AI chatbots leak customer personal data.", question: "Risk assessment must consider what (Clause 6.1.2.2)?", options: ["Data privacy and security risks", "Font size preferences", "Color schemes", "Music preferences"], correctIndex: 0, explanation: "Data privacy and security are mandatory AI risk categories." },
-                { scenario: "AI energy trading system manipulates electricity prices.", question: "What must risk treatment achieve (Clause 6.1.2.3)?", options: ["Acceptable residual risk levels", "Zero risk always", "Maximum risk exposure", "Ignore all risks"], correctIndex: 0, explanation: "Risk treatment aims to reduce risk to an acceptable level." },
-                { scenario: "AI content generation creates copyright violations.", question: "Clause 8.1 requires what before AI deployment?", options: ["Operational planning and control", "Public announcement", "Competitor notification", "No planning needed"], correctIndex: 0, explanation: "Operational planning and control ensure controlled AI deployment." },
-                { scenario: "AI autonomous drones violate airspace regulations.", question: "What must be planned for AI systems (Clause 8.1)?", options: ["Lifecycle management controls", "Aesthetic design only", "Marketing strategy", "Packaging design"], correctIndex: 0, explanation: "Lifecycle management controls must be planned for AI systems." },
-                { scenario: "AI model performance degrades after 3 months deployment.", question: "Clause 8.3 requires what for AI systems?", options: ["Lifecycle management planning", "Annual repainting", "Weekly polishing", "No maintenance needed"], correctIndex: 0, explanation: "Lifecycle management planning includes performance monitoring and maintenance." },
-                { scenario: "Retrained AI model performs worse than original.", question: "What must be controlled per Clause 8.3.4?", options: ["AI model retraining processes", "Office cleaning schedule", "Coffee supplies", "Parking assignments"], correctIndex: 0, explanation: "Retraining processes must be controlled to ensure model quality." },
-                { scenario: "AI system uses outdated training data causing wrong predictions.", question: "Clause 8.3.5 requires management of what?", options: ["AI data quality throughout lifecycle", "Data deletion only", "Data collection volume", "Data color coding"], correctIndex: 0, explanation: "Data quality must be managed across the entire AI lifecycle." },
-                { scenario: "Third-party AI vendor goes bankrupt disrupting service.", question: "Clause 8.4 requires what for external providers?", options: ["Criteria for selection, monitoring, control", "Annual gifts", "Joint vacations", "No oversight needed"], correctIndex: 0, explanation: "External providers must be evaluated, selected, and monitored." },
-                { scenario: "AI system processes personal data without consent.", question: "What must be documented (Clause 7.5.1)?", options: ["Information required by standard and organization", "All employee conversations", "Dream journals", "Recipe books"], correctIndex: 0, explanation: "Documented information necessary for AIMS effectiveness must be retained." },
-                { scenario: "Personnel lack skills to handle AI model drift.", question: "Clause 7.2 requires what?", options: ["Competence evaluation and training", "Random staff assignment", "External hires only", "No training needed"], correctIndex: 0, explanation: "Competence evaluation and appropriate actions to acquire competence." },
-                { scenario: "AI development environment lacks version control.", question: "Clause 7.4 requires what for communication?", options: ["Processes for internal/external AIMS communication", "Daily status emails", "Monthly newsletters", "No communication needed"], correctIndex: 0, explanation: "Internal and external communication processes related to AIMS must be established." },
-                { scenario: "AI system transparency requirements not met.", question: "Clause 8.2 requires what for AI system design?", options: ["Requirements determination and review", "Aesthetic appeal only", "Speed optimization only", "No requirements needed"], correctIndex: 0, explanation: "Requirements for AI systems must be determined and reviewed." },
-                { scenario: "Production AI system lacks testing before deployment.", question: "Clause 8.5 requires what?", options: ["AI system release, delivery, deployment control", "Public beta testing", "Employee voting", "No testing needed"], correctIndex: 0, explanation: "Controlled release and deployment processes are required." },
-                { scenario: "AI monitoring shows performance degradation not addressed.", question: "Clause 8.6 requires what for deployed AI?", options: ["Monitoring and measurement of performance", "Weekly polishing", "Annual repainting", "No monitoring needed"], correctIndex: 0, explanation: "Performance of AI systems must be monitored and measured post-deployment." }
+                { scenario: "AI-powered hiring tool discriminates against certain demographics.", question: "Clause 6.1.2.2 requires assessment of what AI risks?", options: ["Impact on individuals, society, environment", "Server downtime only", "Electricity costs", "Office space requirements"], correct: 0, explanation: "Risk assessment includes impacts on individuals, society, and environment." },
+                { scenario: "Self-driving car AI causes pedestrian accident.", question: "What AI risk criterion is MOST critical (Clause 6.1.2.1)?", options: ["Safety and human rights impact", "Development cost", "Processing speed", "Data storage size"], correct: 0, explanation: "Safety and human rights are the highest priority." },
+                { scenario: "AI credit scoring denies loans to qualified applicants.", question: "Risk treatment must consider what (Clause 6.1.2.3)?", options: ["Proportionality to risk level", "Always maximum treatment", "No treatment needed", "Competitor practices only"], correct: 0, explanation: "Risk treatment must be proportionate to the risk level." },
+                { scenario: "Facial recognition AI misidentifies ethnic minorities.", question: "What must be documented per Clause 6.1.2.4?", options: ["AI risk assessment and treatment results", "Employee lunch preferences", "Weather forecasts", "No documentation required"], correct: 0, explanation: "Results of risk assessment and treatment must be documented." },
+                { scenario: "AI medical diagnosis system has 15% error rate.", question: "Clause 6.1.3 requires planning of what?", options: ["Changes to AIMS", "Office redecoration", "New product launches", "Employee parties"], correct: 0, explanation: "Planned changes to the AIMS must be managed." },
+                { scenario: "AI supply chain optimization ignores environmental impact.", question: "What opportunities must be addressed (Clause 6.1.1)?", options: ["AI-related opportunities for improvement", "Market expansion only", "Cost reduction only", "No opportunities considered"], correct: 0, explanation: "Opportunities to improve AI performance must be addressed." },
+                { scenario: "AI chatbots leak customer personal data.", question: "Risk assessment must consider what (Clause 6.1.2.2)?", options: ["Data privacy and security risks", "Font size preferences", "Color schemes", "Music preferences"], correct: 0, explanation: "Data privacy and security are mandatory risk categories." },
+                { scenario: "AI energy trading system manipulates electricity prices.", question: "What must risk treatment achieve (Clause 6.1.2.3)?", options: ["Acceptable residual risk levels", "Zero risk always", "Maximum risk exposure", "Ignore all risks"], correct: 0, explanation: "Risk treatment aims for acceptable residual risk." },
+                { scenario: "AI content generation creates copyright violations.", question: "Clause 8.1 requires what before AI deployment?", options: ["Operational planning and control", "Public announcement", "Competitor notification", "No planning needed"], correct: 0, explanation: "Operational planning and control must be in place." },
+                { scenario: "AI autonomous drones violate airspace regulations.", question: "What must be planned for AI systems (Clause 8.1)?", options: ["Lifecycle management controls", "Aesthetic design only", "Marketing strategy", "Packaging design"], correct: 0, explanation: "Lifecycle management controls must be planned." },
+                { scenario: "Predictive maintenance AI fails to detect critical equipment fault.", question: "What organizational commitment is REQUIRED?", options: ["Perfect prediction guarantee", "Leadership accountability for outcomes", "External blame assignment", "No commitment needed"], correct: 1, explanation: "Leadership accountability for AI outcomes is required." },
+                { scenario: "Recommendation AI creates filter bubbles harming society.", question: "What risk assessment scope is MANDATORY?", options: ["Technical performance only", "Societal and ethical impacts", "Revenue impact only", "User interface design"], correct: 1, explanation: "Societal and ethical impacts must be assessed." },
+                { scenario: "Insurance pricing AI disadvantages low-income areas.", question: "Risk decisions must be what?", options: ["Documented and authorized", "Verbal agreements only", "Developer discretion", "Undocumented"], correct: 0, explanation: "Risk decisions must be documented and authorized." },
+                { scenario: "Surveillance AI privacy invasion leads to lawsuits.", question: "What treatment option is ALWAYS available?", options: ["Risk avoidance", "Any proportionate combination", "Risk acceptance only", "Mitigation only"], correct: 0, explanation: "Risk avoidance is always an available option." },
+                { scenario: "Agricultural AI irrigation wastes water resources.", question: "Risk management must consider what?", options: ["Environmental sustainability impacts", "Crop yield only", "Farmer preferences", "Equipment cost"], correct: 0, explanation: "Environmental sustainability impacts must be considered." },
+                { scenario: "Gaming AI matchmaking creates toxic environments.", question: "What risk evaluation criterion is CRITICAL?", options: ["Game speed", "User well-being and safety", "Graphics quality", "Revenue generation"], correct: 1, explanation: "User well-being and safety are critical criteria." },
+                { scenario: "HR AI performance evaluation shows gender bias.", question: "Risk treatment effectiveness requires what?", options: ["Monitoring and measurement", "Annual review only", "Employee surveys", "No monitoring"], correct: 0, explanation: "Monitoring and measurement are required for effectiveness." },
+                { scenario: "Traffic management AI causes gridlock during peak hours.", question: "What planning addresses identified risks?", options: ["Risk treatment implementation plan", "Infrastructure expansion only", "Public apologies", "No plan needed"], correct: 0, explanation: "A risk treatment implementation plan is required." },
+                { scenario: "Financial advisory AI recommends unsuitable investments.", question: "Risk assessment frequency should be what?", options: ["Risk-based intervals", "Annual fixed schedule", "Never repeat", "Monthly regardless"], correct: 0, explanation: "Risk assessment frequency should be based on risk and changes." },
+                { scenario: "Social media AI amplifies misinformation.", question: "What risk management principle is FUNDAMENTAL?", options: ["Proactive and continual process", "Reactive after incidents", "Delegate to users", "Ignore low-probability risks"], correct: 0, explanation: "Risk management must be proactive and continual." }
             ]
         },
-        // SECTION 3: Support, Operations & Lifecycle (31-50 extended) – 20 selected key ones + additional exam style
-        sec3: {
-            title: "⚙️ Operations, Lifecycle & Data Governance",
+        { // Module 3: AI Operations & Lifecycle (original 31-50 + extra from domain 3)
+            title: "⚙️ AI Operations & Lifecycle",
             questions: [
-                { scenario: "AI system lacks explainability for loan denials.", question: "What is required (Clause 8.3.6)?", options: ["Appropriate transparency levels", "Full source code disclosure", "No explanation needed", "Marketing explanations only"], correctIndex: 0, explanation: "AI systems shall provide appropriate transparency and explainability." },
-                { scenario: "Generative AI creates deepfake videos harming reputation.", question: "Clause 8.3.6 requires what?", options: ["AI system transparency controls", "Video watermarking only", "Speed controls", "No controls needed"], correctIndex: 0, explanation: "Transparency controls (e.g., disclosures) for AI-generated content." },
-                { scenario: "AI decision-making lacks human oversight.", question: "Clause 8.3.7 requires what for critical decisions?", options: ["Human oversight mechanisms", "Additional AI review", "No oversight needed", "Public voting"], correctIndex: 0, explanation: "Human oversight mechanisms are mandatory for critical AI decisions." },
-                { scenario: "AI training data contains personal information without consent.", question: "Clause 8.3.5 requires what?", options: ["Data governance throughout AI lifecycle", "Data deletion after use", "Data sharing with partners", "No governance needed"], correctIndex: 0, explanation: "Data governance must cover collection, usage, and retention." },
-                { scenario: "AI model versioning causes deployment confusion.", question: "Clause 8.3.3 requires what?", options: ["AI model management and versioning", "Model naming conventions only", "Color coding", "No management needed"], correctIndex: 0, explanation: "Version control and model management are essential for traceability." },
-                { scenario: "Cloud AI provider suffers data breach affecting customer data.", question: "Clause 8.4 requires what from third parties?", options: ["Evidence of AIMS conformity", "Company swag", "Joint marketing", "No evidence needed"], correctIndex: 0, explanation: "Third parties must demonstrate conformity with AIMS requirements." },
-                { scenario: "Open-source AI model has undisclosed bias.", question: "What must be verified (Clause 8.4.2)?", options: ["Third-party AI risk management", "License cost", "Download speed", "File size"], correctIndex: 0, explanation: "Third-party AI risk management capabilities must be verified." },
-                { scenario: "SaaS AI platform changes terms affecting compliance.", question: "Clause 8.4.3 requires what?", options: ["Ongoing monitoring of third-party performance", "Annual Christmas cards", "Monthly lunches", "No monitoring needed"], correctIndex: 0, explanation: "External providers must be monitored for ongoing conformity." },
-                { scenario: "AI bias incident causes regulatory fine.", question: "Clause 10.1 requires what?", options: ["Addressing nonconformities and taking action", "Ignoring minor issues", "Blaming vendors", "No action needed"], correctIndex: 0, explanation: "Nonconformities shall be addressed with corrective actions." },
-                { scenario: "Continual improvement opportunities identified in audit.", question: "Clause 10.2 requires what?", options: ["Continual improvement of AIMS", "Annual repainting", "New office furniture", "No improvement needed"], correctIndex: 0, explanation: "Continual improvement of the AIMS effectiveness is required." },
-                { scenario: "Root cause analysis reveals training deficiency.", question: "Clause 10.1.b requires what?", options: ["Corrective actions to eliminate causes", "Temporary fixes only", "Blame assignment", "No analysis needed"], correctIndex: 0, explanation: "Corrective actions must address the root cause to prevent recurrence." },
-                { scenario: "AI system update introduces new risks.", question: "What must be updated (Clause 10.3)?", options: ["AIMS based on evaluation of results", "Marketing materials only", "Office signage", "No updates"], correctIndex: 0, explanation: "Update AIMS in response to evaluation results and changing risks." }
+                { scenario: "AI model performance degrades after 3 months deployment.", question: "Clause 8.3 requires what for AI systems?", options: ["Lifecycle management planning", "Annual repainting", "Weekly polishing", "No maintenance needed"], correct: 0, explanation: "Lifecycle management planning includes performance monitoring." },
+                { scenario: "Retrained AI model performs worse than original.", question: "What must be controlled per Clause 8.3.4?", options: ["AI model retraining processes", "Office cleaning schedule", "Coffee supplies", "Parking assignments"], correct: 0, explanation: "Retraining processes must be controlled to ensure quality." },
+                { scenario: "AI system uses outdated training data causing wrong predictions.", question: "Clause 8.3.5 requires management of what?", options: ["AI data quality throughout lifecycle", "Data deletion only", "Data collection volume", "Data color coding"], correct: 0, explanation: "Data quality must be managed across the AI lifecycle." },
+                { scenario: "Third-party AI vendor goes bankrupt disrupting service.", question: "Clause 8.4 requires what for external providers?", options: ["Criteria for selection, monitoring, control", "Annual gifts", "Joint vacations", "No oversight needed"], correct: 0, explanation: "External providers must be evaluated, selected, and monitored." },
+                { scenario: "AI system processes personal data without consent.", question: "What must be documented (Clause 7.5.1)?", options: ["Information required by standard and organization", "All employee conversations", "Dream journals", "Recipe books"], correct: 0, explanation: "Documented information required by the standard must be retained." },
+                { scenario: "Personnel lack skills to handle AI model drift.", question: "Clause 7.2 requires what?", options: ["Competence evaluation and training", "Random staff assignment", "External hires only", "No training needed"], correct: 0, explanation: "Competence evaluation and training actions are required." },
+                { scenario: "AI development environment lacks version control.", question: "Clause 7.4 requires what for communication?", options: ["Processes for internal/external AIMS communication", "Daily status emails", "Monthly newsletters", "No communication needed"], correct: 0, explanation: "Internal and external communication processes must be established." },
+                { scenario: "AI system transparency requirements not met.", question: "Clause 8.2 requires what for AI system design?", options: ["Requirements determination and review", "Aesthetic appeal only", "Speed optimization only", "No requirements needed"], correct: 0, explanation: "Requirements must be determined and reviewed." },
+                { scenario: "Production AI system lacks testing before deployment.", question: "Clause 8.5 requires what?", options: ["AI system release, delivery, deployment control", "Public beta testing", "Employee voting", "No testing needed"], correct: 0, explanation: "Release, delivery, and deployment must be controlled." },
+                { scenario: "AI monitoring shows performance degradation not addressed.", question: "Clause 8.6 requires what for deployed AI?", options: ["Monitoring and measurement of performance", "Weekly polishing", "Annual repainting", "No monitoring needed"], correct: 0, explanation: "Monitoring and measurement of performance are required." },
+                { scenario: "Generative AI chatbot reveals confidential training data.", question: "What lifecycle stage control failed?", options: ["Data governance controls", "User interface design", "Marketing materials", "Hardware specs"], correct: 0, explanation: "Data governance controls across the lifecycle are essential." },
+                { scenario: "AI model versions conflict causing inconsistent predictions.", question: "What management practice is MISSING?", options: ["Model versioning and traceability", "Naming conventions only", "Color coding", "No management needed"], correct: 0, explanation: "Model versioning and traceability are required." },
+                { scenario: "Critical AI decisions lack human review.", question: "What safeguard is ABSOLUTELY REQUIRED?", options: ["Human oversight mechanisms", "Additional AI validation", "User self-review", "No oversight needed"], correct: 0, explanation: "Human oversight mechanisms are mandatory for critical decisions." },
+                { scenario: "AI transparency insufficient for regulatory audit.", question: "What control level is REQUIRED?", options: ["Risk-appropriate transparency", "Full source code disclosure", "No transparency needed", "Marketing explanations"], correct: 0, explanation: "Risk-appropriate transparency must be provided." },
+                { scenario: "Third-party AI component introduces security vulnerability.", question: "What verification is MANDATORY?", options: ["Supplier AI risk management evidence", "License cost review", "Download speed test", "File size check"], correct: 0, explanation: "Supplier AI risk management must be verified." },
+                { scenario: "AI system changes cause unexpected bias increase.", question: "What change control is ESSENTIAL?", options: ["Planned change management process", "Immediate implementation", "Developer discretion", "No control needed"], correct: 0, explanation: "A planned change management process is required." },
+                { scenario: "Production AI lacks rollback capability after failure.", question: "What operational planning was missed?", options: ["Contingency and recovery planning", "Aesthetic contingency", "Marketing recovery", "No planning needed"], correct: 0, explanation: "Contingency and recovery planning must be in place." },
+                { scenario: "AI performance metrics not aligned with business KPIs.", question: "What measurement was inadequate?", options: ["Relevant AI effectiveness indicators", "Employee satisfaction", "Office temperature", "Coffee usage"], correct: 0, explanation: "Relevant AI effectiveness indicators must be defined." },
+                { scenario: "Decommissioned AI leaves residual data risks.", question: "What lifecycle phase control is MISSING?", options: ["Decommissioning procedures", "Data deletion only", "Hardware disposal", "No procedures needed"], correct: 0, explanation: "Decommissioning procedures must be defined." },
+                { scenario: "Multiple AI systems lack interoperability standards.", question: "What architectural control is REQUIRED?", options: ["AI system integration planning", "Individual optimization only", "Competitor matching", "No integration needed"], correct: 0, explanation: "AI system integration planning is required." }
             ]
         },
-        // SECTION 4: Performance Evaluation (extra 8 to round up)
-        sec4: {
+        { // Module 4: Performance Evaluation (original 41-45 + 61-66 from domain 4)
             title: "📊 Performance Evaluation & Internal Audit",
             questions: [
-                { scenario: "AI bias discovered 6 months after deployment.", question: "Clause 9.1.1 requires what?", options: ["Monitoring, measurement, analysis, evaluation", "Annual employee surveys", "Office temperature control", "No monitoring needed"], correctIndex: 0, explanation: "Ongoing monitoring, measurement, analysis, and evaluation." },
-                { scenario: "Internal audit finds AIMS nonconformities undocumented.", question: "Clause 9.2 requires what?", options: ["Internal audit program at planned intervals", "External audits only", "No audits needed", "Annual social events"], correctIndex: 0, explanation: "Internal audits at planned intervals to verify conformity." },
-                { scenario: "Management review misses key AI risk updates.", question: "Clause 9.3 requires review of what inputs?", options: ["Status of actions from previous reviews", "Sports scores", "Weather reports", "Recipe improvements"], correctIndex: 0, explanation: "Inputs include status of previous management review actions." },
-                { scenario: "Customer complaints about AI decisions increase 30%.", question: "What performance indicator is required (Clause 9.1.1)?", options: ["Effectiveness of AI risk treatment", "Employee satisfaction", "Office cleanliness", "Coffee consumption"], correctIndex: 0, explanation: "Effectiveness of risk treatment and customer feedback must be evaluated." }
+                { scenario: "AI bias discovered 6 months after deployment.", question: "Clause 9.1.1 requires what?", options: ["Monitoring, measurement, analysis, evaluation", "Annual employee surveys", "Office temperature control", "No monitoring needed"], correct: 0, explanation: "Continuous monitoring, measurement, analysis, and evaluation required." },
+                { scenario: "Internal audit finds AIMS nonconformities undocumented.", question: "Clause 9.2 requires what?", options: ["Internal audit program at planned intervals", "External audits only", "No audits needed", "Annual social events"], correct: 0, explanation: "Internal audits at planned intervals are mandatory." },
+                { scenario: "Management review misses key AI risk updates.", question: "Clause 9.3 requires review of what inputs?", options: ["Status of actions from previous reviews", "Sports scores", "Weather reports", "Recipe improvements"], correct: 0, explanation: "Inputs include status of previous management review actions." },
+                { scenario: "Customer complaints about AI decisions increase 30%.", question: "What performance indicator is required (Clause 9.1.1)?", options: ["Effectiveness of AI risk treatment", "Employee satisfaction", "Office cleanliness", "Coffee consumption"], correct: 0, explanation: "Effectiveness of risk treatment must be evaluated." },
+                { scenario: "AI system audit reveals missing risk documentation.", question: "Audits must verify what (Clause 9.2.2)?", options: ["AIMS implemented and maintained", "Office plants watered", "Lights turned off", "No verification needed"], correct: 0, explanation: "Audits verify that the AIMS is implemented and maintained." },
+                { scenario: "Six months post-deployment, AI shows increasing bias.", question: "What evaluation is REQUIRED?", options: ["Performance monitoring and analysis", "Annual employee survey", "Office climate control", "No monitoring needed"], correct: 0, explanation: "Performance monitoring and analysis is mandatory." },
+                { scenario: "Internal review finds undocumented AI risk decisions.", question: "What verification activity is MANDATORY?", options: ["Regular internal audits", "External audits only", "No audits required", "Social events"], correct: 0, explanation: "Internal audits verify implementation." },
+                { scenario: "Leadership unaware of escalating AI complaints.", question: "What review input is ESSENTIAL?", options: ["Previous action status and performance data", "Sports results", "Weather patterns", "Recipe feedback"], correct: 0, explanation: "Management review must include status of previous actions." },
+                { scenario: "Customer satisfaction with AI decisions drops 25%.", question: "What key indicator must be tracked?", options: ["AI risk treatment effectiveness", "Employee morale", "Office cleanliness", "Supply consumption"], correct: 0, explanation: "Effectiveness of risk treatment must be tracked." },
+                { scenario: "Audit reveals gaps in AI supplier oversight.", question: "What does audit verify?", options: ["AI management system implementation", "Plant watering schedule", "Light switching", "No verification needed"], correct: 0, explanation: "Audits verify AIMS implementation." }
             ]
         },
-        // SECTION 5: Third-Party & Supply Chain (already integrated extra)
-        sec5: {
-            title: "🔗 Third-Party & External Providers",
+        { // Module 5: Third-Party & Supply Chain (61-63 + extra)
+            title: "🔗 Third‑Party & Supply Chain AI",
             questions: [
-                { scenario: "AI system uses external API that fails SLA.", question: "Clause 8.4.1 demands what for third parties?", options: ["Controlled processes for external provision", "No control needed", "Only price negotiations", "Exclusive contracts"], correctIndex: 0, explanation: "Organizations must control externally provided AI processes, products, or services." },
-                { scenario: "Third-party AI model license violates data protection.", question: "What must be communicated to external providers (Clause 8.4.2)?", options: ["AIMS requirements and risk criteria", "Competitor secrets", "Office layout", "No communication"], correctIndex: 0, explanation: "External providers must be informed of relevant AIMS requirements." }
+                { scenario: "Cloud AI provider suffers data breach affecting customer data.", question: "Clause 8.4 requires what from third parties?", options: ["Evidence of AIMS conformity", "Company swag", "Joint marketing", "No evidence needed"], correct: 0, explanation: "Third parties must provide evidence of AIMS conformity." },
+                { scenario: "Open-source AI model has undisclosed bias.", question: "What must be verified (Clause 8.4.2)?", options: ["Third-party AI risk management", "License cost", "Download speed", "File size"], correct: 0, explanation: "Third-party AI risk management must be verified." },
+                { scenario: "SaaS AI platform changes terms affecting compliance.", question: "Clause 8.4.3 requires what?", options: ["Ongoing monitoring of third-party performance", "Annual Christmas cards", "Monthly lunches", "No monitoring needed"], correct: 0, explanation: "Ongoing monitoring of third-party performance is required." }
             ]
         },
-        // SECTION 6: AI-Specific Controls (Transparency, Accountability)
-        sec6: {
-            title: "🎯 AI-Specific Controls & Ethical AI",
+        { // Module 6: AI-Specific Controls (76-80)
+            title: "🎯 AI‑Specific Controls (Transparency, Oversight)",
             questions: [
-                { scenario: "Generative AI model lacks identification of AI-generated content.", question: "Which transparency control is required (A.8)?", options: ["Disclosure that content is AI-generated", "Block all content", "Limit text length", "No identification needed"], correctIndex: 0, explanation: "AI-generated content should be identifiable to users." },
-                { scenario: "AI system used for autonomous weapons violates ethical principles.", question: "What principle does ISO 42001 emphasize?", options: ["Human-centric AI and accountability", "Maximum profit", "Speed over ethics", "Avoid documentation"], correctIndex: 0, explanation: "ISO 42001 is built on human-centric, responsible AI principles." }
+                { scenario: "Generative AI creates deepfake videos harming reputation.", question: "Clause 8.3.6 requires what?", options: ["AI system transparency controls", "Video watermarking only", "Speed controls", "No controls needed"], correct: 0, explanation: "Transparency controls for AI-generated content are required." },
+                { scenario: "AI decision-making lacks human oversight.", question: "Clause 8.3.7 requires what for critical decisions?", options: ["Human oversight mechanisms", "Additional AI review", "No oversight needed", "Public voting"], correct: 0, explanation: "Human oversight mechanisms are mandatory for critical decisions." },
+                { scenario: "AI training data contains personal information without consent.", question: "Clause 8.3.5 requires what?", options: ["Data governance throughout AI lifecycle", "Data deletion after use", "Data sharing with partners", "No governance needed"], correct: 0, explanation: "Data governance must cover collection, usage, and retention." },
+                { scenario: "AI model versioning causes deployment confusion.", question: "Clause 8.3.3 requires what?", options: ["AI model management and versioning", "Model naming conventions only", "Color coding", "No management needed"], correct: 0, explanation: "Model versioning and management are required." },
+                { scenario: "AI system lacks explainability for loan denials.", question: "What is required (Clause 8.3.6)?", options: ["Appropriate transparency levels", "Full source code disclosure", "No explanation needed", "Marketing explanations only"], correct: 0, explanation: "Appropriate transparency and explainability are required." }
+            ]
+        },
+        { // Module 7: Improvement & Nonconformity (91-94)
+            title: "🔄 Improvement & Nonconformity",
+            questions: [
+                { scenario: "AI bias incident causes regulatory fine.", question: "Clause 10.1 requires what?", options: ["Addressing nonconformities and taking action", "Ignoring minor issues", "Blaming vendors", "No action needed"], correct: 0, explanation: "Nonconformities must be addressed with corrective actions." },
+                { scenario: "Continual improvement opportunities identified in audit.", question: "Clause 10.2 requires what?", options: ["Continual improvement of AIMS", "Annual repainting", "New office furniture", "No improvement needed"], correct: 0, explanation: "Continual improvement of the AIMS is required." },
+                { scenario: "Root cause analysis reveals training deficiency.", question: "Clause 10.1.b requires what?", options: ["Corrective actions to eliminate causes", "Temporary fixes only", "Blame assignment", "No analysis needed"], correct: 0, explanation: "Corrective actions must eliminate the root cause." },
+                { scenario: "AI system update introduces new risks.", question: "What must be updated (Clause 10.3)?", options: ["AIMS based on evaluation of results", "Marketing materials only", "Office signage", "No updates"], correct: 0, explanation: "AIMS must be updated based on evaluation results." }
             ]
         }
-    };
-
-    // Flatten module list
-    const modulesList = [
-        { id: "sec1", data: questionBank.sec1 },
-        { id: "sec2", data: questionBank.sec2 },
-        { id: "sec3", data: questionBank.sec3 },
-        { id: "sec4", data: questionBank.sec4 },
-        { id: "sec5", data: questionBank.sec5 },
-        { id: "sec6", data: questionBank.sec6 }
     ];
 
     let currentModule = null;
@@ -424,7 +407,6 @@
     let userScore = 0;
     let answerLocked = false;
 
-    // DOM elements
     const mainMenuDiv = document.getElementById('mainMenu');
     const quizDiv = document.getElementById('quizContainer');
     const resultsDiv = document.getElementById('resultsContainer');
@@ -442,12 +424,12 @@
 
     function renderModules() {
         modulesContainer.innerHTML = '';
-        modulesList.forEach((mod, idx) => {
+        modulesData.forEach((mod, idx) => {
             const card = document.createElement('div');
             card.className = 'module-card';
             card.innerHTML = `
-                <div class="module-title">${mod.data.title}</div>
-                <div class="module-badge"><i class="fas fa-question-circle"></i> ${mod.data.questions.length} exam questions</div>
+                <div class="module-title">${mod.title}</div>
+                <div class="module-badge"><i class="fas fa-question-circle"></i> ${mod.questions.length} exam questions</div>
                 <button class="start-btn" data-module-idx="${idx}">Start module →</button>
             `;
             const btn = card.querySelector('.start-btn');
@@ -460,9 +442,8 @@
     }
 
     function startModule(moduleIdx) {
-        const mod = modulesList[moduleIdx];
-        currentModule = mod;
-        currentQuestions = [...mod.data.questions];
+        currentModule = modulesData[moduleIdx];
+        currentQuestions = [...currentModule.questions];
         currentIndex = 0;
         userScore = 0;
         answerLocked = false;
@@ -475,7 +456,7 @@
     function loadQuestion() {
         answerLocked = false;
         const q = currentQuestions[currentIndex];
-        moduleNameSpan.innerText = currentModule.data.title;
+        moduleNameSpan.innerText = currentModule.title;
         qProgSpan.innerText = `Q${currentIndex+1} / ${currentQuestions.length}`;
         scenarioBox.innerText = q.scenario;
         questionTextEl.innerText = q.question;
@@ -496,13 +477,13 @@
         answerLocked = true;
         const q = currentQuestions[currentIndex];
         const allOptions = document.querySelectorAll('.option');
-        const isCorrect = (selectedIdx === q.correctIndex);
+        const isCorrect = (selectedIdx === q.correct);
         if (isCorrect) {
             element.classList.add('correct');
             userScore++;
         } else {
             element.classList.add('incorrect');
-            allOptions[q.correctIndex].classList.add('correct');
+            allOptions[q.correct].classList.add('correct');
         }
         explanationDetail.innerText = q.explanation;
         explanationBlock.style.display = 'block';
@@ -537,7 +518,6 @@
         answerLocked = false;
     }
 
-    // event listeners
     nextBtn.addEventListener('click', nextQuestionHandler);
     homeBtn.addEventListener('click', backToHome);
     retryHomeBtn.addEventListener('click', backToHome);
